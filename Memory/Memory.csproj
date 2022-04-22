@@ -61,18 +61,19 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -82,9 +83,170 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Resources\back.png" />
+    <None Include="Resources\CardDeck\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\46.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\47.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\49.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\53.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CardDeck\1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
