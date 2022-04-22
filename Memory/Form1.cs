@@ -17,7 +17,9 @@ namespace Memory
 {
     public partial class Form1 : Form
     {
-        
+        public int isSelectedCounter = 0;
+        public int isSelectedValue = 9999;
+        public string isSelectedName = "";
         class Difficulty
         {
             public int collectionSize { get; set; }
@@ -101,8 +103,6 @@ namespace Memory
                 };
 
                 nextCard.Click += nextCard.Card_Click;
-                //nextCard.Controls.Add(hideCard);
-
                 parentPanel.Controls.Add(nextCard);
 
                 col += width;
@@ -116,17 +116,23 @@ namespace Memory
             Start.Enabled = !isShown;
             difficultyDropdown.Enabled = !isShown;
 
-            
-
             foreach (Card c in parentPanel.Controls)
             {
                 c.Enabled = !isShown;
                 int currentCardWidth = c.Width;
                 c.BackgroundImage = (Image)Resources.ResourceManager.GetObject(isShown ? "_" + c.Value.ToString() : "back");
-                for (int i = 0; i <= currentCardWidth; i++)
+                if (isShown)
+                {
+                    for (int i = 0; i <= currentCardWidth; i++)
+                    {
+                        c.BorderStyle = BorderStyle.Fixed3D;
+                        c.Size = new Size(i, c.Height);
+                    }
+                }
+                else
                 {
                     c.BorderStyle = BorderStyle.Fixed3D;
-                    c.Size = new Size(i, c.Height);
+                    c.Size = new Size(currentCardWidth, c.Height);
                 }
             }
         }

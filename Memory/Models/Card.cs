@@ -7,13 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-public class CardContainer : Panel
-{
-    int currentCounter = 0;
-}
-
 namespace Memory.Models
 {
+    public class CardContainer : Panel
+    {
+
+    }
 
     public class Card : CardContainer
     {
@@ -23,6 +22,7 @@ namespace Memory.Models
         Panel parentPanel;
 
         public Card currentCard = null;
+        Form1 form = new Form1();
         int currentCardWidth;
         int cardWidthZero = 0;
         private System.ComponentModel.IContainer components = null;
@@ -61,36 +61,45 @@ namespace Memory.Models
                 BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
                 IsSelected = false;
             }
-            int isSelectedCounter = 0;
-            int isSelectedValue = 9999;
-            string isSelectedName = "";
+
             foreach (Card c in parentPanel.Controls)
             {
-               
-                if (isSelectedCounter > 0 && c.IsSelected && isSelectedName != c.Name)
+                if (form.isSelectedCounter > 0 && c.IsSelected && form.isSelectedName != c.Name)
                 {
                     flipCard.Start();
-                    if (c.Value == isSelectedValue)
+
+                    if (c.Value == form.isSelectedValue)
                     {
+                        parentPanel.Enabled = false;
                         await Task.Delay(5000);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(c.Name, true)[0]);
-                        parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(isSelectedName, true)[0]);
+                        parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(form.isSelectedName, true)[0]);
+                        parentPanel.Enabled = true;
                     }
                     else
                     {
+                        parentPanel.Enabled = false;
                         await Task.Delay(5000);
                         parentPanel.Controls.Find(c.Name, true)[0].BackgroundImage = Resources.back;
-                        parentPanel.Controls.Find(isSelectedName, true)[0].BackgroundImage = Resources.back;
+                        parentPanel.Controls.Find(form.isSelectedName, true)[0].BackgroundImage = Resources.back;
+                        parentPanel.Enabled = true;
                     }
-                    isSelectedCounter = 0;
+                    
+                    form.isSelectedCounter = 0;
+                    form.isSelectedValue = 9999;
+                    form.isSelectedName = "";
                 }
                 if (c.IsSelected)
                 {
-                    isSelectedCounter++;
-                    isSelectedValue = c.Value;
-                    isSelectedName = c.Name;
+                    form.isSelectedCounter++;
+                    Console.WriteLine(form.isSelectedCounter);
+                    form.isSelectedValue = c.Value;
+                    form.isSelectedName = c.Name;
                 }
             }
+            form.isSelectedCounter = 0;
+            form.isSelectedValue = 9999;
+            form.isSelectedName = "";
         }
 
         private void FlipCard(object sender, EventArgs e)

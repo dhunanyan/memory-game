@@ -32,6 +32,7 @@
             this.difficultyDropdown = new System.Windows.Forms.ComboBox();
             this.Start = new System.Windows.Forms.Button();
             this.parentPanel = new System.Windows.Forms.Panel();
+            this.card = new Models.Card(90, false, 999, this.parentPanel);
             this.buttonsPanel = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonsPanel.SuspendLayout();
