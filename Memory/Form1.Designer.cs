@@ -34,7 +34,6 @@
             this.parentPanel = new System.Windows.Forms.Panel();
             this.buttonsPanel = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.card = new Memory.Models.Card(90, false, 999, null);
             this.buttonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,26 +50,26 @@
             this.difficultyDropdown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.difficultyDropdown.FormattingEnabled = true;
             this.difficultyDropdown.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.difficultyDropdown.ItemHeight = 45;
+            this.difficultyDropdown.ItemHeight = 37;
             this.difficultyDropdown.Items.AddRange(new object[] {
             "Easy",
             "Normal",
             "Hard"});
             this.difficultyDropdown.Location = new System.Drawing.Point(0, 0);
             this.difficultyDropdown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.difficultyDropdown.MaximumSize = new System.Drawing.Size(500, 0);
+            this.difficultyDropdown.MaximumSize = new System.Drawing.Size(445, 0);
             this.difficultyDropdown.Name = "difficultyDropdown";
-            this.difficultyDropdown.Size = new System.Drawing.Size(181, 53);
+            this.difficultyDropdown.Size = new System.Drawing.Size(161, 45);
             this.difficultyDropdown.TabIndex = 1;
             this.difficultyDropdown.SelectedIndexChanged += new System.EventHandler(this.DifficultyDropdown_SelectedIndexChanged);
             // 
             // Start
             // 
             this.Start.Font = new System.Drawing.Font("Tempus Sans ITC", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start.Location = new System.Drawing.Point(20, 11);
+            this.Start.Location = new System.Drawing.Point(18, 9);
             this.Start.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(197, 54);
+            this.Start.Size = new System.Drawing.Size(175, 43);
             this.Start.TabIndex = 3;
             this.Start.Text = "Start";
             this.Start.UseVisualStyleBackColor = true;
@@ -79,19 +78,10 @@
             // parentPanel
             // 
             this.parentPanel.BackColor = System.Drawing.Color.DarkGray;
-            this.parentPanel.Location = new System.Drawing.Point(20, 205);
-            this.parentPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.parentPanel.Location = new System.Drawing.Point(18, 164);
             this.parentPanel.Name = "parentPanel";
-            this.parentPanel.Size = new System.Drawing.Size(1770, 850);
+            this.parentPanel.Size = new System.Drawing.Size(1573, 680);
             this.parentPanel.TabIndex = 4;
-            // 
-            // buttonsPanel
-            // 
-            this.buttonsPanel.Controls.Add(this.difficultyDropdown);
-            this.buttonsPanel.Location = new System.Drawing.Point(225, 12);
-            this.buttonsPanel.Name = "buttonsPanel";
-            this.buttonsPanel.Size = new System.Drawing.Size(181, 53);
-            this.buttonsPanel.TabIndex = 6;
             // 
             // card
             // 
@@ -100,19 +90,28 @@
             this.card.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.card.Image = null;
             this.card.IsSelected = false;
-            this.card.Location = new System.Drawing.Point(127, 76);
+            this.card.Location = new System.Drawing.Point(113, 61);
             this.card.Margin = new System.Windows.Forms.Padding(0);
             this.card.Name = "card";
-            this.card.Size = new System.Drawing.Size(90, 125);
+            this.card.Size = new System.Drawing.Size(80, 101);
             this.card.TabIndex = 5;
             this.card.Value = 0;
             // 
+            // buttonsPanel
+            // 
+            this.buttonsPanel.Controls.Add(this.difficultyDropdown);
+            this.buttonsPanel.Location = new System.Drawing.Point(200, 10);
+            this.buttonsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonsPanel.Name = "buttonsPanel";
+            this.buttonsPanel.Size = new System.Drawing.Size(161, 42);
+            this.buttonsPanel.TabIndex = 6;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1808, 1074);
+            this.ClientSize = new System.Drawing.Size(1607, 844);
             this.Controls.Add(this.card);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.buttonsPanel);

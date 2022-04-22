@@ -7,9 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+public class CardContainer : Panel
+{
+    int currentCounter = 0;
+}
+
 namespace Memory.Models
 {
-    public class Card : Panel
+
+    public class Card : CardContainer
     {
         public int Value { get; set; }
         public Image Image { get; set; }
@@ -38,14 +44,13 @@ namespace Memory.Models
             parentPanel = panel;
         }
 
-        public void Card_Click(object sender, EventArgs e)
+        public async void Card_Click(object sender, EventArgs e)
         {
             BorderStyle = BorderStyle.None;
             Enabled = false;
             currentCard = (Card)sender;
             if (!IsSelected)
             {
-
                 flipCard.Start();
                 BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + Value.ToString());
                 IsSelected = true;
@@ -56,28 +61,36 @@ namespace Memory.Models
                 BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
                 IsSelected = false;
             }
-
-            //int selectedValue = 99999;
-            //foreach (Card c in parentPanel.Controls)
-            //{
-            //    Console.WriteLine(c.Value);
-            //    if (c.IsSelected == true)
-            //    {
-            //        if (selectedValue == 99999)
-            //        {
-            //            selectedValue = c.Value;
-            //        }
-            //        else
-            //        {
-            //            if (currentCard.IsSelected == c.IsSelected)
-            //            {
-            //                currentCard.BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
-            //                c.BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
-            //                selectedValue = 99999;
-            //            }
-            //        }
-            //    }
-            //}
+            int isSelectedCounter = 0;
+            int isSelectedValue = 9999;
+            string isSelectedName = "";
+            foreach (Card c in parentPanel.Controls)
+            {
+               
+                if (isSelectedCounter > 0 && c.IsSelected && isSelectedName != c.Name)
+                {
+                    flipCard.Start();
+                    if (c.Value == isSelectedValue)
+                    {
+                        await Task.Delay(5000);
+                        parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(c.Name, true)[0]);
+                        parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(isSelectedName, true)[0]);
+                    }
+                    else
+                    {
+                        await Task.Delay(5000);
+                        parentPanel.Controls.Find(c.Name, true)[0].BackgroundImage = Resources.back;
+                        parentPanel.Controls.Find(isSelectedName, true)[0].BackgroundImage = Resources.back;
+                    }
+                    isSelectedCounter = 0;
+                }
+                if (c.IsSelected)
+                {
+                    isSelectedCounter++;
+                    isSelectedValue = c.Value;
+                    isSelectedName = c.Name;
+                }
+            }
         }
 
         private void FlipCard(object sender, EventArgs e)

@@ -31,3 +31,14 @@ C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\Memory\obj
 C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\Memory\obj\Debug\Memory.csproj.CoreCompileInputs.cache
 C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\Memory\obj\Debug\Memory.exe
 C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\Memory\obj\Debug\Memory.pdb
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\bin\Debug\Memory.exe.config
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\bin\Debug\Memory.exe
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\bin\Debug\Memory.pdb
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\obj\Debug\Memory.csproj.AssemblyReference.cache
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\obj\Debug\Memory.csproj.SuggestedBindingRedirects.cache
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\obj\Debug\Memory.Form1.resources
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\obj\Debug\Memory.Properties.Resources.resources
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\obj\Debug\Memory.csproj.GenerateResource.cache
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\obj\Debug\Memory.csproj.CoreCompileInputs.cache
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\obj\Debug\Memory.exe
+C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\Memory\obj\Debug\Memory.pdb

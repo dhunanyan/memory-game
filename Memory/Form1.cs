@@ -32,7 +32,7 @@ namespace Memory
         {
             { "Easy", new Difficulty { collectionSize=24, width=118, height=166, scale=1/1.5, key=1 } },
             { "Normal", new Difficulty { collectionSize=48, width=98, height=138, scale=1, key=2 } },
-            { "Hard", new Difficulty { collectionSize=96, width=73, height=102, scale=1, key=3} }
+            { "Hard", new Difficulty { collectionSize=96, width=73, height=102, scale=1 + 1 - 1/1.5, key=3} }
 
         };
 
@@ -79,7 +79,7 @@ namespace Memory
                     isOdd = "A";
                 }
                 
-                if (i % (12 * scale) == 0 & i != 0)
+                if (i % Math.Round(12 * scale) == 0 & i != 0)
                 {
                     row += height;
                     col = 5;
