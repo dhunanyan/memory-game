@@ -8,27 +8,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Memory.Models
-{
-    public class CardContainer : Panel
-    {
+{ 
 
-    }
-
-    public class Card : CardContainer
+    public class Card : Panel
     {
         public int Value { get; set; }
         public Image Image { get; set; }
         public bool IsSelected { get; set; }
-        Panel parentPanel;
 
-        public Card currentCard = null;
-        Form1 form = new Form1();
+        Panel parentPanel;  
         int currentCardWidth;
         int cardWidthZero = 0;
         private System.ComponentModel.IContainer components = null;
+
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+
             flipCard = new Timer(components);
             flipCard.Tick += new EventHandler(FlipCard);
             flipCard.Interval = 1;
@@ -48,7 +44,6 @@ namespace Memory.Models
         {
             BorderStyle = BorderStyle.None;
             Enabled = false;
-            currentCard = (Card)sender;
             if (!IsSelected)
             {
                 flipCard.Start();
@@ -62,44 +57,46 @@ namespace Memory.Models
                 IsSelected = false;
             }
 
+            int isSelectedCounter = 0;
+            int isSelectedValue = 9999;
+            string isSelectedName = "";
+
             foreach (Card c in parentPanel.Controls)
             {
-                if (form.isSelectedCounter > 0 && c.IsSelected && form.isSelectedName != c.Name)
+                if (isSelectedCounter > 0 && c.IsSelected && isSelectedName != c.Name)
                 {
                     flipCard.Start();
 
-                    if (c.Value == form.isSelectedValue)
+                    if (c.Value == isSelectedValue)
                     {
                         parentPanel.Enabled = false;
                         await Task.Delay(5000);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(c.Name, true)[0]);
-                        parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(form.isSelectedName, true)[0]);
+                        parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(isSelectedName, true)[0]);
                         parentPanel.Enabled = true;
                     }
                     else
                     {
                         parentPanel.Enabled = false;
                         await Task.Delay(5000);
-                        parentPanel.Controls.Find(c.Name, true)[0].BackgroundImage = Resources.back;
-                        parentPanel.Controls.Find(form.isSelectedName, true)[0].BackgroundImage = Resources.back;
+                        ((Card)parentPanel.Controls.Find(c.Name, true)[0]).BackgroundImage = Resources.back;
+                        ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).BackgroundImage = Resources.back;
                         parentPanel.Enabled = true;
+                        ((Card)parentPanel.Controls.Find(c.Name, true)[0]).IsSelected = false;
+                        ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).IsSelected = false;
                     }
-                    
-                    form.isSelectedCounter = 0;
-                    form.isSelectedValue = 9999;
-                    form.isSelectedName = "";
+                    isSelectedCounter = 0;
+                    isSelectedValue = 9999;
+                    isSelectedName = "";
                 }
                 if (c.IsSelected)
                 {
-                    form.isSelectedCounter++;
-                    Console.WriteLine(form.isSelectedCounter);
-                    form.isSelectedValue = c.Value;
-                    form.isSelectedName = c.Name;
+                    isSelectedCounter++;
+                    Console.WriteLine(isSelectedCounter);
+                    isSelectedValue = c.Value;
+                    isSelectedName = c.Name;
                 }
             }
-            form.isSelectedCounter = 0;
-            form.isSelectedValue = 9999;
-            form.isSelectedName = "";
         }
 
         private void FlipCard(object sender, EventArgs e)
@@ -115,6 +112,7 @@ namespace Memory.Models
                 flipCard.Stop();
             }
         }
+
         public Timer flipCard;
     }
 }
