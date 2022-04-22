@@ -57,27 +57,27 @@ namespace Memory.Models
                 IsSelected = false;
             }
 
-            int selectedValue = 99999;
-            foreach (Card c in parentPanel.Controls)
-            {
-                Console.WriteLine(c.Value);
-                if (c.IsSelected == true)
-                {
-                    if (selectedValue == 99999)
-                    {
-                        selectedValue = c.Value;
-                    }
-                    else
-                    {
-                        if (currentCard.IsSelected == c.IsSelected)
-                        {
-                            currentCard.BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
-                            c.BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
-                            selectedValue = 99999;
-                        }
-                    }
-                }
-            }
+            //int selectedValue = 99999;
+            //foreach (Card c in parentPanel.Controls)
+            //{
+            //    Console.WriteLine(c.Value);
+            //    if (c.IsSelected == true)
+            //    {
+            //        if (selectedValue == 99999)
+            //        {
+            //            selectedValue = c.Value;
+            //        }
+            //        else
+            //        {
+            //            if (currentCard.IsSelected == c.IsSelected)
+            //            {
+            //                currentCard.BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
+            //                c.BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
+            //                selectedValue = 99999;
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         private void FlipCard(object sender, EventArgs e)
