@@ -9,12 +9,7 @@ using System.Windows.Forms;
 
 namespace Memory.Models
 {
-    public class CardContainer : Panel
-    {
-
-    }
-
-    public class Card : CardContainer
+    public class Card : Panel
     {
         public int Value { get; set; }
         public Image Image { get; set; }
@@ -22,7 +17,7 @@ namespace Memory.Models
         Panel parentPanel;
 
         public Card currentCard = null;
-        Form1 form = new Form1();
+
         int currentCardWidth;
         int cardWidthZero = 0;
         private System.ComponentModel.IContainer components = null;
