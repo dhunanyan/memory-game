@@ -21,12 +21,7 @@ namespace Profile.Forms
 
         public FormPlay()
         {
-            InitializeComponent();
-            ClientSize = new Size(parentPanelWidth + 20, parentPanelHeight + 140);
-            parentPanel.Size = new Size(parentPanelWidth, parentPanelHeight);
-            parentPanel.Controls.Clear();
-
-            CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
+            InitializeComponent();         
         }
 
         private void LoadTheme()
@@ -46,6 +41,7 @@ namespace Profile.Forms
         private void FormPlay_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            parentPanel.Controls.Clear();
             CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
         }
 

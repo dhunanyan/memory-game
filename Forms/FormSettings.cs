@@ -40,7 +40,6 @@ namespace Profile.Forms
         {
             currentDifficulty = difficultyDropdown.SelectedItem.ToString();
             ChangeDifficulty(currentDifficulty);
-            difficultyDropdown.SelectedItem = difficultyDropdown.Items[difficulty[currentDifficulty].key];
         }
     }
 }

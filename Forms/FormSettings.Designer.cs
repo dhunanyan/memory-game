@@ -76,8 +76,8 @@
             this.difficultyDropdown.Size = new System.Drawing.Size(500, 53);
             this.difficultyDropdown.TabIndex = 3;
             this.difficultyDropdown.SelectedIndexChanged += new System.EventHandler(this.DifficultyDropdown_SelectedIndexChanged);
-            this.difficultyDropdown.SelectedItem = this.difficultyDropdown.Items[0];
-            this.difficultyDropdown.SelectedText = "Easy";
+            this.difficultyDropdown.SelectedItem = Profile.Container.currentDifficulty;
+            this.difficultyDropdown.SelectedText = Profile.Container.currentDifficulty;
             // 
             // FormSettings
             // 
