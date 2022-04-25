@@ -15,9 +15,15 @@ namespace Profile
 
         public static Dictionary<string, string> colorList = new Dictionary<string, string>() {
             {"buttonSettings", "#2196f3" },
-            {"buttonPlay", "#e41a4a" },
-            {"buttonRanking", "#43b76e" },
+            {"buttonPlay", "#2196f3" },
+            {"buttonRanking", "#2196f3" },
         };
+
+        //public static Dictionary<string, string> colorList = new Dictionary<string, string>() {
+        //    {"buttonSettings", "#2196f3" },
+        //    {"buttonPlay", "#43b76e" },
+        //    {"buttonRanking", "#e41a4a" },
+        //};
 
         public static Color ChangeColorBrightness(Color color, double correctionFactor)
         {

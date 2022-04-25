@@ -59,7 +59,7 @@ namespace Profile.Forms
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
             timer.Elapsed += onTimeEvent;
-            showTimeout.SelectedItem = currentShowTimeout.ToString() + "s - ShowTime";
+            showTimeout.SelectedItem = currentShowTimeout.ToString() + " sec";
         }
 
         // HELPER TO FOR RANDOMIZING
@@ -147,7 +147,7 @@ namespace Profile.Forms
             {
                 c.Enabled = !isShown;
                 int currentCardWidth = c.Width;
-                c.BackgroundImage = (Image)Resources.ResourceManager.GetObject(isShown ? "_" + c.Value.ToString() : "back");
+                c.BackgroundImage = (Image)Resources.ResourceManager.GetObject(isShown ? "_" + c.Value.ToString() : "backBlack");
                 c.Enabled = isTurned ? true : false;
                 if (isShown)
                 {
@@ -192,7 +192,7 @@ namespace Profile.Forms
                 LineAlignment = StringAlignment.Center 
             };
             buttonShow.Text = string.Empty;
-            e.Graphics.DrawString("Show Cards", currentButton.Font, drawBrush, e.ClipRectangle, sf);
+            e.Graphics.DrawString("Show", currentButton.Font, drawBrush, e.ClipRectangle, sf);
             drawBrush.Dispose();
             sf.Dispose();
         }
@@ -211,6 +211,7 @@ namespace Profile.Forms
                 isStarted = false;
                 buttonShow.Enabled = false;
                 parentPanel.Enabled = false;
+                buttonStart.Image = Resources.playSmall;
                 buttonStart.Text = "Resume";
                 buttonStartText = "Resume";
             }
@@ -220,8 +221,10 @@ namespace Profile.Forms
                 buttonShow.Enabled = true;
                 parentPanel.Enabled = true;
                 isStarted = true;
+                buttonStart.Image = Resources.pauseSmall;
                 buttonStart.Text = "Pause";
                 buttonStartText = "Pause";
+                buttonRestart.Image = Resources.restartSmall;
                 buttonRestart.Text = "Restart";
                 buttonRestartText = "Restart";
             }
@@ -255,6 +258,7 @@ namespace Profile.Forms
         private void ButtonRestart_Click(object sender, EventArgs e)
         {
             buttonStart.Text = "Start";
+            buttonStart.Image = Resources.playSmall;
             buttonStartText = "Start";
             parentPanel.Controls.Clear();
             CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
@@ -343,12 +347,12 @@ namespace Profile.Forms
 
         public void ShowTimeout_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentShowTimeout = Int32.Parse(showTimeout.SelectedItem.ToString().Split('s')[0]);
+            currentShowTimeout = Int32.Parse(showTimeout.SelectedItem.ToString().Split(' ')[0]);
             foreach(Card c in parentPanel.Controls)
             {
                 if (isStarted)
                 {
-                    c.BackgroundImage = Resources.back;
+                    c.BackgroundImage = Resources.backBlack;
                     c.IsSelected = false;
                     buttonStart.Enabled = true;
                     buttonShow.Enabled = true;
@@ -357,6 +361,11 @@ namespace Profile.Forms
                 }
                 c.currentShowTimeout = currentShowTimeout;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

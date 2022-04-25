@@ -16,6 +16,7 @@ namespace Profile.Forms
         {
             InitializeComponent();
             difficultyDropdown.SelectedItem = currentDifficulty;
+            showTimeoutSettings.SelectedItem = currentShowTimeout.ToString() + " sec";
         }
 
         private void LoadTheme()
@@ -35,7 +36,6 @@ namespace Profile.Forms
         private void FormSettings_Load(object sender, EventArgs e)
         {
             LoadTheme();
-            showTimeoutSettings.SelectedItem = currentShowTimeout.ToString() + "s - ShowTime";
         }
 
         private void DifficultyDropdown_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace Profile.Forms
 
         private void ShowTimeout_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentShowTimeout = Int32.Parse(showTimeoutSettings.SelectedItem.ToString().Split('s')[0]);
+            currentShowTimeout = Int32.Parse(showTimeoutSettings.SelectedItem.ToString().Split(' ')[0]);
         }
     }
 }

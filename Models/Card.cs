@@ -64,7 +64,7 @@ namespace Profile.Models
             else
             {
                 flipCard.Start();
-                BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
+                BackgroundImage = (Image)Resources.ResourceManager.GetObject("backBlack");
                 IsSelected = false;
                 buttonStart.Enabled = true;
                 buttonShow.Enabled = true;
@@ -104,8 +104,8 @@ namespace Profile.Models
                         parentPanel.Enabled = false;
                         buttonRestart.Enabled = false;
                         await Task.Delay(currentShowTimeout * 1000);
-                        ((Card)parentPanel.Controls.Find(c.Name, true)[0]).BackgroundImage = Resources.back;
-                        ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).BackgroundImage = Resources.back;
+                        ((Card)parentPanel.Controls.Find(c.Name, true)[0]).BackgroundImage = Resources.backBlack;
+                        ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).BackgroundImage = Resources.backBlack;
                         parentPanel.Enabled = true;
                         ((Card)parentPanel.Controls.Find(c.Name, true)[0]).IsSelected = false;
                         ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).IsSelected = false;

@@ -47,9 +47,9 @@
             this.difficultyDropdown.Dock = System.Windows.Forms.DockStyle.Right;
             this.difficultyDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.difficultyDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.difficultyDropdown.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
+            this.difficultyDropdown.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.difficultyDropdown.ForeColor = System.Drawing.Color.Gainsboro;
-            this.difficultyDropdown.ItemHeight = 47;
+            this.difficultyDropdown.ItemHeight = 42;
             this.difficultyDropdown.Items.AddRange(new object[] {
             "Easy",
             "Normal",
@@ -59,12 +59,13 @@
             this.difficultyDropdown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.difficultyDropdown.MaximumSize = new System.Drawing.Size(500, 0);
             this.difficultyDropdown.Name = "difficultyDropdown";
-            this.difficultyDropdown.Size = new System.Drawing.Size(227, 55);
+            this.difficultyDropdown.Size = new System.Drawing.Size(227, 50);
             this.difficultyDropdown.TabIndex = 3;
             this.difficultyDropdown.SelectedIndexChanged += new System.EventHandler(this.DifficultyDropdown_SelectedIndexChanged);
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -82,7 +83,8 @@
             this.panel3.Controls.Add(this.showTimeoutSettings);
             this.panel3.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
             this.panel3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panel3.Location = new System.Drawing.Point(20, 147);
+            this.panel3.Location = new System.Drawing.Point(20, 93);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.MaximumSize = new System.Drawing.Size(600, 70);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
@@ -93,9 +95,10 @@
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label1.Size = new System.Drawing.Size(365, 60);
@@ -110,23 +113,23 @@
             this.showTimeoutSettings.Dock = System.Windows.Forms.DockStyle.Right;
             this.showTimeoutSettings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.showTimeoutSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showTimeoutSettings.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
+            this.showTimeoutSettings.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.showTimeoutSettings.ForeColor = System.Drawing.Color.Gainsboro;
-            this.showTimeoutSettings.ItemHeight = 47;
+            this.showTimeoutSettings.ItemHeight = 42;
             this.showTimeoutSettings.Items.AddRange(new object[] {
-            "1s - ShowTime",
-            "2s - ShowTime",
-            "5s - ShowTime",
-            "10s - ShowTime",
-            "20s - ShowTime",
-            "40s - ShowTime",
-            "80s - ShowTime",
-            "120s - ShowTime"});
+            "1 sec",
+            "2 sec",
+            "5 sec",
+            "10 sec",
+            "20 sec",
+            "40 sec",
+            "80 sec",
+            "120 sec"});
             this.showTimeoutSettings.Location = new System.Drawing.Point(368, 5);
             this.showTimeoutSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.showTimeoutSettings.MaximumSize = new System.Drawing.Size(500, 0);
             this.showTimeoutSettings.Name = "showTimeoutSettings";
-            this.showTimeoutSettings.Size = new System.Drawing.Size(227, 55);
+            this.showTimeoutSettings.Size = new System.Drawing.Size(227, 50);
             this.showTimeoutSettings.TabIndex = 4;
             this.showTimeoutSettings.SelectedIndexChanged += new System.EventHandler(this.ShowTimeout_SelectedIndexChanged);
             // 
@@ -148,14 +151,14 @@
             // 
             this.difficultyLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.difficultyLevel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.difficultyLevel.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
+            this.difficultyLevel.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.difficultyLevel.ForeColor = System.Drawing.Color.Gainsboro;
             this.difficultyLevel.Location = new System.Drawing.Point(3, 5);
             this.difficultyLevel.Name = "difficultyLevel";
             this.difficultyLevel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.difficultyLevel.Size = new System.Drawing.Size(365, 60);
             this.difficultyLevel.TabIndex = 4;
-            this.difficultyLevel.Text = "Choose difficulty";
+            this.difficultyLevel.Text = "Choose Difficulty";
             this.difficultyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormSettings
