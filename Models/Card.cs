@@ -19,9 +19,11 @@ namespace Profile.Models
         Panel parentPanel;  
         int currentCardWidth;
         int cardWidthZero = 0;
+        public int currentShowTimeout;
         private System.ComponentModel.IContainer components = null;
         Button buttonShow;
         Button buttonStart;
+        Button buttonRestart;
 
         private void InitializeComponent()
         {
@@ -32,7 +34,7 @@ namespace Profile.Models
             flipCard.Interval = 1;
         }
 
-        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart)
+        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart, Button buttonRestart, int currentShowTimeout)
         {
             InitializeComponent();
             Width = width;
@@ -42,6 +44,8 @@ namespace Profile.Models
             parentPanel = panel;
             this.buttonStart = buttonStart;
             this.buttonShow = buttonShow;
+            this.buttonRestart = buttonRestart;
+            this.currentShowTimeout = currentShowTimeout;
         }
 
         public async void Card_Click(object sender, EventArgs e)
@@ -55,6 +59,7 @@ namespace Profile.Models
                 IsSelected = true;
                 buttonStart.Enabled = false;
                 buttonShow.Enabled = false;
+                buttonRestart.Enabled = false;
             }
             else
             {
@@ -63,6 +68,7 @@ namespace Profile.Models
                 IsSelected = false;
                 buttonStart.Enabled = true;
                 buttonShow.Enabled = true;
+                buttonRestart.Enabled = true;
             }
 
             int isSelectedCounter = 0;
@@ -77,22 +83,27 @@ namespace Profile.Models
 
                     if (c.Value == isSelectedValue)
                     {
+                        Console.WriteLine(currentShowTimeout);
                         buttonStart.Enabled = false;
                         buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
-                        await Task.Delay(5000);
+                        buttonRestart.Enabled = false;
+                        await Task.Delay(currentShowTimeout * 1000);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(c.Name, true)[0]);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(isSelectedName, true)[0]);
                         parentPanel.Enabled = true;
                         buttonStart.Enabled = true;
                         buttonShow.Enabled = true;
+                        buttonRestart.Enabled = true;
                     }
                     else
                     {
+                        Console.WriteLine(currentShowTimeout);
                         buttonStart.Enabled = false;
                         buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
-                        await Task.Delay(5000);
+                        buttonRestart.Enabled = false;
+                        await Task.Delay(currentShowTimeout * 1000);
                         ((Card)parentPanel.Controls.Find(c.Name, true)[0]).BackgroundImage = Resources.back;
                         ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).BackgroundImage = Resources.back;
                         parentPanel.Enabled = true;
@@ -100,6 +111,7 @@ namespace Profile.Models
                         ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).IsSelected = false;
                         buttonStart.Enabled = true;
                         buttonShow.Enabled = true;
+                        buttonRestart.Enabled = true;
                     }
                     isSelectedCounter = 0;
                     isSelectedValue = 9999;
@@ -108,7 +120,6 @@ namespace Profile.Models
                 if (c.IsSelected)
                 {
                     isSelectedCounter++;
-                    Console.WriteLine(isSelectedCounter);
                     isSelectedValue = c.Value;
                     isSelectedName = c.Name;
                 }

@@ -35,12 +35,18 @@ namespace Profile.Forms
         private void FormSettings_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            showTimeoutSettings.SelectedItem = currentShowTimeout.ToString() + "s - ShowTime";
         }
 
         private void DifficultyDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentDifficulty = difficultyDropdown.SelectedItem.ToString();
             ChangeDifficulty(currentDifficulty);
+        }
+
+        private void ShowTimeout_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentShowTimeout = Int32.Parse(showTimeoutSettings.SelectedItem.ToString().Split('s')[0]);
         }
     }
 }

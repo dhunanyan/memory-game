@@ -77,7 +77,10 @@
             this.buttonRanking.Text = "  Ranking";
             this.buttonRanking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonRanking.UseVisualStyleBackColor = true;
+            this.buttonRanking.DockChanged += new System.EventHandler(this.ButtonRanking_EnabledChanged);
+            this.buttonRanking.EnabledChanged += new System.EventHandler(this.ButtonRanking_EnabledChanged);
             this.buttonRanking.Click += new System.EventHandler(this.ButtonRanking_Click);
+            this.buttonRanking.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonRanking_Paint);
             // 
             // buttonSettings
             // 
@@ -98,7 +101,9 @@
             this.buttonSettings.Text = "  Settings";
             this.buttonSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.EnabledChanged += new System.EventHandler(this.ButtonSettings_EnabledChanged);
             this.buttonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
+            this.buttonSettings.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonSettings_Paint);
             // 
             // buttonPlay
             // 
@@ -119,7 +124,9 @@
             this.buttonPlay.Text = "  Play";
             this.buttonPlay.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonPlay.UseVisualStyleBackColor = true;
+            this.buttonPlay.EnabledChanged += new System.EventHandler(this.ButtonPlay_EnabledChanged);
             this.buttonPlay.Click += new System.EventHandler(this.ButtonPlay_Click);
+            this.buttonPlay.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonPlay_Paint);
             // 
             // panelLogo
             // 

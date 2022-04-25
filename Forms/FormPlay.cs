@@ -41,6 +41,12 @@ namespace Profile.Forms
                     button.ForeColor = Color.Gainsboro;
                     button.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
+                if(control.GetType() == typeof(ComboBox))
+                {
+                    ComboBox comboBox = (ComboBox)control;
+                    comboBox.BackColor = ThemeColor.PrimaryColor;
+                    comboBox.ForeColor = Color.Gainsboro;
+                }
             }
         }
 
@@ -53,6 +59,7 @@ namespace Profile.Forms
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
             timer.Elapsed += onTimeEvent;
+            showTimeout.SelectedItem = currentShowTimeout.ToString() + "s - ShowTime";
         }
 
         // HELPER TO FOR RANDOMIZING
@@ -107,7 +114,7 @@ namespace Profile.Forms
                     col = 5;
                 }
 
-                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart)
+                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart, buttonRestart, currentShowTimeout)
                 {
                     Name = "_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString() + isOdd,
                     BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString()),
@@ -157,6 +164,7 @@ namespace Profile.Forms
                 }
             }
         }
+
         // SHOW
         private async void ButtonShow_Click(object sender, EventArgs e)
         {
@@ -170,7 +178,7 @@ namespace Profile.Forms
         private void ButtonShow_EnabledChanged(object sender, EventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonShow.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Gainsboro;
+            buttonShow.ForeColor = Color.Gainsboro;
             buttonShow.BackColor = currentButton.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
         }
 
@@ -222,7 +230,7 @@ namespace Profile.Forms
         private void ButtonStart_EnabledChanged(object sender, EventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonStart.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Gainsboro;
+            buttonStart.ForeColor = Color.Gainsboro;
             buttonStart.BackColor = currentButton.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
         }
 
@@ -243,14 +251,11 @@ namespace Profile.Forms
             sf.Dispose();
         }
 
-        private void panelContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         // RESTART | RESUME
         private void ButtonRestart_Click(object sender, EventArgs e)
         {
+            buttonStart.Text = "Start";
+            buttonStartText = "Start";
             parentPanel.Controls.Clear();
             CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
             labelTimer.Text = "00:00:00";
@@ -258,15 +263,11 @@ namespace Profile.Forms
             h = 0;
             m = 0;
             s = 0;
-            if (!(buttonRestart.Text == "Shuffle") || isStarted)
-            {
-                buttonRestartText = "Shuffle";
-                buttonRestart.Text = "Shuffle";
-                buttonStartText = "Start";
-                isStarted = false;
-                buttonShow.Enabled = false;
-                parentPanel.Enabled = false;
-            }
+            buttonRestartText = "Shuffle";
+            buttonRestart.Text = "Shuffle";
+            isStarted = false;
+            buttonShow.Enabled = false;
+            parentPanel.Enabled = false;
         }
 
         private void ButtonRestart_EnabledChanged(object sender, EventArgs e)
@@ -316,6 +317,47 @@ namespace Profile.Forms
             }));
         }
 
+        // SHOW TIMEOUT DROPDOWN
+
+        private void ShowTimeout_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            var combo = (ComboBox)sender;
+
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(ThemeColor.PrimaryColor), e.Bounds);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(ThemeColor.PrimaryColor), e.Bounds);
+            }
+            
+            if(e.Index > -1)
+            {
+                e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                                          e.Font,
+                                                          new SolidBrush(Color.White),
+                                                          new Point(e.Bounds.X, e.Bounds.Y));
+            }
+        }
+
+        public void ShowTimeout_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentShowTimeout = Int32.Parse(showTimeout.SelectedItem.ToString().Split('s')[0]);
+            foreach(Card c in parentPanel.Controls)
+            {
+                if (isStarted)
+                {
+                    c.BackgroundImage = Resources.back;
+                    c.IsSelected = false;
+                    buttonStart.Enabled = true;
+                    buttonShow.Enabled = true;
+                    buttonRestart.Enabled = true;
+                    parentPanel.Enabled = true;
+                }
+                c.currentShowTimeout = currentShowTimeout;
+            }
+        }
     }
 }
 

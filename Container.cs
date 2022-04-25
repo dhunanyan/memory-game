@@ -52,5 +52,7 @@ namespace Profile
         public static bool isStarted = false;
 
         public static int h, m, s;
+
+        public int currentShowTimeout = 5;
     }
 }
