@@ -32,10 +32,11 @@
             this.buttonShow = new System.Windows.Forms.Button();
             this.parentPanel = new System.Windows.Forms.Panel();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.buttonRestart = new System.Windows.Forms.Button();
+            this.labelTimer = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.labelTimer = new System.Windows.Forms.Label();
             this.panelButtons.SuspendLayout();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
@@ -64,26 +65,66 @@
             // 
             // parentPanel
             // 
+            this.parentPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.parentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
-            this.parentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.parentPanel.Location = new System.Drawing.Point(20, 174);
-            this.parentPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.parentPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.parentPanel.Location = new System.Drawing.Point(20, 20);
+            this.parentPanel.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.parentPanel.MaximumSize = new System.Drawing.Size(1175, 850);
             this.parentPanel.Name = "parentPanel";
+            this.parentPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.parentPanel.Size = new System.Drawing.Size(1175, 850);
             this.parentPanel.TabIndex = 4;
             // 
             // panelButtons
             // 
+            this.panelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelButtons.Controls.Add(this.buttonRestart);
             this.panelButtons.Controls.Add(this.labelTimer);
             this.panelButtons.Controls.Add(this.buttonStart);
             this.panelButtons.Controls.Add(this.buttonShow);
-            this.panelButtons.Location = new System.Drawing.Point(20, 20);
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelButtons.Location = new System.Drawing.Point(20, 870);
             this.panelButtons.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.panelButtons.MaximumSize = new System.Drawing.Size(1172, 60);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(1768, 60);
+            this.panelButtons.Size = new System.Drawing.Size(1172, 60);
             this.panelButtons.TabIndex = 6;
+            // 
+            // buttonRestart
+            // 
+            this.buttonRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRestart.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonRestart.FlatAppearance.BorderSize = 0;
+            this.buttonRestart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(8)))), ((int)(((byte)(56)))));
+            this.buttonRestart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(60)))), ((int)(((byte)(108)))));
+            this.buttonRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRestart.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestart.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonRestart.Location = new System.Drawing.Point(702, 0);
+            this.buttonRestart.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.buttonRestart.Name = "buttonRestart";
+            this.buttonRestart.Size = new System.Drawing.Size(209, 56);
+            this.buttonRestart.TabIndex = 6;
+            this.buttonRestart.Text = "Shuffle";
+            this.buttonRestart.UseVisualStyleBackColor = true;
+            this.buttonRestart.EnabledChanged += new System.EventHandler(this.ButtonRestart_EnabledChanged);
+            this.buttonRestart.Click += new System.EventHandler(this.ButtonRestart_Click);
+            this.buttonRestart.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonRestart_Paint);
+            // 
+            // labelTimer
+            // 
+            this.labelTimer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelTimer.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
+            this.labelTimer.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelTimer.Location = new System.Drawing.Point(496, 0);
+            this.labelTimer.Name = "labelTimer";
+            this.labelTimer.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.labelTimer.Size = new System.Drawing.Size(206, 56);
+            this.labelTimer.TabIndex = 5;
+            this.labelTimer.Text = "00:00:00";
             // 
             // buttonStart
             // 
@@ -116,29 +157,16 @@
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(20);
-            this.panelContainer.Size = new System.Drawing.Size(1808, 1044);
+            this.panelContainer.Size = new System.Drawing.Size(1595, 958);
             this.panelContainer.TabIndex = 7;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
-            // 
-            // labelTimer
-            // 
-            this.labelTimer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelTimer.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
-            this.labelTimer.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelTimer.Location = new System.Drawing.Point(496, 0);
-            this.labelTimer.Name = "labelTimer";
-            this.labelTimer.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.labelTimer.Size = new System.Drawing.Size(206, 56);
-            this.labelTimer.TabIndex = 5;
-            this.labelTimer.Text = "00:00:00";
             // 
             // FormPlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1808, 1044);
+            this.ClientSize = new System.Drawing.Size(1595, 958);
             this.Controls.Add(this.panelContainer);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -160,6 +188,7 @@
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Label labelTimer;
+        private System.Windows.Forms.Button buttonRestart;
     }
 }
 

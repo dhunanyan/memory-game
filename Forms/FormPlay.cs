@@ -19,14 +19,17 @@ namespace Profile.Forms
     public partial class FormPlay : Container
     {
         System.Timers.Timer timer = new System.Timers.Timer();
-        public static int h, m, s;
         private string buttonStartText = "Start";
+        private string buttonRestartText = "Shuffle";
+        private bool isButtonShowClicked = false;
 
         public FormPlay()
         {
-            InitializeComponent();         
+            InitializeComponent();
+            panelButtons.SendToBack();
         }
 
+        // LOADING CURRENT THEME
         private void LoadTheme()
         {
             foreach (Control control in panelButtons.Controls)
@@ -41,6 +44,7 @@ namespace Profile.Forms
             }
         }
 
+        // LOADING THE FORM
         private void FormPlay_Load(object sender, EventArgs e)
         {
             LoadTheme();
@@ -51,23 +55,7 @@ namespace Profile.Forms
             timer.Elapsed += onTimeEvent;
         }
 
-        public void DifficultyDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-            ComboBox currentDifficultyDropdown = (ComboBox)sender;
-            int currentDiffColSize = difficulty[currentDifficultyDropdown.SelectedItem.ToString()].collectionSize;
-            int currentDiffWidth = difficulty[currentDifficultyDropdown.SelectedItem.ToString()].width;
-            int currentDiffHeight = difficulty[currentDifficultyDropdown.SelectedItem.ToString()].height;
-            double currentDiffScale = difficulty[currentDifficultyDropdown.SelectedItem.ToString()].scale;
-
-            int parentPanelWidth = (int)(currentDiffWidth * (12 * currentDiffScale));
-            int parentPanelHeight = (int)(currentDiffHeight * (currentDiffColSize / (12 * currentDiffScale)));
-            ClientSize = new Size(parentPanelWidth + 20, parentPanelHeight + 140);
-            parentPanel.Size = new Size(parentPanelWidth, parentPanelHeight);
-
-            
-        }
-
+        // HELPER TO FOR RANDOMIZING
         static int getNum(ArrayList v)
         {
             int n = v.Count;
@@ -79,6 +67,7 @@ namespace Profile.Forms
             return num;
         }
 
+        // HELPER TO FOR RANDOMIZING
         static ArrayList generateRandom(int n)
         {
             ArrayList v = new ArrayList(n);
@@ -94,6 +83,7 @@ namespace Profile.Forms
             return resultV;
         }
 
+        // COLLECTION INIT AND RANDOMIZE
         private void CollectionInit(int collectionSize, int width, int height, double scale)
         {
             string isOdd;
@@ -140,10 +130,12 @@ namespace Profile.Forms
             }
         }
 
+        // COLLECTION TOGGLE
         private void CollectionToggle(bool isShown, bool isTurned = false)
         {
             buttonShow.Enabled = !isShown;
-
+            buttonStart.Enabled = !isShown;
+            buttonRestart.Enabled = !isShown;
             foreach (Card c in parentPanel.Controls)
             {
                 c.Enabled = !isShown;
@@ -165,25 +157,27 @@ namespace Profile.Forms
                 }
             }
         }
-
+        // SHOW
         private async void ButtonShow_Click(object sender, EventArgs e)
         {
+            isButtonShowClicked = true;
             CollectionToggle(true);
             await Task.Delay(5000);
             CollectionToggle(false, true);
+            isButtonShowClicked = false;
         }
 
         private void ButtonShow_EnabledChanged(object sender, EventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonShow.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Black;
+            buttonShow.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Gainsboro;
             buttonShow.BackColor = currentButton.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
         }
 
         private void ButtonShow_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonShow.ForeColor = isStarted || buttonStartText == "Resume" ? Color.Gainsboro : Color.Gray;
+            buttonShow.ForeColor = isStarted || buttonStartText == "Resume" ? Color.Gainsboro : Color.Gainsboro;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat { 
                 Alignment = StringAlignment.Center, 
@@ -195,12 +189,14 @@ namespace Profile.Forms
             sf.Dispose();
         }
 
+        // START | STOP | RESUME
         private void ButtonStart_Click(object sender, EventArgs e)
         {
             if (buttonStartText == "Start")
             {
                 CollectionToggle(false, true);
             }
+
             if (isStarted)
             {
                 timer.Stop();
@@ -218,20 +214,22 @@ namespace Profile.Forms
                 isStarted = true;
                 buttonStart.Text = "Pause";
                 buttonStartText = "Pause";
+                buttonRestart.Text = "Restart";
+                buttonRestartText = "Restart";
             }
         }
 
         private void ButtonStart_EnabledChanged(object sender, EventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonStart.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Black;
+            buttonStart.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Gainsboro;
             buttonStart.BackColor = currentButton.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
         }
 
         private void ButtonStart_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonStart.ForeColor = isStarted || buttonStartText == "Start" || buttonStartText == "Resume" ? Color.Gainsboro : Color.Gray;
+            buttonStart.ForeColor = isStarted || buttonStartText == "Start" || buttonStartText == "Resume" ? Color.Gainsboro : Color.Gainsboro;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat
             {
@@ -250,8 +248,51 @@ namespace Profile.Forms
 
         }
 
+        // RESTART | RESUME
+        private void ButtonRestart_Click(object sender, EventArgs e)
+        {
+            parentPanel.Controls.Clear();
+            CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
+            labelTimer.Text = "00:00:00";
+            timer.Stop();
+            h = 0;
+            m = 0;
+            s = 0;
+            if (!(buttonRestart.Text == "Shuffle") || isStarted)
+            {
+                buttonRestartText = "Shuffle";
+                buttonRestart.Text = "Shuffle";
+                buttonStartText = "Start";
+                isStarted = false;
+                buttonShow.Enabled = false;
+                parentPanel.Enabled = false;
+            }
+        }
 
+        private void ButtonRestart_EnabledChanged(object sender, EventArgs e)
+        {
+            Button currentButton = (Button)sender;
+            buttonRestart.ForeColor = Color.Gainsboro;
+            buttonRestart.BackColor = currentButton.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
+        }
 
+        private void ButtonRestart_Paint(object sender, PaintEventArgs e)
+        {
+            Button currentButton = (Button)sender;
+            buttonRestart.ForeColor = isButtonShowClicked ? Color.Gainsboro : Color.Gainsboro;
+            SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
+            StringFormat sf = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+            buttonRestart.Text = string.Empty;
+            e.Graphics.DrawString(buttonRestartText, currentButton.Font, drawBrush, e.ClipRectangle, sf);
+            drawBrush.Dispose();
+            sf.Dispose();
+        }
+
+        // COUNTDOWN TIMER
         public void onTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
             Invoke(new Action(() =>
@@ -267,12 +308,14 @@ namespace Profile.Forms
                     m = 0;
                     h++;
                 }
-                labelTimer.Text = string.Format("{0}:{1}:{2}",
+                labelTimer.Text = string.Format(
+                    "{0}:{1}:{2}",
                     h.ToString().PadLeft(2, '0'),
                     m.ToString().PadLeft(2, '0'),
                     s.ToString().PadLeft(2, '0'));
             }));
         }
+
     }
 }
 

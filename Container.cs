@@ -50,5 +50,7 @@ namespace Profile
         public static int parentPanelHeight = (int)(currentDiffHeight * (currentDiffColSize / currentDiffScale));
 
         public static bool isStarted = false;
+
+        public static int h, m, s;
     }
 }
