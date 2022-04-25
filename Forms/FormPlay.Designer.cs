@@ -104,6 +104,7 @@
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.EnabledChanged += new System.EventHandler(this.ButtonStart_EnabledChanged);
             this.buttonStart.Click += new System.EventHandler(this.ButtonStart_Click);
+            this.buttonStart.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonStart_Paint);
             // 
             // panelContainer
             // 
@@ -127,7 +128,7 @@
             this.labelTimer.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelTimer.Location = new System.Drawing.Point(496, 0);
             this.labelTimer.Name = "labelTimer";
-            this.labelTimer.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelTimer.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.labelTimer.Size = new System.Drawing.Size(206, 56);
             this.labelTimer.TabIndex = 5;
             this.labelTimer.Text = "00:00:00";

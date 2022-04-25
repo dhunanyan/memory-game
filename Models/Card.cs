@@ -20,6 +20,8 @@ namespace Profile.Models
         int currentCardWidth;
         int cardWidthZero = 0;
         private System.ComponentModel.IContainer components = null;
+        Button buttonShow;
+        Button buttonStart;
 
         private void InitializeComponent()
         {
@@ -30,7 +32,7 @@ namespace Profile.Models
             flipCard.Interval = 1;
         }
 
-        public Card(int width, bool isSelected, int value, Panel panel)
+        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart)
         {
             InitializeComponent();
             Width = width;
@@ -38,6 +40,8 @@ namespace Profile.Models
             IsSelected = isSelected;
             Value = value;
             parentPanel = panel;
+            this.buttonStart = buttonStart;
+            this.buttonShow = buttonShow;
         }
 
         public async void Card_Click(object sender, EventArgs e)
@@ -49,12 +53,16 @@ namespace Profile.Models
                 flipCard.Start();
                 BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + Value.ToString());
                 IsSelected = true;
+                buttonStart.Enabled = false;
+                buttonShow.Enabled = false;
             }
             else
             {
                 flipCard.Start();
                 BackgroundImage = (Image)Resources.ResourceManager.GetObject("back");
                 IsSelected = false;
+                buttonStart.Enabled = true;
+                buttonShow.Enabled = true;
             }
 
             int isSelectedCounter = 0;
@@ -69,14 +77,20 @@ namespace Profile.Models
 
                     if (c.Value == isSelectedValue)
                     {
+                        buttonStart.Enabled = false;
+                        buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
                         await Task.Delay(5000);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(c.Name, true)[0]);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(isSelectedName, true)[0]);
                         parentPanel.Enabled = true;
+                        buttonStart.Enabled = true;
+                        buttonShow.Enabled = true;
                     }
                     else
                     {
+                        buttonStart.Enabled = false;
+                        buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
                         await Task.Delay(5000);
                         ((Card)parentPanel.Controls.Find(c.Name, true)[0]).BackgroundImage = Resources.back;
@@ -84,6 +98,8 @@ namespace Profile.Models
                         parentPanel.Enabled = true;
                         ((Card)parentPanel.Controls.Find(c.Name, true)[0]).IsSelected = false;
                         ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).IsSelected = false;
+                        buttonStart.Enabled = true;
+                        buttonShow.Enabled = true;
                     }
                     isSelectedCounter = 0;
                     isSelectedValue = 9999;

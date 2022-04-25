@@ -25,7 +25,6 @@ namespace Profile
             { "Normal", new Difficulty { collectionSize=50, width=(98*8)/(10), height=(138*(32/8))/(50/10), scale=10, key=1 } },
             { "Hard", new Difficulty { collectionSize=72, width=(98*8)/(12), height=(138*(32/8))/(72/12), scale=12, key=3} },
             { "Extreme", new Difficulty { collectionSize=98, width=(98*8)/(14), height=(138*(32/8))/(98/14), scale=14, key=4} }
-
         };
 
         public static string currentDifficulty = "Easy";

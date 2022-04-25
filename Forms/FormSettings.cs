@@ -15,6 +15,7 @@ namespace Profile.Forms
         public FormSettings()
         {
             InitializeComponent();
+            difficultyDropdown.SelectedItem = currentDifficulty;
         }
 
         private void LoadTheme()

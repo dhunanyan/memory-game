@@ -20,6 +20,7 @@ namespace Profile.Forms
     {
         System.Timers.Timer timer = new System.Timers.Timer();
         public static int h, m, s;
+        private string buttonStartText = "Start";
 
         public FormPlay()
         {
@@ -116,7 +117,7 @@ namespace Profile.Forms
                     col = 5;
                 }
 
-                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel)
+                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart)
                 {
                     Name = "_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString() + isOdd,
                     BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString()),
@@ -127,7 +128,7 @@ namespace Profile.Forms
                     TabIndex = i + 5,
                     Cursor = Cursors.Hand,
                     IsSelected = false,
-                    Enabled = true,
+                    Enabled = false,
                 };
 
                 nextCard.Click += nextCard.Card_Click;
@@ -139,7 +140,7 @@ namespace Profile.Forms
             }
         }
 
-        private void CollectionToggle(bool isShown)
+        private void CollectionToggle(bool isShown, bool isTurned = false)
         {
             buttonShow.Enabled = !isShown;
 
@@ -148,6 +149,7 @@ namespace Profile.Forms
                 c.Enabled = !isShown;
                 int currentCardWidth = c.Width;
                 c.BackgroundImage = (Image)Resources.ResourceManager.GetObject(isShown ? "_" + c.Value.ToString() : "back");
+                c.Enabled = isTurned ? true : false;
                 if (isShown)
                 {
                     for (int i = 0; i <= currentCardWidth; i++)
@@ -168,7 +170,7 @@ namespace Profile.Forms
         {
             CollectionToggle(true);
             await Task.Delay(5000);
-            CollectionToggle(false);
+            CollectionToggle(false, true);
         }
 
         private void ButtonShow_EnabledChanged(object sender, EventArgs e)
@@ -181,7 +183,7 @@ namespace Profile.Forms
         private void ButtonShow_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonShow.ForeColor = isStarted ? Color.Gainsboro : Color.Gray;
+            buttonShow.ForeColor = isStarted || buttonStartText == "Resume" ? Color.Gainsboro : Color.Gray;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat { 
                 Alignment = StringAlignment.Center, 
@@ -195,9 +197,9 @@ namespace Profile.Forms
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
-            if (buttonStart.Text == "Start")
+            if (buttonStartText == "Start")
             {
-                CollectionToggle(false);
+                CollectionToggle(false, true);
             }
             if (isStarted)
             {
@@ -206,6 +208,7 @@ namespace Profile.Forms
                 buttonShow.Enabled = false;
                 parentPanel.Enabled = false;
                 buttonStart.Text = "Resume";
+                buttonStartText = "Resume";
             }
             else
             {
@@ -214,17 +217,32 @@ namespace Profile.Forms
                 parentPanel.Enabled = true;
                 isStarted = true;
                 buttonStart.Text = "Pause";
+                buttonStartText = "Pause";
             }
         }
 
         private void ButtonStart_EnabledChanged(object sender, EventArgs e)
         {
             Button currentButton = (Button)sender;
-            currentButton.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Silver;
-            currentButton.BackColor = currentButton.Enabled ? ThemeColor.TertiaryColor : ThemeColor.TertiaryColor;
-            currentButton.FlatAppearance.BorderColor = currentButton.Enabled ? ThemeColor.SecondaryColor : ThemeColor.TertiaryColor;
-            currentButton.UseVisualStyleBackColor = false;
-            currentButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(100, Color.Black);
+            buttonStart.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Black;
+            buttonStart.BackColor = currentButton.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
+        }
+
+        private void ButtonStart_Paint(object sender, PaintEventArgs e)
+        {
+            Button currentButton = (Button)sender;
+            buttonStart.ForeColor = isStarted || buttonStartText == "Start" || buttonStartText == "Resume" ? Color.Gainsboro : Color.Gray;
+            SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
+            StringFormat sf = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+            buttonStart.Text = string.Empty;
+            e.Graphics.DrawString(buttonStartText, currentButton.Font, drawBrush, e.ClipRectangle, sf);
+
+            drawBrush.Dispose();
+            sf.Dispose();
         }
 
         private void panelContainer_Paint(object sender, PaintEventArgs e)
