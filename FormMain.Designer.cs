@@ -55,7 +55,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(270, 1044);
+            this.panelMenu.Size = new System.Drawing.Size(270, 1054);
             this.panelMenu.TabIndex = 0;
             // 
             // buttonRanking
@@ -165,7 +165,7 @@
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(270, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(1458, 90);
+            this.panelTitleBar.Size = new System.Drawing.Size(1258, 90);
             this.panelTitleBar.TabIndex = 1;
             // 
             // labelTitle
@@ -175,7 +175,7 @@
             this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.labelTitle.Location = new System.Drawing.Point(0, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(1458, 90);
+            this.labelTitle.Size = new System.Drawing.Size(1258, 90);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "HOME";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -185,19 +185,20 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(270, 90);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1458, 954);
+            this.panelMain.Size = new System.Drawing.Size(1258, 964);
             this.panelMain.TabIndex = 2;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1728, 1044);
+            this.ClientSize = new System.Drawing.Size(1528, 1054);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
-            this.Text = "Form1";
+            this.Text = "Memory";
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -21,9 +21,10 @@ namespace Profile
 
         public static Dictionary<string, Difficulty> difficulty = new Dictionary<string, Difficulty>()
         {
-            { "Easy", new Difficulty { collectionSize=24, width=118, height=166, scale=1/1.5, key=0 } },
-            { "Normal", new Difficulty { collectionSize=48, width=98, height=138, scale=1, key=1 } },
-            { "Hard", new Difficulty { collectionSize=96, width=73, height=102, scale=1 + 1 - 1/1.5, key=2} }
+            { "Easy", new Difficulty { collectionSize=32, width=98, height=138, scale=8, key=0 } },
+            { "Normal", new Difficulty { collectionSize=50, width=(98*8)/(10), height=(138*(32/8))/(50/10), scale=10, key=1 } },
+            { "Hard", new Difficulty { collectionSize=72, width=(98*8)/(12), height=(138*(32/8))/(72/12), scale=12, key=3} },
+            { "Extreme", new Difficulty { collectionSize=98, width=(98*8)/(14), height=(138*(32/8))/(98/14), scale=14, key=4} }
 
         };
 
@@ -46,7 +47,9 @@ namespace Profile
             currentDiffScale = difficulty[currentDifficulty].scale;
         }
 
-        public static int parentPanelWidth = (int)(currentDiffWidth * (12 * currentDiffScale));
-        public static int parentPanelHeight = (int)(currentDiffHeight * (currentDiffColSize / (12 * currentDiffScale)));
+        public static int parentPanelWidth = (int)(currentDiffWidth * currentDiffScale);
+        public static int parentPanelHeight = (int)(currentDiffHeight * (currentDiffColSize / currentDiffScale));
+
+        public static bool isStarted = false;
     }
 }

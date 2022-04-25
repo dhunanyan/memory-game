@@ -68,7 +68,8 @@
             this.difficultyDropdown.Items.AddRange(new object[] {
             "Easy",
             "Normal",
-            "Hard"});
+            "Hard",
+            "Extreme"});
             this.difficultyDropdown.Location = new System.Drawing.Point(783, 129);
             this.difficultyDropdown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.difficultyDropdown.MaximumSize = new System.Drawing.Size(500, 0);
