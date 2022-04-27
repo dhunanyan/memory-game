@@ -26,7 +26,6 @@ namespace Profile.Models
         Button buttonRestart;
         public ComboBox comboBoxShowTimeout;
         public static int currentMoves = 0;
-        public Container container = new Profile.Container();
 
         private void InitializeComponent()
         {
@@ -66,8 +65,8 @@ namespace Profile.Models
                 comboBoxShowTimeout.Enabled = false;
 
                 currentMoves++;
-                container.CurrentMoves = currentMoves.ToString();
-                Console.WriteLine(container.CurrentMoves);
+                Profile.Container.CurrentMoves = currentMoves.ToString();
+                Console.WriteLine(Profile.Container.CurrentMoves);
             }
             else
             {

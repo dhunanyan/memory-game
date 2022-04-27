@@ -328,7 +328,6 @@ namespace Profile.Forms
         public void ShowTimeout_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentShowTimeout = Int32.Parse(showTimeout.SelectedItem.ToString().Split(' ')[0]);
-            Console.WriteLine(CurrentMoves);
 
             foreach(Card card in parentPanel.Controls)
             {
@@ -350,6 +349,11 @@ namespace Profile.Forms
             e.DrawBackground();
             e.Graphics.DrawString(showTimeout.Items[index].ToString(), e.Font, drawBrush, e.Bounds, StringFormat.GenericDefault);
             e.DrawFocusRectangle();
+        }
+
+        private void CurrentMoves_TextChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(CurrentMoves);
         }
     }
 }

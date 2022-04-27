@@ -86,6 +86,8 @@
             this.panelShow.SuspendLayout();
             this.panelPlay.SuspendLayout();
             this.SuspendLayout();
+
+            this.currentMoves = CurrentMoves;
             // 
             // timer
             // 
@@ -389,8 +391,8 @@
             this.labelMovesValue.Name = "labelMovesValue";
             this.labelMovesValue.Size = new System.Drawing.Size(145, 60);
             this.labelMovesValue.TabIndex = 1;
-            this.labelMovesValue.Text = this.CurrentMoves;
             this.labelMovesValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            //this.labelMovesValue.TextChanged += new System.EventHandler(this.LabelMovesValue_TextChanged);
             // 
             // labelMovesKey
             // 
@@ -630,6 +632,7 @@
         private System.Windows.Forms.Label labelShowsKey;
         public System.Windows.Forms.Label labelMovesValue;
         private System.Windows.Forms.Label labelMovesKey;
+        private string currentMoves;
     }
 }
 

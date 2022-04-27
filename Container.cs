@@ -65,7 +65,7 @@ namespace Profile
         public static int currentShowTimeout = 5;
         public System.Timers.Timer timer = new System.Timers.Timer();
 
-        public string CurrentMoves { get; set; }
+        public static string CurrentMoves { get; set; }
         public string CurrentShows { get; set; }
         public string CurrentHints { get; set; }
         public string CurrentDifficulty { get; set; }
