@@ -24,6 +24,9 @@ namespace Profile.Models
         Button buttonShow;
         Button buttonStart;
         Button buttonRestart;
+        public ComboBox comboBoxShowTimeout;
+        public static int currentMoves = 0;
+        public Container container = new Profile.Container();
 
         private void InitializeComponent()
         {
@@ -34,7 +37,7 @@ namespace Profile.Models
             flipCard.Interval = 1;
         }
 
-        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart, Button buttonRestart, int currentShowTimeout)
+        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart, Button buttonRestart)
         {
             InitializeComponent();
             Width = width;
@@ -45,7 +48,6 @@ namespace Profile.Models
             this.buttonStart = buttonStart;
             this.buttonShow = buttonShow;
             this.buttonRestart = buttonRestart;
-            this.currentShowTimeout = currentShowTimeout;
         }
 
         public async void Card_Click(object sender, EventArgs e)
@@ -56,19 +58,27 @@ namespace Profile.Models
             {
                 flipCard.Start();
                 BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + Value.ToString());
+
                 IsSelected = true;
                 buttonStart.Enabled = false;
                 buttonShow.Enabled = false;
                 buttonRestart.Enabled = false;
+                comboBoxShowTimeout.Enabled = false;
+
+                currentMoves++;
+                container.CurrentMoves = currentMoves.ToString();
+                Console.WriteLine(container.CurrentMoves);
             }
             else
             {
                 flipCard.Start();
                 BackgroundImage = (Image)Resources.ResourceManager.GetObject("backBlack");
+
                 IsSelected = false;
                 buttonStart.Enabled = true;
                 buttonShow.Enabled = true;
                 buttonRestart.Enabled = true;
+                comboBoxShowTimeout.Enabled = true;
             }
 
             int isSelectedCounter = 0;
@@ -88,30 +98,40 @@ namespace Profile.Models
                         buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
                         buttonRestart.Enabled = false;
+                        comboBoxShowTimeout.Enabled = false;
+
                         await Task.Delay(currentShowTimeout * 1000);
+
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(c.Name, true)[0]);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(isSelectedName, true)[0]);
+
                         parentPanel.Enabled = true;
                         buttonStart.Enabled = true;
                         buttonShow.Enabled = true;
                         buttonRestart.Enabled = true;
+                        comboBoxShowTimeout.Enabled = true;
                     }
                     else
                     {
-                        Console.WriteLine(currentShowTimeout);
                         buttonStart.Enabled = false;
                         buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
                         buttonRestart.Enabled = false;
+                        comboBoxShowTimeout.Enabled = false;
+
                         await Task.Delay(currentShowTimeout * 1000);
+
                         ((Card)parentPanel.Controls.Find(c.Name, true)[0]).BackgroundImage = Resources.backBlack;
                         ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).BackgroundImage = Resources.backBlack;
-                        parentPanel.Enabled = true;
+
                         ((Card)parentPanel.Controls.Find(c.Name, true)[0]).IsSelected = false;
                         ((Card)parentPanel.Controls.Find(isSelectedName, true)[0]).IsSelected = false;
+
+                        parentPanel.Enabled = true;
                         buttonStart.Enabled = true;
                         buttonShow.Enabled = true;
                         buttonRestart.Enabled = true;
+                        comboBoxShowTimeout.Enabled = true;
                     }
                     isSelectedCounter = 0;
                     isSelectedValue = 9999;

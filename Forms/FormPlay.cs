@@ -1,14 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Resources;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Profile.Models;
@@ -18,10 +10,8 @@ namespace Profile.Forms
 {
     public partial class FormPlay : Container
     {
-        System.Timers.Timer timer = new System.Timers.Timer();
         private string buttonStartText = "Start";
         private string buttonRestartText = "Shuffle";
-        private bool isButtonShowClicked = false;
 
         public FormPlay()
         {
@@ -32,22 +22,20 @@ namespace Profile.Forms
         // LOADING CURRENT THEME
         private void LoadTheme()
         {
-            foreach (Control control in panelButtons.Controls)
-            {
-                if (control.GetType() == typeof(Button))
-                {
-                    Button button = (Button)control;
-                    button.BackColor = ThemeColor.PrimaryColor;
-                    button.ForeColor = Color.Gainsboro;
-                    button.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-                }
-                if(control.GetType() == typeof(ComboBox))
-                {
-                    ComboBox comboBox = (ComboBox)control;
-                    comboBox.BackColor = ThemeColor.PrimaryColor;
-                    comboBox.ForeColor = Color.Gainsboro;
-                }
-            }
+            buttonRestart.BackColor = ThemeColor.PrimaryColor;
+            buttonRestart.ForeColor = Color.Gainsboro;
+            buttonRestart.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+
+            buttonShow.BackColor = ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
+            buttonShow.ForeColor = Color.Gainsboro;
+            buttonShow.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+
+            buttonStart.BackColor = ThemeColor.PrimaryColor;
+            buttonStart.ForeColor = Color.Gainsboro;
+            buttonStart.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+
+            showTimeout.BackColor = showTimeout.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
+            showTimeout.ForeColor = Color.Gainsboro;
         }
 
         // LOADING THE FORM
@@ -56,10 +44,13 @@ namespace Profile.Forms
             LoadTheme();
             parentPanel.Controls.Clear();
             CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
-            timer = new System.Timers.Timer();
             timer.Interval = 1000;
-            timer.Elapsed += onTimeEvent;
+            timer.Elapsed += OnTimeEvent;
             showTimeout.SelectedItem = currentShowTimeout.ToString() + " sec";
+            h = 0;
+            m = 0;
+            s = 0;
+            labelTimer.Text = "00:00:00";
         }
 
         // HELPER TO FOR RANDOMIZING
@@ -114,10 +105,11 @@ namespace Profile.Forms
                     col = 5;
                 }
 
-                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart, buttonRestart, currentShowTimeout)
+                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart, buttonRestart)
                 {
                     Name = "_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString() + isOdd,
-                    BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString()),
+                    //BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString()),
+                    BackgroundImage = Resources.backBlack,
                     BackgroundImageLayout = ImageLayout.Stretch,
                     Location = new Point(col, row),
                     Height = height - 10,
@@ -143,6 +135,7 @@ namespace Profile.Forms
             buttonShow.Enabled = !isShown;
             buttonStart.Enabled = !isShown;
             buttonRestart.Enabled = !isShown;
+            showTimeout.Enabled = !isShown;
             foreach (Card c in parentPanel.Controls)
             {
                 c.Enabled = !isShown;
@@ -168,11 +161,9 @@ namespace Profile.Forms
         // SHOW
         private async void ButtonShow_Click(object sender, EventArgs e)
         {
-            isButtonShowClicked = true;
             CollectionToggle(true);
             await Task.Delay(5000);
             CollectionToggle(false, true);
-            isButtonShowClicked = false;
         }
 
         private void ButtonShow_EnabledChanged(object sender, EventArgs e)
@@ -185,7 +176,7 @@ namespace Profile.Forms
         private void ButtonShow_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonShow.ForeColor = isStarted || buttonStartText == "Resume" ? Color.Gainsboro : Color.Gainsboro;
+            buttonShow.ForeColor = Color.Gainsboro;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat { 
                 Alignment = StringAlignment.Center, 
@@ -198,10 +189,12 @@ namespace Profile.Forms
         }
 
         // START | STOP | RESUME
-        private void ButtonStart_Click(object sender, EventArgs e)
+        private async void ButtonStart_Click(object sender, EventArgs e)
         {
             if (buttonStartText == "Start")
             {
+                CollectionToggle(true);
+                await Task.Delay(5000);
                 CollectionToggle(false, true);
             }
 
@@ -211,6 +204,7 @@ namespace Profile.Forms
                 isStarted = false;
                 buttonShow.Enabled = false;
                 parentPanel.Enabled = false;
+                showTimeout.Enabled = false;
                 buttonStart.Image = Resources.playSmall;
                 buttonStart.Text = "Resume";
                 buttonStartText = "Resume";
@@ -220,6 +214,7 @@ namespace Profile.Forms
                 timer.Start();
                 buttonShow.Enabled = true;
                 parentPanel.Enabled = true;
+                showTimeout.Enabled = true;
                 isStarted = true;
                 buttonStart.Image = Resources.pauseSmall;
                 buttonStart.Text = "Pause";
@@ -240,7 +235,7 @@ namespace Profile.Forms
         private void ButtonStart_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonStart.ForeColor = isStarted || buttonStartText == "Start" || buttonStartText == "Resume" ? Color.Gainsboro : Color.Gainsboro;
+            buttonStart.ForeColor = Color.Gainsboro;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat
             {
@@ -269,6 +264,7 @@ namespace Profile.Forms
             s = 0;
             buttonRestartText = "Shuffle";
             buttonRestart.Text = "Shuffle";
+            buttonRestart.Image = Resources.shuffleSmall;
             isStarted = false;
             buttonShow.Enabled = false;
             parentPanel.Enabled = false;
@@ -284,7 +280,7 @@ namespace Profile.Forms
         private void ButtonRestart_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonRestart.ForeColor = isButtonShowClicked ? Color.Gainsboro : Color.Gainsboro;
+            buttonRestart.ForeColor = Color.Gainsboro;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat
             {
@@ -298,7 +294,7 @@ namespace Profile.Forms
         }
 
         // COUNTDOWN TIMER
-        public void onTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
+        public void OnTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
             Invoke(new Action(() =>
             {
@@ -321,51 +317,39 @@ namespace Profile.Forms
             }));
         }
 
-        // SHOW TIMEOUT DROPDOWN
-
-        private void ShowTimeout_DrawItem(object sender, DrawItemEventArgs e)
+        private void ShowTimeout_EnabledChanged(object sender, EventArgs e)
         {
-            var combo = (ComboBox)sender;
-
-            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-            {
-                e.Graphics.FillRectangle(new SolidBrush(ThemeColor.PrimaryColor), e.Bounds);
-            }
-            else
-            {
-                e.Graphics.FillRectangle(new SolidBrush(ThemeColor.PrimaryColor), e.Bounds);
-            }
-            
-            if(e.Index > -1)
-            {
-                e.Graphics.DrawString(combo.Items[e.Index].ToString(),
-                                                          e.Font,
-                                                          new SolidBrush(Color.White),
-                                                          new Point(e.Bounds.X, e.Bounds.Y));
-            }
+            ComboBox currentComboBox = (ComboBox)sender;
+            buttonRestart.ForeColor = Color.Gainsboro;
+            buttonRestart.BackColor = currentComboBox.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
         }
 
+        // SHOW TIME OUT DROPDOWN
         public void ShowTimeout_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentShowTimeout = Int32.Parse(showTimeout.SelectedItem.ToString().Split(' ')[0]);
-            foreach(Card c in parentPanel.Controls)
+            Console.WriteLine(CurrentMoves);
+
+            foreach(Card card in parentPanel.Controls)
             {
-                if (isStarted)
-                {
-                    c.BackgroundImage = Resources.backBlack;
-                    c.IsSelected = false;
-                    buttonStart.Enabled = true;
-                    buttonShow.Enabled = true;
-                    buttonRestart.Enabled = true;
-                    parentPanel.Enabled = true;
-                }
-                c.currentShowTimeout = currentShowTimeout;
+                card.currentShowTimeout = currentShowTimeout;
+                card.comboBoxShowTimeout = showTimeout;
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void ShowTimeout_DrawItem(object sender, DrawItemEventArgs e)
         {
-
+            int index = e.Index >= 0 ? e.Index : 0;
+            ComboBox currentComboBox = (ComboBox)sender;
+            currentComboBox.BackColor = currentComboBox.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
+            SolidBrush drawBrush = new SolidBrush(currentComboBox.ForeColor);
+            buttonRestart.ForeColor = Color.Gainsboro;
+            showTimeout.Size = new Size(94, 42);
+            showTimeout.DropDownWidth = 32;
+            showTimeout.ItemHeight = 36;
+            e.DrawBackground();
+            e.Graphics.DrawString(showTimeout.Items[index].ToString(), e.Font, drawBrush, e.Bounds, StringFormat.GenericDefault);
+            e.DrawFocusRectangle();
         }
     }
 }

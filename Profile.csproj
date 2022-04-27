@@ -174,6 +174,11 @@
     <Content Include="Resources\CardDeck\8.png" />
     <Content Include="Resources\CardDeck\9.png" />
     <Content Include="Resources\CardDeck\back.png" />
+    <None Include="Resources\oval.png" />
+    <None Include="Resources\trophy.png" />
+    <None Include="Resources\medalSilver.png" />
+    <None Include="Resources\medalGold.png" />
+    <None Include="Resources\medalBronze.png" />
     <None Include="Resources\restartSmall.png" />
     <None Include="Resources\timerSmall.png" />
     <None Include="Resources\shuffleSmall.png" />
