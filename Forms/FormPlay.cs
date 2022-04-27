@@ -10,8 +10,9 @@ namespace Profile.Forms
 {
     public partial class FormPlay : Container
     {
-        private string buttonStartText = "Start";
-        private string buttonRestartText = "Shuffle";
+        private string buttonStartText;
+        private string buttonRestartText;
+        private static Random random = new Random();
 
         public FormPlay()
         {
@@ -44,6 +45,19 @@ namespace Profile.Forms
             LoadTheme();
             parentPanel.Controls.Clear();
             CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
+
+            isStarted = false;
+            buttonShow.Enabled = false;
+            parentPanel.Enabled = true;
+            showTimeout.Enabled = true;
+
+            buttonStart.Image = Resources.playSmall;
+            buttonStart.Text = "Start";
+            buttonStartText = "Start";
+            buttonRestart.Image = Resources.shuffleSmall;
+            buttonRestart.Text = "Shuffle";
+            buttonRestartText = "Shuffle";
+
             timer.Interval = 1000;
             timer.Elapsed += OnTimeEvent;
             showTimeout.SelectedItem = currentShowTimeout.ToString() + " sec";
@@ -51,10 +65,33 @@ namespace Profile.Forms
             m = 0;
             s = 0;
             labelTimer.Text = "00:00:00";
+            timer.Stop();
+
+            CurrentMoves = labelMovesValue;
+            CurrentHints = labelHintsValue;
+            CurrentShows = labelShowsValue;
+
+            CurrentMoves.TextChanged += new EventHandler(LabelMovesValue_TextChanged);
+            CurrentShows.TextChanged += new EventHandler(LabelShowsValue_TextChanged);
+
+
+            labelDifficultyValue.Text = currentDifficulty;
+            labelShowsValue.Text = "0";
+            labelHintsValue.Text = "0";
+            labelMovesValue.Text = "0";
+
+            ExtremeCardName = new Label
+            {
+                Text = "backBlack"
+            };
+            ExtremeCardName.TextChanged += new EventHandler(LabelExtremeCard_TextChanged);
+
+            pictureBoxExtreme.BackgroundImage = isGodeMode ? Resources.backBlack : Resources.trophy;
+            pictureBoxExtreme.BackgroundImageLayout = ImageLayout.Zoom;
         }
 
         // HELPER TO FOR RANDOMIZING
-        static int getNum(ArrayList v)
+        private static int getNum(ArrayList v)
         {
             int n = v.Count;
             Random rand = new Random();
@@ -66,7 +103,7 @@ namespace Profile.Forms
         }
 
         // HELPER TO FOR RANDOMIZING
-        static ArrayList generateRandom(int n)
+        private static ArrayList generateRandom(int n)
         {
             ArrayList v = new ArrayList(n);
             for (int i = 0; i < n; i++)
@@ -105,7 +142,7 @@ namespace Profile.Forms
                     col = 5;
                 }
 
-                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart, buttonRestart)
+                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart, buttonRestart, showTimeout, isGodeMode)
                 {
                     Name = "_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString() + isOdd,
                     //BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString()),
@@ -161,8 +198,11 @@ namespace Profile.Forms
         // SHOW
         private async void ButtonShow_Click(object sender, EventArgs e)
         {
+            int currentShows = int.Parse(CurrentShows.Text);
+            currentShows++;
+            CurrentShows.Text = currentShows.ToString();
             CollectionToggle(true);
-            await Task.Delay(5000);
+            await Task.Delay(currentInitialShowTime * 1000);
             CollectionToggle(false, true);
         }
 
@@ -194,10 +234,15 @@ namespace Profile.Forms
             if (buttonStartText == "Start")
             {
                 CollectionToggle(true);
-                await Task.Delay(5000);
+                await Task.Delay(currentInitialShowTime * 1000);
                 CollectionToggle(false, true);
-            }
-
+                Card currentExtremeCard = (Card)parentPanel.Controls[random.Next(parentPanel.Controls.Count)];
+                ExtremeCardName.Text = isGodeMode ?
+                    currentExtremeCard.Name.Split(currentExtremeCard.Name[currentExtremeCard.Name.Length - 1])[0] : "backBlack";
+                Console.WriteLine(ExtremeCardName);
+                timer.Start();
+            } 
+            
             if (isStarted)
             {
                 timer.Stop();
@@ -249,14 +294,15 @@ namespace Profile.Forms
             sf.Dispose();
         }
 
-        // RESTART | RESUME
+        // RESTART | SHUFFLE
         private void ButtonRestart_Click(object sender, EventArgs e)
         {
+            labelMovesValue.Text = "0";
+            labelShowsValue.Text = "0";
+            labelHintsValue.Text = "0";
             buttonStart.Text = "Start";
             buttonStart.Image = Resources.playSmall;
             buttonStartText = "Start";
-            parentPanel.Controls.Clear();
-            CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
             labelTimer.Text = "00:00:00";
             timer.Stop();
             h = 0;
@@ -268,6 +314,8 @@ namespace Profile.Forms
             isStarted = false;
             buttonShow.Enabled = false;
             parentPanel.Enabled = false;
+            parentPanel.Controls.Clear();
+            CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
         }
 
         private void ButtonRestart_EnabledChanged(object sender, EventArgs e)
@@ -332,7 +380,6 @@ namespace Profile.Forms
             foreach(Card card in parentPanel.Controls)
             {
                 card.currentShowTimeout = currentShowTimeout;
-                card.comboBoxShowTimeout = showTimeout;
             }
         }
 
@@ -351,9 +398,21 @@ namespace Profile.Forms
             e.DrawFocusRectangle();
         }
 
-        private void CurrentMoves_TextChanged(object sender, EventArgs e)
+        private void LabelMovesValue_TextChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(CurrentMoves);
+            labelMovesValue.Text = CurrentMoves.Text;
+        }
+
+        private void LabelShowsValue_TextChanged(object sender, EventArgs e)
+        {
+            labelShowsValue.Text = CurrentShows.Text;
+        }
+
+        private void LabelExtremeCard_TextChanged(object sender, EventArgs e)
+        {
+            pictureBoxExtreme.BackgroundImage = isGodeMode ?
+                (Image)Resources.ResourceManager.GetObject(ExtremeCardName.Text) : Resources.backBlack;
+            pictureBoxExtreme.BackgroundImageLayout = ImageLayout.Zoom;
         }
     }
 }

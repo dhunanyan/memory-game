@@ -17,6 +17,8 @@ namespace Profile.Forms
             InitializeComponent();
             difficultyDropdown.SelectedItem = currentDifficulty;
             showTimeoutSettings.SelectedItem = currentShowTimeout.ToString() + " sec";
+            comboBoxShowInitial.SelectedItem = currentInitialShowTime.ToString() + " sec";
+            checkBoxGodMode.Checked = isGodeMode;
         }
 
         private void LoadTheme()
@@ -47,6 +49,16 @@ namespace Profile.Forms
         private void ShowTimeout_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentShowTimeout = Int32.Parse(showTimeoutSettings.SelectedItem.ToString().Split(' ')[0]);
+        }
+
+        private void CheckBoxGodMode_CheckedChanged(object sender, EventArgs e)
+        {
+            isGodeMode = checkBoxGodMode.Checked;
+        }
+
+        private void ComboBoxShowInitial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentInitialShowTime = Int32.Parse(comboBoxShowInitial.SelectedItem.ToString().Split(' ')[0]);
         }
     }
 }

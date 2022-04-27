@@ -56,7 +56,7 @@
             this.labelMovesValue = new System.Windows.Forms.Label();
             this.labelMovesKey = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxExtreme = new System.Windows.Forms.PictureBox();
             this.panelButtonsContainer = new System.Windows.Forms.Panel();
             this.panelShuffle = new System.Windows.Forms.Panel();
             this.buttonRestart = new System.Windows.Forms.Button();
@@ -79,15 +79,13 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).BeginInit();
             this.panelButtonsContainer.SuspendLayout();
             this.panelShuffle.SuspendLayout();
             this.panelButtonsSubContainer.SuspendLayout();
             this.panelShow.SuspendLayout();
             this.panelPlay.SuspendLayout();
             this.SuspendLayout();
-
-            this.currentMoves = CurrentMoves;
             // 
             // timer
             // 
@@ -322,7 +320,6 @@
             this.labelDifficultyValue.Name = "labelDifficultyValue";
             this.labelDifficultyValue.Size = new System.Drawing.Size(122, 60);
             this.labelDifficultyValue.TabIndex = 2;
-            this.labelDifficultyValue.Text = "Extreme";
             this.labelDifficultyValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelDifficultyKey
@@ -391,8 +388,8 @@
             this.labelMovesValue.Name = "labelMovesValue";
             this.labelMovesValue.Size = new System.Drawing.Size(145, 60);
             this.labelMovesValue.TabIndex = 1;
+            this.labelMovesValue.Text = "0";
             this.labelMovesValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            //this.labelMovesValue.TextChanged += new System.EventHandler(this.LabelMovesValue_TextChanged);
             // 
             // labelMovesKey
             // 
@@ -409,7 +406,7 @@
             // panel2
             // 
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.pictureBoxExtreme);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(20, 20);
             this.panel2.Name = "panel2";
@@ -417,17 +414,15 @@
             this.panel2.Size = new System.Drawing.Size(305, 215);
             this.panel2.TabIndex = 0;
             // 
-            // pictureBox1
+            // pictureBoxExtreme
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
-            this.pictureBox1.BackgroundImage = global::Profile.Properties.Resources.trophy;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Location = new System.Drawing.Point(45, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(215, 215);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxExtreme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
+            this.pictureBoxExtreme.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxExtreme.Location = new System.Drawing.Point(45, 0);
+            this.pictureBoxExtreme.Name = "pictureBoxExtreme";
+            this.pictureBoxExtreme.Size = new System.Drawing.Size(215, 215);
+            this.pictureBoxExtreme.TabIndex = 0;
+            this.pictureBoxExtreme.TabStop = false;
             // 
             // panelButtonsContainer
             // 
@@ -586,7 +581,7 @@
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).EndInit();
             this.panelButtonsContainer.ResumeLayout(false);
             this.panelShuffle.ResumeLayout(false);
             this.panelButtonsSubContainer.ResumeLayout(false);
@@ -617,7 +612,7 @@
         private System.Windows.Forms.Panel panelButtonsContainer;
         private System.Windows.Forms.Panel panelSide;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxExtreme;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
@@ -630,9 +625,8 @@
         private System.Windows.Forms.Label labelDifficultyKey;
         public System.Windows.Forms.Label labelShowsValue;
         private System.Windows.Forms.Label labelShowsKey;
-        public System.Windows.Forms.Label labelMovesValue;
         private System.Windows.Forms.Label labelMovesKey;
-        private string currentMoves;
+        private System.Windows.Forms.Label labelMovesValue;
     }
 }
 

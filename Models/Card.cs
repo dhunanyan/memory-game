@@ -24,8 +24,9 @@ namespace Profile.Models
         Button buttonShow;
         Button buttonStart;
         Button buttonRestart;
-        public ComboBox comboBoxShowTimeout;
-        public static int currentMoves = 0;
+        public ComboBox showTimeout;
+        private static Random random = new Random();
+        private bool isExtreme;
 
         private void InitializeComponent()
         {
@@ -36,7 +37,7 @@ namespace Profile.Models
             flipCard.Interval = 1;
         }
 
-        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart, Button buttonRestart)
+        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart, Button buttonRestart, ComboBox showTimeout, bool isExtreme)
         {
             InitializeComponent();
             Width = width;
@@ -47,6 +48,8 @@ namespace Profile.Models
             this.buttonStart = buttonStart;
             this.buttonShow = buttonShow;
             this.buttonRestart = buttonRestart;
+            this.showTimeout = showTimeout;
+            this.isExtreme = isExtreme;
         }
 
         public async void Card_Click(object sender, EventArgs e)
@@ -62,11 +65,11 @@ namespace Profile.Models
                 buttonStart.Enabled = false;
                 buttonShow.Enabled = false;
                 buttonRestart.Enabled = false;
-                comboBoxShowTimeout.Enabled = false;
+                showTimeout.Enabled = false;
 
+                int currentMoves = int.Parse(Profile.Container.CurrentMoves.Text);
                 currentMoves++;
-                Profile.Container.CurrentMoves = currentMoves.ToString();
-                Console.WriteLine(Profile.Container.CurrentMoves);
+                Profile.Container.CurrentMoves.Text = currentMoves.ToString();
             }
             else
             {
@@ -77,7 +80,7 @@ namespace Profile.Models
                 buttonStart.Enabled = true;
                 buttonShow.Enabled = true;
                 buttonRestart.Enabled = true;
-                comboBoxShowTimeout.Enabled = true;
+                showTimeout.Enabled = true;
             }
 
             int isSelectedCounter = 0;
@@ -90,25 +93,30 @@ namespace Profile.Models
                 {
                     flipCard.Start();
 
-                    if (c.Value == isSelectedValue)
+                    if ((isExtreme && Profile.Container.ExtremeCardName.Text == "_" + c.Value.ToString() && Profile.Container.ExtremeCardName.Text == "_" + isSelectedValue.ToString()) || (!isExtreme && c.Value == isSelectedValue))
                     {
-                        Console.WriteLine(currentShowTimeout);
                         buttonStart.Enabled = false;
                         buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
                         buttonRestart.Enabled = false;
-                        comboBoxShowTimeout.Enabled = false;
+                        showTimeout.Enabled = false;
 
                         await Task.Delay(currentShowTimeout * 1000);
 
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(c.Name, true)[0]);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(isSelectedName, true)[0]);
 
+                        if (isExtreme)
+                        {
+                            Card currentExtremeCard = (Card)parentPanel.Controls[random.Next(parentPanel.Controls.Count)];
+                            Profile.Container.ExtremeCardName.Text = currentExtremeCard.Name.Split(currentExtremeCard.Name[currentExtremeCard.Name.Length - 1])[0];
+                        }
+                        
                         parentPanel.Enabled = true;
                         buttonStart.Enabled = true;
                         buttonShow.Enabled = true;
                         buttonRestart.Enabled = true;
-                        comboBoxShowTimeout.Enabled = true;
+                        showTimeout.Enabled = true;
                     }
                     else
                     {
@@ -116,7 +124,7 @@ namespace Profile.Models
                         buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
                         buttonRestart.Enabled = false;
-                        comboBoxShowTimeout.Enabled = false;
+                        showTimeout.Enabled = false;
 
                         await Task.Delay(currentShowTimeout * 1000);
 
@@ -130,7 +138,7 @@ namespace Profile.Models
                         buttonStart.Enabled = true;
                         buttonShow.Enabled = true;
                         buttonRestart.Enabled = true;
-                        comboBoxShowTimeout.Enabled = true;
+                        showTimeout.Enabled = true;
                     }
                     isSelectedCounter = 0;
                     isSelectedValue = 9999;

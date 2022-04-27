@@ -28,6 +28,7 @@ namespace Profile
             { "Extreme", new Difficulty { collectionSize=14*7, width=(98*8)/(14), height=(138*(32/8))/(98/14), scale=14, key=4} }
         };
         public static string currentDifficulty = "Easy";
+        public static bool isGodeMode = false;
         public static int currentDiffColSize = difficulty[currentDifficulty].collectionSize;
         public static int currentDiffWidth = difficulty[currentDifficulty].width;
         public static int currentDiffHeight = difficulty[currentDifficulty].height;
@@ -53,21 +54,18 @@ namespace Profile
             { "Difficulty", "Easy" },
         };
 
+        public static bool isStarted;
 
-        public static string currentMoves = "0";
-        public static string currentShows = "0";
-        public static string currentHints = "0";
-
-        public static bool isStarted = false;
-
-        public static int h, m, s;
-
-        public static int currentShowTimeout = 5;
+        public int h, m, s;
         public System.Timers.Timer timer = new System.Timers.Timer();
+        public static int currentShowTimeout = 5;
+        public static int currentInitialShowTime = 5;
 
-        public static string CurrentMoves { get; set; }
-        public string CurrentShows { get; set; }
-        public string CurrentHints { get; set; }
-        public string CurrentDifficulty { get; set; }
+        public static Label CurrentMoves { get; set; }
+
+        public static Label CurrentShows { get; set; }
+        public static Label CurrentHints { get; set; }
+        public static Label CurrentDifficulty { get; set; }
+        public static Label ExtremeCardName { get; set; }
     }
 }

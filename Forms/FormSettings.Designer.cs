@@ -30,15 +30,30 @@
         {
             this.difficultyDropdown = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.difficultyLevel = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxShowInitial = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.showTimeoutSettings = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.difficultyLevel = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.checkBoxGodMode = new System.Windows.Forms.CheckBox();
+            this.labelSettings = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // timer
+            // 
+            this.timer.Enabled = false;
             // 
             // difficultyDropdown
             // 
@@ -66,8 +81,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.labelSettings);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -76,6 +91,102 @@
             this.panel1.Size = new System.Drawing.Size(1499, 807);
             this.panel1.TabIndex = 4;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Controls.Add(this.panel5);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(450, 240);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 310);
+            this.flowLayoutPanel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel2.Controls.Add(this.difficultyLevel);
+            this.panel2.Controls.Add(this.difficultyDropdown);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel2.MaximumSize = new System.Drawing.Size(600, 70);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel2.Size = new System.Drawing.Size(600, 70);
+            this.panel2.TabIndex = 4;
+            // 
+            // difficultyLevel
+            // 
+            this.difficultyLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.difficultyLevel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.difficultyLevel.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.difficultyLevel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.difficultyLevel.Location = new System.Drawing.Point(3, 5);
+            this.difficultyLevel.Name = "difficultyLevel";
+            this.difficultyLevel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.difficultyLevel.Size = new System.Drawing.Size(365, 60);
+            this.difficultyLevel.TabIndex = 4;
+            this.difficultyLevel.Text = "Choose Difficulty";
+            this.difficultyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.comboBoxShowInitial);
+            this.panel5.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
+            this.panel5.ForeColor = System.Drawing.Color.Gainsboro;
+            this.panel5.Location = new System.Drawing.Point(0, 80);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel5.MaximumSize = new System.Drawing.Size(600, 70);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.panel5.Size = new System.Drawing.Size(600, 70);
+            this.panel5.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(3, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label2.Size = new System.Drawing.Size(365, 60);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Initial Show Time";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxShowInitial
+            // 
+            this.comboBoxShowInitial.BackColor = System.Drawing.SystemColors.Highlight;
+            this.comboBoxShowInitial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxShowInitial.Dock = System.Windows.Forms.DockStyle.Right;
+            this.comboBoxShowInitial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxShowInitial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxShowInitial.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.comboBoxShowInitial.ForeColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxShowInitial.ItemHeight = 42;
+            this.comboBoxShowInitial.Items.AddRange(new object[] {
+            "1 sec",
+            "2 sec",
+            "5 sec",
+            "10 sec",
+            "20 sec",
+            "40 sec",
+            "80 sec",
+            "120 sec"});
+            this.comboBoxShowInitial.Location = new System.Drawing.Point(368, 5);
+            this.comboBoxShowInitial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxShowInitial.MaximumSize = new System.Drawing.Size(500, 0);
+            this.comboBoxShowInitial.Name = "comboBoxShowInitial";
+            this.comboBoxShowInitial.Size = new System.Drawing.Size(227, 50);
+            this.comboBoxShowInitial.TabIndex = 4;
+            this.comboBoxShowInitial.SelectedIndexChanged += new System.EventHandler(this.ComboBoxShowInitial_SelectedIndexChanged);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
@@ -83,8 +194,8 @@
             this.panel3.Controls.Add(this.showTimeoutSettings);
             this.panel3.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
             this.panel3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panel3.Location = new System.Drawing.Point(20, 93);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Location = new System.Drawing.Point(0, 160);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel3.MaximumSize = new System.Drawing.Size(600, 70);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
@@ -133,33 +244,50 @@
             this.showTimeoutSettings.TabIndex = 4;
             this.showTimeoutSettings.SelectedIndexChanged += new System.EventHandler(this.ShowTimeout_SelectedIndexChanged);
             // 
-            // panel2
+            // panel4
             // 
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panel2.Controls.Add(this.difficultyLevel);
-            this.panel2.Controls.Add(this.difficultyDropdown);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(20, 20);
-            this.panel2.MaximumSize = new System.Drawing.Size(600, 70);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(600, 70);
-            this.panel2.TabIndex = 4;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel4.Controls.Add(this.checkBoxGodMode);
+            this.panel4.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
+            this.panel4.ForeColor = System.Drawing.Color.Gainsboro;
+            this.panel4.Location = new System.Drawing.Point(0, 240);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.MaximumSize = new System.Drawing.Size(600, 70);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.panel4.Size = new System.Drawing.Size(600, 70);
+            this.panel4.TabIndex = 6;
             // 
-            // difficultyLevel
+            // checkBoxGodMode
             // 
-            this.difficultyLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.difficultyLevel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.difficultyLevel.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.difficultyLevel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.difficultyLevel.Location = new System.Drawing.Point(3, 5);
-            this.difficultyLevel.Name = "difficultyLevel";
-            this.difficultyLevel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.difficultyLevel.Size = new System.Drawing.Size(365, 60);
-            this.difficultyLevel.TabIndex = 4;
-            this.difficultyLevel.Text = "Choose Difficulty";
-            this.difficultyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxGodMode.AutoSize = true;
+            this.checkBoxGodMode.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxGodMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxGodMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBoxGodMode.FlatAppearance.BorderSize = 0;
+            this.checkBoxGodMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxGodMode.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.checkBoxGodMode.Location = new System.Drawing.Point(5, 5);
+            this.checkBoxGodMode.Name = "checkBoxGodMode";
+            this.checkBoxGodMode.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.checkBoxGodMode.Size = new System.Drawing.Size(590, 60);
+            this.checkBoxGodMode.TabIndex = 6;
+            this.checkBoxGodMode.Text = "God Mode";
+            this.checkBoxGodMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxGodMode.UseVisualStyleBackColor = true;
+            this.checkBoxGodMode.CheckedChanged += new System.EventHandler(this.CheckBoxGodMode_CheckedChanged);
+            // 
+            // labelSettings
+            // 
+            this.labelSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelSettings.Font = new System.Drawing.Font("Tw Cen MT Condensed", 64F, System.Drawing.FontStyle.Bold);
+            this.labelSettings.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelSettings.Location = new System.Drawing.Point(20, 20);
+            this.labelSettings.Name = "labelSettings";
+            this.labelSettings.Size = new System.Drawing.Size(1459, 148);
+            this.labelSettings.TabIndex = 8;
+            this.labelSettings.Text = "Settings  ";
+            this.labelSettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormSettings
             // 
@@ -170,9 +298,14 @@
             this.Name = "FormSettings";
             this.Text = "FormPlay";
             this.Load += new System.EventHandler(this.FormSettings_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.timer)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -185,5 +318,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox showTimeoutSettings;
+        private System.Windows.Forms.CheckBox checkBoxGodMode;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxShowInitial;
+        private System.Windows.Forms.Label labelSettings;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
