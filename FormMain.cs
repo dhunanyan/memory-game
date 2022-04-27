@@ -4,20 +4,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Profile
 {
-    public partial class FormMain : Form
+    public partial class FormMain : Container
     {
         private Button currentButton;
         private Form currentForm;
         public FormMain()
         {
             InitializeComponent();
+            buttonTimes.Visible = false;
         }
+
 
         private Color SelectThemeColor(string buttonName)
         {
@@ -37,11 +40,11 @@ namespace Profile
             currentButton.BackColor = currentColor;
             currentButton.ForeColor = Color.White;
             panelTitleBar.BackColor = currentColor;
-            labelTitle.Text = currentButton.Text;
             panelLogo.BackColor = ThemeColor.ChangeColorBrightness(currentColor, -0.3);
             ThemeColor.PrimaryColor = currentColor;
             ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(currentColor, -0.3);
             ThemeColor.TertiaryColor = ThemeColor.ChangeColorBrightness(currentColor, 0.5);
+            buttonTimes.Visible = true;
         }
 
         private void DisableButton()
@@ -58,17 +61,17 @@ namespace Profile
 
         private void OpenChildForm(Form childForm, object buttonSender)
         {
-            if(ActiveForm == null)
+            if(currentForm != null)
             {
-                return;
+                currentForm.Close();
             }
             ActivateButton(buttonSender);
             currentForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.panelMain.Controls.Add(childForm);
-            this.panelMain.Tag = childForm;
+            panelMain.Controls.Add(childForm);
+            panelMain.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
@@ -76,6 +79,7 @@ namespace Profile
         // PLAY
         private void ButtonPlay_Click(object sender, EventArgs e)
         {
+            labelTitle.Text = "PLAY";
             buttonPlay.Enabled = false;
             buttonRanking.Enabled = true;
             buttonSettings.Enabled = true;
@@ -108,7 +112,7 @@ namespace Profile
         // SETTINGS
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
- 
+            labelTitle.Text = "SETTINGS";
             buttonSettings.Enabled = false;
             buttonRanking.Enabled = true;
             buttonPlay.Enabled = true;
@@ -142,6 +146,7 @@ namespace Profile
         // RANKING
         private void ButtonRanking_Click(object sender, EventArgs e)
         {
+            labelTitle.Text = "RANKING";
             buttonRanking.Enabled = false;
             buttonSettings.Enabled = true;
             buttonPlay.Enabled = true;
@@ -172,6 +177,25 @@ namespace Profile
             sf.Dispose();
         }
 
-        
+        private void ButtonTimes_Click(object sender, EventArgs e)
+        {
+            if(currentForm != null)
+            {
+                labelTitle.Text = currentForm.Text;
+                buttonRanking.Enabled = true;
+                buttonSettings.Enabled = true;
+                buttonPlay.Enabled = true;
+                currentForm.Close();
+            }
+            Reset();
+        }
+
+        private void Reset()
+        {
+            DisableButton();
+            labelTitle.Text = "HOME";
+            currentButton = null;
+            buttonTimes.Visible = false;
+        }
     }
 }

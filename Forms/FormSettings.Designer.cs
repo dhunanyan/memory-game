@@ -41,6 +41,7 @@
             this.showTimeoutSettings = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.checkBoxGodMode = new System.Windows.Forms.CheckBox();
+            this.buttonDefault = new System.Windows.Forms.Button();
             this.labelSettings = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,10 +81,10 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.labelSettings);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
@@ -97,9 +98,10 @@
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(450, 240);
+            this.flowLayoutPanel1.Controls.Add(this.buttonDefault);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(450, 250);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 310);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 390);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // panel2
@@ -251,7 +253,7 @@
             this.panel4.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
             this.panel4.ForeColor = System.Drawing.Color.Gainsboro;
             this.panel4.Location = new System.Drawing.Point(0, 240);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel4.MaximumSize = new System.Drawing.Size(600, 70);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(5);
@@ -277,22 +279,41 @@
             this.checkBoxGodMode.UseVisualStyleBackColor = true;
             this.checkBoxGodMode.CheckedChanged += new System.EventHandler(this.CheckBoxGodMode_CheckedChanged);
             // 
+            // buttonDefault
+            // 
+            this.buttonDefault.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.buttonDefault.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDefault.FlatAppearance.BorderSize = 0;
+            this.buttonDefault.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(59)))));
+            this.buttonDefault.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
+            this.buttonDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDefault.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.buttonDefault.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonDefault.Location = new System.Drawing.Point(0, 320);
+            this.buttonDefault.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonDefault.Name = "buttonDefault";
+            this.buttonDefault.Size = new System.Drawing.Size(600, 70);
+            this.buttonDefault.TabIndex = 7;
+            this.buttonDefault.Text = "Back to Default Settings";
+            this.buttonDefault.UseVisualStyleBackColor = false;
+            this.buttonDefault.Click += new System.EventHandler(this.ButtonDefault_Click);
+            // 
             // labelSettings
             // 
-            this.labelSettings.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelSettings.Font = new System.Drawing.Font("Tw Cen MT Condensed", 64F, System.Drawing.FontStyle.Bold);
             this.labelSettings.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSettings.Location = new System.Drawing.Point(20, 20);
             this.labelSettings.Name = "labelSettings";
             this.labelSettings.Size = new System.Drawing.Size(1459, 148);
             this.labelSettings.TabIndex = 8;
-            this.labelSettings.Text = "Settings  ";
+            this.labelSettings.Text = "Custom Settings";
             this.labelSettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
             this.ClientSize = new System.Drawing.Size(1499, 807);
             this.Controls.Add(this.panel1);
             this.Name = "FormSettings";
@@ -325,5 +346,6 @@
         private System.Windows.Forms.ComboBox comboBoxShowInitial;
         private System.Windows.Forms.Label labelSettings;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button buttonDefault;
     }
 }

@@ -119,6 +119,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\circleFilled.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\circleMax.png" />
+    <None Include="Resources\circle.png" />
+    <None Include="Resources\cardsBlueMain.png" />
+    <None Include="Resources\times.png" />
+    <None Include="Resources\bars.png" />
     <Content Include="Resources\CardDeck\0.png" />
     <Content Include="Resources\CardDeck\1.png" />
     <Content Include="Resources\CardDeck\10.png" />

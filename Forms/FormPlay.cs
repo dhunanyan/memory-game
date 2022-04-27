@@ -90,6 +90,12 @@ namespace Profile.Forms
             pictureBoxExtreme.BackgroundImageLayout = ImageLayout.Zoom;
         }
 
+        private void FormPlay_Leave(object sender, EventArgs e)
+        {
+            timer.Stop();
+            timer.Elapsed -= OnTimeEvent;
+        }
+
         // HELPER TO FOR RANDOMIZING
         private static int getNum(ArrayList v)
         {

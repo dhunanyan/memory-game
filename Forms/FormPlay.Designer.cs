@@ -34,7 +34,6 @@
             this.panelButtons = new System.Windows.Forms.Panel();
             this.panelTimerContainer = new System.Windows.Forms.Panel();
             this.showTimeout = new System.Windows.Forms.ComboBox();
-            this.labelTimeShow = new System.Windows.Forms.Label();
             this.labelTimer = new System.Windows.Forms.Label();
             this.timerCardFlip = new System.Windows.Forms.Timer(this.components);
             this.panelWrapper = new System.Windows.Forms.Panel();
@@ -56,14 +55,15 @@
             this.labelMovesValue = new System.Windows.Forms.Label();
             this.labelMovesKey = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBoxExtreme = new System.Windows.Forms.PictureBox();
             this.panelButtonsContainer = new System.Windows.Forms.Panel();
             this.panelShuffle = new System.Windows.Forms.Panel();
-            this.buttonRestart = new System.Windows.Forms.Button();
             this.panelButtonsSubContainer = new System.Windows.Forms.Panel();
             this.panelShow = new System.Windows.Forms.Panel();
-            this.buttonShow = new System.Windows.Forms.Button();
             this.panelPlay = new System.Windows.Forms.Panel();
+            this.labelTimeShow = new System.Windows.Forms.Label();
+            this.pictureBoxExtreme = new System.Windows.Forms.PictureBox();
+            this.buttonRestart = new System.Windows.Forms.Button();
+            this.buttonShow = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
             this.panelButtons.SuspendLayout();
@@ -79,12 +79,12 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).BeginInit();
             this.panelButtonsContainer.SuspendLayout();
             this.panelShuffle.SuspendLayout();
             this.panelButtonsSubContainer.SuspendLayout();
             this.panelShow.SuspendLayout();
             this.panelPlay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
@@ -166,23 +166,6 @@
             this.showTimeout.SelectedIndexChanged += new System.EventHandler(this.ShowTimeout_SelectedIndexChanged);
             this.showTimeout.EnabledChanged += new System.EventHandler(this.ShowTimeout_EnabledChanged);
             // 
-            // labelTimeShow
-            // 
-            this.labelTimeShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
-            this.labelTimeShow.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelTimeShow.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.labelTimeShow.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelTimeShow.Image = ((System.Drawing.Image)(resources.GetObject("labelTimeShow.Image")));
-            this.labelTimeShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelTimeShow.Location = new System.Drawing.Point(5, 5);
-            this.labelTimeShow.Margin = new System.Windows.Forms.Padding(0);
-            this.labelTimeShow.Name = "labelTimeShow";
-            this.labelTimeShow.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
-            this.labelTimeShow.Size = new System.Drawing.Size(294, 60);
-            this.labelTimeShow.TabIndex = 5;
-            this.labelTimeShow.Text = " Pair Show TIme";
-            this.labelTimeShow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // labelTimer
             // 
             this.labelTimer.Dock = System.Windows.Forms.DockStyle.Left;
@@ -199,9 +182,9 @@
             // 
             // panelWrapper
             // 
+            this.panelWrapper.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelWrapper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
             this.panelWrapper.Controls.Add(this.flowLayoutPanel1);
-            this.panelWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWrapper.ForeColor = System.Drawing.Color.Coral;
             this.panelWrapper.Location = new System.Drawing.Point(0, 0);
             this.panelWrapper.Name = "panelWrapper";
@@ -414,16 +397,6 @@
             this.panel2.Size = new System.Drawing.Size(305, 215);
             this.panel2.TabIndex = 0;
             // 
-            // pictureBoxExtreme
-            // 
-            this.pictureBoxExtreme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
-            this.pictureBoxExtreme.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxExtreme.Location = new System.Drawing.Point(45, 0);
-            this.pictureBoxExtreme.Name = "pictureBoxExtreme";
-            this.pictureBoxExtreme.Size = new System.Drawing.Size(215, 215);
-            this.pictureBoxExtreme.TabIndex = 0;
-            this.pictureBoxExtreme.TabStop = false;
-            // 
             // panelButtonsContainer
             // 
             this.panelButtonsContainer.Controls.Add(this.panelShuffle);
@@ -442,6 +415,62 @@
             this.panelShuffle.Name = "panelShuffle";
             this.panelShuffle.Size = new System.Drawing.Size(345, 100);
             this.panelShuffle.TabIndex = 8;
+            // 
+            // panelButtonsSubContainer
+            // 
+            this.panelButtonsSubContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.panelButtonsSubContainer.Controls.Add(this.panelShow);
+            this.panelButtonsSubContainer.Controls.Add(this.panelPlay);
+            this.panelButtonsSubContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelButtonsSubContainer.Location = new System.Drawing.Point(0, 0);
+            this.panelButtonsSubContainer.Name = "panelButtonsSubContainer";
+            this.panelButtonsSubContainer.Size = new System.Drawing.Size(345, 210);
+            this.panelButtonsSubContainer.TabIndex = 8;
+            // 
+            // panelShow
+            // 
+            this.panelShow.Controls.Add(this.buttonShow);
+            this.panelShow.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelShow.Location = new System.Drawing.Point(0, 110);
+            this.panelShow.Name = "panelShow";
+            this.panelShow.Size = new System.Drawing.Size(345, 100);
+            this.panelShow.TabIndex = 8;
+            // 
+            // panelPlay
+            // 
+            this.panelPlay.Controls.Add(this.buttonStart);
+            this.panelPlay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPlay.Location = new System.Drawing.Point(0, 0);
+            this.panelPlay.Name = "panelPlay";
+            this.panelPlay.Size = new System.Drawing.Size(345, 100);
+            this.panelPlay.TabIndex = 7;
+            // 
+            // labelTimeShow
+            // 
+            this.labelTimeShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.labelTimeShow.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelTimeShow.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.labelTimeShow.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelTimeShow.Image = ((System.Drawing.Image)(resources.GetObject("labelTimeShow.Image")));
+            this.labelTimeShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelTimeShow.Location = new System.Drawing.Point(5, 5);
+            this.labelTimeShow.Margin = new System.Windows.Forms.Padding(0);
+            this.labelTimeShow.Name = "labelTimeShow";
+            this.labelTimeShow.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
+            this.labelTimeShow.Size = new System.Drawing.Size(294, 60);
+            this.labelTimeShow.TabIndex = 5;
+            this.labelTimeShow.Text = " Pair Show TIme";
+            this.labelTimeShow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBoxExtreme
+            // 
+            this.pictureBoxExtreme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
+            this.pictureBoxExtreme.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxExtreme.Location = new System.Drawing.Point(45, 0);
+            this.pictureBoxExtreme.Name = "pictureBoxExtreme";
+            this.pictureBoxExtreme.Size = new System.Drawing.Size(215, 215);
+            this.pictureBoxExtreme.TabIndex = 0;
+            this.pictureBoxExtreme.TabStop = false;
             // 
             // buttonRestart
             // 
@@ -470,26 +499,6 @@
             this.buttonRestart.Click += new System.EventHandler(this.ButtonRestart_Click);
             this.buttonRestart.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonRestart_Paint);
             // 
-            // panelButtonsSubContainer
-            // 
-            this.panelButtonsSubContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
-            this.panelButtonsSubContainer.Controls.Add(this.panelShow);
-            this.panelButtonsSubContainer.Controls.Add(this.panelPlay);
-            this.panelButtonsSubContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelButtonsSubContainer.Location = new System.Drawing.Point(0, 0);
-            this.panelButtonsSubContainer.Name = "panelButtonsSubContainer";
-            this.panelButtonsSubContainer.Size = new System.Drawing.Size(345, 210);
-            this.panelButtonsSubContainer.TabIndex = 8;
-            // 
-            // panelShow
-            // 
-            this.panelShow.Controls.Add(this.buttonShow);
-            this.panelShow.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelShow.Location = new System.Drawing.Point(0, 110);
-            this.panelShow.Name = "panelShow";
-            this.panelShow.Size = new System.Drawing.Size(345, 100);
-            this.panelShow.TabIndex = 8;
-            // 
             // buttonShow
             // 
             this.buttonShow.BackColor = System.Drawing.SystemColors.Highlight;
@@ -517,15 +526,6 @@
             this.buttonShow.EnabledChanged += new System.EventHandler(this.ButtonShow_EnabledChanged);
             this.buttonShow.Click += new System.EventHandler(this.ButtonShow_Click);
             this.buttonShow.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonShow_Paint);
-            // 
-            // panelPlay
-            // 
-            this.panelPlay.Controls.Add(this.buttonStart);
-            this.panelPlay.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPlay.Location = new System.Drawing.Point(0, 0);
-            this.panelPlay.Name = "panelPlay";
-            this.panelPlay.Size = new System.Drawing.Size(345, 100);
-            this.panelPlay.TabIndex = 7;
             // 
             // buttonStart
             // 
@@ -558,7 +558,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
             this.ClientSize = new System.Drawing.Size(1593, 988);
             this.Controls.Add(this.panelWrapper);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -567,6 +567,7 @@
             this.Name = "FormPlay";
             this.Text = "Play";
             this.Load += new System.EventHandler(this.FormPlay_Load);
+            this.Leave += new System.EventHandler(this.FormPlay_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.timer)).EndInit();
             this.panelButtons.ResumeLayout(false);
             this.panelTimerContainer.ResumeLayout(false);
@@ -581,12 +582,12 @@
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).EndInit();
             this.panelButtonsContainer.ResumeLayout(false);
             this.panelShuffle.ResumeLayout(false);
             this.panelButtonsSubContainer.ResumeLayout(false);
             this.panelShow.ResumeLayout(false);
             this.panelPlay.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).EndInit();
             this.ResumeLayout(false);
 
         }

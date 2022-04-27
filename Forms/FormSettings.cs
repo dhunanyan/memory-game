@@ -60,5 +60,13 @@ namespace Profile.Forms
         {
             currentInitialShowTime = Int32.Parse(comboBoxShowInitial.SelectedItem.ToString().Split(' ')[0]);
         }
+
+        private void ButtonDefault_Click(object sender, EventArgs e)
+        {
+            checkBoxGodMode.Checked = false;
+            difficultyDropdown.SelectedItem = "Easy";
+            showTimeoutSettings.SelectedItem = "5 sec";
+            comboBoxShowInitial.SelectedItem = "5 sec";
+        }
     }
 }
