@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Profile
 {
@@ -15,6 +16,10 @@ namespace Profile
     {
         private Button currentButton;
         private Form currentForm;
+
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
+        OleDbCommand cmd = new OleDbCommand();
+        OleDbDataAdapter da = new OleDbDataAdapter();
         public FormMain()
         {
             InitializeComponent();
@@ -196,6 +201,74 @@ namespace Profile
             labelTitle.Text = "HOME";
             currentButton = null;
             buttonTimes.Visible = false;
+        }
+
+        private void labelUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonSignup_Click(object sender, EventArgs e)
+        {
+            if(textBoxUsername.Text == "" && textBoxPassword.Text == "" && textBoxConfirmPassword.Text == "")
+            {
+                MessageBox.Show("Username and Password fields empty", "Registration failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(textBoxPassword.Text == textBoxConfirmPassword.Text)
+            {
+                con.Open();
+                string register = "INSERT INTO table_users VALUES ('" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "')";
+                cmd = new OleDbCommand(register, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                textBoxUsername.Text = "";
+                textBoxPassword.Text = "";
+                textBoxConfirmPassword.Text = "";
+
+                MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Passwords does not match, Please enter valid credentials", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPassword.Text = "";
+                textBoxConfirmPassword.Text = "";
+                textBoxPassword.Focus();
+            }
+        }
+
+        private void CheckBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxShowPassword.Checked)
+            {
+                textBoxPassword.PasswordChar = '\0';
+                textBoxConfirmPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                textBoxPassword.PasswordChar = '●';
+                textBoxConfirmPassword.PasswordChar = '●';
+            }
+        }
+
+        private void ButtonClear_Click(object sender, EventArgs e)
+        {
+            textBoxUsername.Text = "";
+            textBoxPassword.Text = "";
+            textBoxConfirmPassword.Text = "";
+            textBoxUsername.Focus();
+        }
+
+        private void LabelChangeToSignin_Click(object sender, EventArgs e)
+        {
+            SignIn.Visible = true;
+            SignUp.Visible = false;
+        }
+
+        private void LabelChangeToSignup_Click(object sender, EventArgs e)
+        {
+            SignIn.Visible = false;
+            SignUp.Visible = true;
         }
     }
 }
