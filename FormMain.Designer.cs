@@ -119,7 +119,6 @@
             this.buttonRanking.Text = "  Ranking";
             this.buttonRanking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonRanking.UseVisualStyleBackColor = true;
-            this.buttonRanking.DockChanged += new System.EventHandler(this.ButtonRanking_EnabledChanged);
             this.buttonRanking.EnabledChanged += new System.EventHandler(this.ButtonRanking_EnabledChanged);
             this.buttonRanking.Click += new System.EventHandler(this.ButtonRanking_Click);
             this.buttonRanking.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonRanking_Paint);

@@ -24,6 +24,20 @@ namespace Profile
             buttonPlay.Enabled = false;
             buttonRanking.Enabled = false;
             buttonSettings.Enabled = false;
+
+            Color color = ColorTranslator.FromHtml("#33334c");
+
+            buttonPlay.BackColor = ThemeColor.ChangeColorBrightness(color, 0.5);
+            buttonPlay.ForeColor = Color.Gainsboro;
+            buttonPlay.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+
+            buttonRanking.BackColor = ThemeColor.ChangeColorBrightness(color, 0.5);
+            buttonRanking.ForeColor = Color.Gainsboro;
+            buttonRanking.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+
+            buttonSettings.BackColor = ThemeColor.ChangeColorBrightness(color, 0.5);
+            buttonSettings.ForeColor = Color.Gainsboro;
+            buttonSettings.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
         // DATABASE
@@ -104,7 +118,7 @@ namespace Profile
         private void ButtonPlay_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonPlay.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Gainsboro;
+            buttonPlay.ForeColor = Color.Gainsboro;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat
             {
@@ -138,7 +152,7 @@ namespace Profile
         private void ButtonSettings_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonSettings.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Gainsboro;
+            buttonSettings.ForeColor = Color.Gainsboro;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat
             {
@@ -172,7 +186,7 @@ namespace Profile
         private void ButtonRanking_Paint(object sender, PaintEventArgs e)
         {
             Button currentButton = (Button)sender;
-            buttonRanking.ForeColor = currentButton.Enabled ? Color.Gainsboro : Color.Gainsboro;
+            buttonRanking.ForeColor = Color.Gainsboro;
             SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
             StringFormat sf = new StringFormat
             {
