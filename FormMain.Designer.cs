@@ -411,7 +411,7 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.buttonClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
             this.buttonClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClear.FlatAppearance.BorderSize = 3;
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -612,7 +612,7 @@
             // 
             // buttonClearSignin
             // 
-            this.buttonClearSignin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.buttonClearSignin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
             this.buttonClearSignin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClearSignin.FlatAppearance.BorderSize = 3;
             this.buttonClearSignin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
