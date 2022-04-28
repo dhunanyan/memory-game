@@ -42,7 +42,7 @@ namespace Profile
 
         // DATABASE
         OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
-        OleDbCommand cmd = new OleDbCommand();
+        OleDbCommand cmd  = new OleDbCommand();
 
         private Color SelectThemeColor(string buttonName)
         {
