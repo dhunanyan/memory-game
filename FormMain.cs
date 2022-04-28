@@ -36,7 +36,7 @@ namespace Profile
             buttonRanking.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
 
             buttonSettings.BackColor = ThemeColor.ChangeColorBrightness(color, 0.5);
-            buttonSettings.ForeColor = Color.Gainsboro;
+            buttonSettings.ForeColor =  Color.Gainsboro;
             buttonSettings.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
