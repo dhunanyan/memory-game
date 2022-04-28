@@ -199,9 +199,12 @@ namespace Profile
             sf.Dispose();
         }
 
+        // LOGOUT
         private void ButtonTimes_Click(object sender, EventArgs e)
         {
-            if(currentForm != null)
+            CurrentUser[0] = "Username";
+            CurrentUser[1] = "Password";
+            if (currentForm != null)
             {
                 labelTitle.Text = currentForm.Text;
                 buttonRanking.Enabled = true;
@@ -318,13 +321,13 @@ namespace Profile
                 if (currentForm != null)
                 {
                     labelTitle.Text = currentForm.Text;
-                    buttonRanking.Enabled = true;
-                    buttonSettings.Enabled = true;
-                    buttonPlay.Enabled = true;
                     currentForm.Close();
                 }
+                textBoxUsernameSignin.Text = "";
+                textBoxPasswordSignin.Text = "";
                 OpenChildForm(new Forms.FormPlay(), buttonPlay);
                 Reset();
+                buttonTimes.Visible = true;
                 con.Close();
             }
             else
