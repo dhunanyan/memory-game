@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Profile
 {
@@ -68,7 +69,23 @@ namespace Profile
         public static Label CurrentDifficulty { get; set; }
         public static Label ExtremeCardName { get; set; }
         
-        public static string[] currentUser = {"Username", "Password"};
+        public static string[] currentUser = {"Username", "Password", "Shows", "Hints", "Moves", "Time", "Score"};
         public static string[] CurrentUser { get => currentUser; set => currentUser = value; }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Container
+            // 
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Name = "Container";
+            this.ResumeLayout(false);
+
+        }
+
+        // DATABASE
+        public static OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
+        public static OleDbCommand cmd = new OleDbCommand();
     }
 }

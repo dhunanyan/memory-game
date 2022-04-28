@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
 
 namespace Profile
 {
@@ -39,10 +39,6 @@ namespace Profile
             buttonSettings.ForeColor = Color.Gainsboro;
             buttonSettings.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
-
-        // DATABASE
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
-        OleDbCommand cmd  = new OleDbCommand();
 
         private Color SelectThemeColor(string buttonName)
         {
@@ -248,7 +244,7 @@ namespace Profile
             else if(textBoxPassword.Text == textBoxConfirmPassword.Text)
             {
                 con.Open();
-                string register = "INSERT INTO table_users VALUES ('" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "')";
+                string register = "INSERT INTO table_users VALUES ('" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "', '" + 0.ToString() + "', '" + 0.ToString() + "', '" + 0.ToString() + "', '" + "00:00:00" + "', '" + 0.ToString() + "')";
                 cmd = new OleDbCommand(register, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -310,7 +306,7 @@ namespace Profile
             cmd = new OleDbCommand(userLogin, con);
             OleDbDataReader dr = cmd.ExecuteReader();
 
-            if(dr.Read() == true)
+            if (dr.Read() == true)
             {
                 CurrentUser[0] = textBoxUsernameSignin.Text;
                 CurrentUser[1] = textBoxPasswordSignin.Text;

@@ -72,7 +72,7 @@
             "Hard",
             "Extreme"});
             this.difficultyDropdown.Location = new System.Drawing.Point(245, 3);
-            this.difficultyDropdown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.difficultyDropdown.Margin = new System.Windows.Forms.Padding(2);
             this.difficultyDropdown.MaximumSize = new System.Drawing.Size(335, 0);
             this.difficultyDropdown.Name = "difficultyDropdown";
             this.difficultyDropdown.Size = new System.Drawing.Size(152, 36);
@@ -100,7 +100,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.buttonDefault);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(300, 162);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(400, 254);
             this.flowLayoutPanel1.TabIndex = 9;
@@ -115,7 +115,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.panel2.MaximumSize = new System.Drawing.Size(400, 46);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.panel2.Padding = new System.Windows.Forms.Padding(3);
             this.panel2.Size = new System.Drawing.Size(400, 46);
             this.panel2.TabIndex = 4;
             // 
@@ -145,7 +145,7 @@
             this.panel5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.panel5.MaximumSize = new System.Drawing.Size(400, 46);
             this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.panel5.Padding = new System.Windows.Forms.Padding(3);
             this.panel5.Size = new System.Drawing.Size(400, 46);
             this.panel5.TabIndex = 6;
             // 
@@ -184,7 +184,7 @@
             "80 sec",
             "120 sec"});
             this.comboBoxShowInitial.Location = new System.Drawing.Point(245, 3);
-            this.comboBoxShowInitial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxShowInitial.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxShowInitial.MaximumSize = new System.Drawing.Size(335, 0);
             this.comboBoxShowInitial.Name = "comboBoxShowInitial";
             this.comboBoxShowInitial.Size = new System.Drawing.Size(152, 36);
@@ -202,7 +202,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.panel3.MaximumSize = new System.Drawing.Size(400, 46);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.panel3.Padding = new System.Windows.Forms.Padding(3);
             this.panel3.Size = new System.Drawing.Size(400, 46);
             this.panel3.TabIndex = 5;
             // 
@@ -241,7 +241,7 @@
             "80 sec",
             "120 sec"});
             this.showTimeoutSettings.Location = new System.Drawing.Point(245, 3);
-            this.showTimeoutSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.showTimeoutSettings.Margin = new System.Windows.Forms.Padding(2);
             this.showTimeoutSettings.MaximumSize = new System.Drawing.Size(335, 0);
             this.showTimeoutSettings.Name = "showTimeoutSettings";
             this.showTimeoutSettings.Size = new System.Drawing.Size(152, 36);
@@ -258,7 +258,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.panel4.MaximumSize = new System.Drawing.Size(400, 46);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.panel4.Padding = new System.Windows.Forms.Padding(3);
             this.panel4.Size = new System.Drawing.Size(400, 46);
             this.panel4.TabIndex = 6;
             // 
@@ -272,7 +272,7 @@
             this.checkBoxGodMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxGodMode.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.checkBoxGodMode.Location = new System.Drawing.Point(3, 3);
-            this.checkBoxGodMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxGodMode.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxGodMode.Name = "checkBoxGodMode";
             this.checkBoxGodMode.Padding = new System.Windows.Forms.Padding(0, 0, 14, 0);
             this.checkBoxGodMode.Size = new System.Drawing.Size(394, 40);
@@ -320,7 +320,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
             this.ClientSize = new System.Drawing.Size(999, 525);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSettings";
             this.Text = "FormPlay";
             this.Load += new System.EventHandler(this.FormSettings_Load);
