@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,12 +14,25 @@ namespace Profile.Forms
         private string buttonStartText;
         private string buttonRestartText;
         private static Random random = new Random();
+        public static int scoreIteral = 0;
+        public static int currentScore = 0;
+        public static int multiplier = 2;
 
         public FormPlay()
         {
             InitializeComponent();
             panelButtons.SendToBack();
+            IsGameOver = new Label()
+            {
+                Enabled = false
+            };
+            IsGameOver.EnabledChanged += new EventHandler(IsGameOver_EnabledChanged);
         }
+
+        // DATABASE
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
+        OleDbCommand cmd = new OleDbCommand();
+        OleDbDataAdapter da = new OleDbDataAdapter();
 
         // LOADING CURRENT THEME
         private void LoadTheme()
@@ -37,9 +51,6 @@ namespace Profile.Forms
 
             showTimeout.BackColor = showTimeout.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
             showTimeout.ForeColor = Color.Gainsboro;
-
-            IsGameOver = new Label();
-            IsGameOver.EnabledChanged += new EventHandler(IsGameOver_EnabledChanged);
 
             raiseScore = new Timer(components);
             raiseScore.Tick += new EventHandler(RaiseScore);
@@ -83,7 +94,7 @@ namespace Profile.Forms
             CurrentMoves.TextChanged += new EventHandler(LabelMovesValue_TextChanged);
             CurrentShows.TextChanged += new EventHandler(LabelShowsValue_TextChanged);
 
-
+            multiplier = currentDifficulty == "Easy" ? 2 : currentDifficulty == "Normal" ? 4 : currentDifficulty == "Hard" ? 6 : 8;
             labelDifficultyValue.Text = currentDifficulty;
             labelShowsValue.Text = "0";
             labelHintsValue.Text = "0";
@@ -100,27 +111,86 @@ namespace Profile.Forms
         }
 
         
-        private void IsGameOver_EnabledChanged(object sender, EventArgs e)
+        private async void IsGameOver_EnabledChanged(object sender, EventArgs e)
         {
             if (IsGameOver.Enabled)
             {
-                labelScore.AutoSize = true;
+                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPlay));
+
+                timer.Stop();
+                timer.Elapsed -= OnTimeEvent;
+                labelScore.AutoSize = false;
                 labelScore.Font = new Font("Tw Cen MT Condensed", 32F, FontStyle.Bold);
                 labelScore.ForeColor = Color.Gainsboro;
-                labelScore.Location = new Point(337, 205);
+                labelScore.Location = new Point(250, 270);
                 labelScore.Name = "labelScore";
-                labelScore.Size = new Size(143, 49);
+                labelScore.Size = new Size(290, 50);
                 labelScore.TabIndex = 8;
                 labelScore.Text = "0 points";
+                labelScore.TextAlign = ContentAlignment.MiddleCenter;
                 parentPanel.Controls.Add(labelScore);
+
+                RichTextBox richTextBox1 = new RichTextBox();
+                richTextBox1.Anchor = AnchorStyles.None;
+                richTextBox1.BackColor = Color.FromArgb(68, 68, 93);
+                richTextBox1.BorderStyle = BorderStyle.None;
+                richTextBox1.Font = new Font("Tw Cen MT Condensed", 18F, FontStyle.Bold, GraphicsUnit.Point, 238);
+                richTextBox1.ForeColor = Color.Gainsboro;
+                richTextBox1.Location = new Point(20, 20);
+                richTextBox1.Margin = new Padding(0);
+                richTextBox1.Name = "richTextBox1";
+                richTextBox1.Size = new Size(700, 200);
+                richTextBox1.TabIndex = 0;
+                richTextBox1.Text = resources.GetString("richTextBox1.Text");
+
+                Panel panelInstruction = new Panel();
+                panelInstruction.BackColor = Color.FromArgb(68, 68, 93);
+                panelInstruction.Controls.Add(richTextBox1);
+                panelInstruction.Location = new Point(20, 20);
+                panelInstruction.Name = "panelInstruction";
+                panelInstruction.Padding = new Padding(20);
+                panelInstruction.Size = new Size(740, 240);
+                panelInstruction.TabIndex = 1;
+                panelInstruction.Visible = false;
+                panelInstruction.ResumeLayout(false);
+                panelInstruction.SuspendLayout();
+                parentPanel.Controls.Add(panelInstruction);
+
+                //{ "Username", "Password", "Shows", "Hints", "Moves", "Time", "Score"};
+                currentScore =
+                    (int.Parse(labelShowsValue.Text) * multiplier / currentDiffColSize * 2) +
+                    (int.Parse(labelHintsValue.Text) * multiplier * 10 / currentDiffColSize) +
+                    (int.Parse(labelMovesValue.Text) * multiplier * 100 / currentDiffColSize) +
+                    (3600 * currentDiffColSize * multiplier / (h * 3600 + m * 60 + s));
+                //CurrentUser[3] = labelShowsValue.Text;
+                //CurrentUser[4] = labelHintsValue.Text;
+                //CurrentUser[5] = labelMovesValue.Text;
+                //CurrentUser[6] = labelTimer.Text;
+                //CurrentUser[7] = score.ToString();
+                Console.WriteLine(labelTimer.Text);
+                UpdateData(labelShowsValue.Text, labelHintsValue.Text, labelMovesValue.Text, labelTimer.Text.ToString(), currentScore.ToString());
+                Console.WriteLine(currentScore);
+
+                await Task.Delay(350);
+                panelInstruction.Visible = true;
                 raiseScore.Start();
             }
         }
 
-        private void RaiseScore(object sender, EventArgs e)
+        private void UpdateData(string shows, string hints, string moves, string time, string score)
         {
-            labelScore.Text += labelScore.Text.Split(' ')[0] ;
-            if(int.Parse(labelScore.Text) >= 15000)
+            con.Open();
+            string updateRanking = $"UPDATE table_users SET shows='{shows}', hints='{hints}', moves='{moves}', time='{time}', score='{score}' WHERE username={CurrentUser[0]}";
+            cmd = new OleDbCommand(updateRanking, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private void RaiseScore(object sender, EventArgs e)
+        {      
+            scoreIteral += currentScore.ToString().Length > 2 ? (int)Math.Pow(10, currentScore.ToString().Length - 2) : 10;
+            labelScore.Text = scoreIteral.ToString() + " points";
+            if(scoreIteral >= currentScore)
             {
                 raiseScore.Stop();
             }
@@ -130,6 +200,9 @@ namespace Profile.Forms
         {
             timer.Stop();
             timer.Elapsed -= OnTimeEvent;
+            h = 0;
+            m = 0;
+            s = 0;
         }
 
         // HELPER TO FOR RANDOMIZING
@@ -246,6 +319,11 @@ namespace Profile.Forms
             CollectionToggle(true);
             await Task.Delay(currentInitialShowTime * 1000);
             CollectionToggle(false, true);
+
+
+            await Task.Delay(1000);
+            parentPanel.Controls.Clear();
+            IsGameOver.Enabled = true;
         }
 
         private void ButtonShow_EnabledChanged(object sender, EventArgs e)

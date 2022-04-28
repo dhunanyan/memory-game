@@ -82,9 +82,5 @@ namespace Profile
 
 
         public static Label IsGameOver { get; set; }
-
-        // DATABASE
-        public static OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
-        public static OleDbCommand cmd = new OleDbCommand();
     }
 }

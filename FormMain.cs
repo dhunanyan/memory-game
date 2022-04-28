@@ -40,6 +40,10 @@ namespace Profile
             buttonSettings.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
+        OleDbCommand cmd = new OleDbCommand();
+        OleDbDataAdapter da = new OleDbDataAdapter();
+
         private Color SelectThemeColor(string buttonName)
         {
             string color = ThemeColor.colorList[buttonName];
@@ -244,7 +248,7 @@ namespace Profile
             else if(textBoxPassword.Text == textBoxConfirmPassword.Text)
             {
                 con.Open();
-                string register = "INSERT INTO table_users VALUES ('" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "', '" + 0.ToString() + "', '" + 0.ToString() + "', '" + 0.ToString() + "', '" + "00:00:00" + "', '" + 0.ToString() + "')";
+                string register = $"INSERT INTO table_users VALUES ('{textBoxUsername.Text}', '{textBoxPassword.Text}', '{0}', '{0}', '{0}', '00:00:03', '{0}')";
                 cmd = new OleDbCommand(register, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -301,9 +305,10 @@ namespace Profile
         // SIGN IN
         private void ButtonSignin_Click(object sender, EventArgs e)
         {
+            OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
             con.Open();
             string userLogin = "SELECT * FROM table_users WHERE username='" + textBoxUsernameSignin.Text + "' AND password='" + textBoxPasswordSignin.Text + "'";
-            cmd = new OleDbCommand(userLogin, con);
+            OleDbCommand cmd = new OleDbCommand(userLogin, con);
             OleDbDataReader dr = cmd.ExecuteReader();
 
             if (dr.Read() == true)

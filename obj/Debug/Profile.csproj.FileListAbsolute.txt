@@ -41,3 +41,4 @@ C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\obj\Debug\Prof
 C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\obj\Debug\Profile.exe
 C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\obj\Debug\Profile.pdb
 C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\obj\Debug\Profile.Container.resources
+C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\obj\Debug\Profile.Container.resources
