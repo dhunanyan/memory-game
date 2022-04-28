@@ -46,6 +46,8 @@ namespace Profile.Forms
             parentPanel.Controls.Clear();
             CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
 
+            labelCurrentUsername.Text = char.ToUpper(CurrentUser[0][0]) + CurrentUser[0].Substring(1, CurrentUser[0].Length - 1) + "        ";
+
             isStarted = false;
             buttonShow.Enabled = false;
             parentPanel.Enabled = true;

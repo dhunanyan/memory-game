@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\user.png" />
     <None Include="Resources\circleFilled.png" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\circleMax.png" />

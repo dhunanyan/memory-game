@@ -67,5 +67,8 @@ namespace Profile
         public static Label CurrentHints { get; set; }
         public static Label CurrentDifficulty { get; set; }
         public static Label ExtremeCardName { get; set; }
+        
+        public static string[] currentUser = {"Username", "Password"};
+        public static string[] CurrentUser { get => currentUser; set => currentUser = value; }
     }
 }

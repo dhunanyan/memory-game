@@ -17,15 +17,18 @@ namespace Profile
         private Button currentButton;
         private Form currentForm;
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataAdapter da = new OleDbDataAdapter();
         public FormMain()
         {
             InitializeComponent();
             buttonTimes.Visible = false;
+            buttonPlay.Enabled = false;
+            buttonRanking.Enabled = false;
+            buttonSettings.Enabled = false;
         }
 
+        // DATABASE
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
+        OleDbCommand cmd = new OleDbCommand();
 
         private Color SelectThemeColor(string buttonName)
         {
@@ -203,11 +206,22 @@ namespace Profile
             buttonTimes.Visible = false;
         }
 
-        private void labelUsername_Click(object sender, EventArgs e)
+        // SHOW PASSWORD FOR SIGNUP
+        private void CheckBoxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxShowPassword.Checked)
+            {
+                textBoxPassword.PasswordChar = '\0';
+                textBoxConfirmPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                textBoxPassword.PasswordChar = '●';
+                textBoxConfirmPassword.PasswordChar = '●';
+            }
         }
 
+        // SIGN UP
         private void ButtonSignup_Click(object sender, EventArgs e)
         {
             if(textBoxUsername.Text == "" && textBoxPassword.Text == "" && textBoxConfirmPassword.Text == "")
@@ -227,6 +241,9 @@ namespace Profile
                 textBoxConfirmPassword.Text = "";
 
                 MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                SignIn.Visible = true;
+                SignUp.Visible = false;
             }
             else
             {
@@ -234,20 +251,6 @@ namespace Profile
                 textBoxPassword.Text = "";
                 textBoxConfirmPassword.Text = "";
                 textBoxPassword.Focus();
-            }
-        }
-
-        private void CheckBoxShowPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxShowPassword.Checked)
-            {
-                textBoxPassword.PasswordChar = '\0';
-                textBoxConfirmPassword.PasswordChar = '\0';
-            }
-            else
-            {
-                textBoxPassword.PasswordChar = '●';
-                textBoxConfirmPassword.PasswordChar = '●';
             }
         }
 
@@ -261,12 +264,79 @@ namespace Profile
 
         private void LabelChangeToSignin_Click(object sender, EventArgs e)
         {
+            checkBoxShowPassword.Checked = false;
+            textBoxUsername.Text = "";
+            textBoxPassword.Text = "";
+            textBoxConfirmPassword.Text = "";
             SignIn.Visible = true;
             SignUp.Visible = false;
         }
 
+        // SHOW PASSWORD FOR SIGNIN
+        private void CheckBoxShowPasswordSignin_CheckedChange(object sender, EventArgs e)
+        {
+            if (checkBoxShowPassword.Checked)
+            {
+                textBoxPasswordSignin.PasswordChar = '\0';
+            }
+            else
+            {
+                textBoxPasswordSignin.PasswordChar = '●';
+            }
+        }
+
+        // SIGN IN
+        private void ButtonSignin_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string userLogin = "SELECT * FROM table_users WHERE username='" + textBoxUsernameSignin.Text + "' AND password='" + textBoxPasswordSignin.Text + "'";
+            cmd = new OleDbCommand(userLogin, con);
+            OleDbDataReader dr = cmd.ExecuteReader();
+
+            if(dr.Read() == true)
+            {
+                CurrentUser[0] = textBoxUsernameSignin.Text;
+                CurrentUser[1] = textBoxPasswordSignin.Text;
+                buttonPlay.Enabled = true;
+                buttonRanking.Enabled = true;
+                buttonSettings.Enabled = true;
+
+                if (currentForm != null)
+                {
+                    labelTitle.Text = currentForm.Text;
+                    buttonRanking.Enabled = true;
+                    buttonSettings.Enabled = true;
+                    buttonPlay.Enabled = true;
+                    currentForm.Close();
+                }
+                OpenChildForm(new Forms.FormPlay(), buttonPlay);
+                Reset();
+                con.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Username or Password, Please try again", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                textBoxUsernameSignin.Text = "";
+                textBoxPasswordSignin.Text = "";
+                textBoxUsernameSignin.Focus();
+                con.Close();
+            }
+        }
+
+        private void ButtonClearSignin(object sender, EventArgs e)
+        {
+            textBoxUsernameSignin.Text = "";
+            textBoxPasswordSignin.Text = "";
+            textBoxUsernameSignin.Focus();
+        }
+
+
         private void LabelChangeToSignup_Click(object sender, EventArgs e)
         {
+            checkBoxShowPasswordSignin.Checked = false;
+            textBoxUsernameSignin.Text = "";
+            textBoxPasswordSignin.Text = "";
             SignIn.Visible = false;
             SignUp.Visible = true;
         }

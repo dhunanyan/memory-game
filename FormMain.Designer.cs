@@ -60,15 +60,15 @@
             this.SignIn = new System.Windows.Forms.FlowLayoutPanel();
             this.labelSignin = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelUsernameSignin = new System.Windows.Forms.Label();
+            this.textBoxUsernameSignin = new System.Windows.Forms.TextBox();
+            this.labelPasswordSignin = new System.Windows.Forms.Label();
+            this.textBoxPasswordSignin = new System.Windows.Forms.TextBox();
+            this.checkBoxShowPasswordSignin = new System.Windows.Forms.CheckBox();
+            this.buttonSignin = new System.Windows.Forms.Button();
+            this.buttonClearSignin = new System.Windows.Forms.Button();
+            this.labelDontHaveAcc = new System.Windows.Forms.Label();
+            this.labelChangeToSignup = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -315,7 +315,6 @@
             this.labelUsername.Size = new System.Drawing.Size(144, 42);
             this.labelUsername.TabIndex = 4;
             this.labelUsername.Text = "Username";
-            this.labelUsername.Click += new System.EventHandler(this.labelUsername_Click);
             // 
             // textBoxUsername
             // 
@@ -513,15 +512,15 @@
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
-            this.flowLayoutPanel5.Controls.Add(this.label5);
-            this.flowLayoutPanel5.Controls.Add(this.textBox1);
-            this.flowLayoutPanel5.Controls.Add(this.label6);
-            this.flowLayoutPanel5.Controls.Add(this.textBox2);
-            this.flowLayoutPanel5.Controls.Add(this.checkBox1);
-            this.flowLayoutPanel5.Controls.Add(this.button1);
-            this.flowLayoutPanel5.Controls.Add(this.button2);
-            this.flowLayoutPanel5.Controls.Add(this.label8);
-            this.flowLayoutPanel5.Controls.Add(this.label9);
+            this.flowLayoutPanel5.Controls.Add(this.labelUsernameSignin);
+            this.flowLayoutPanel5.Controls.Add(this.textBoxUsernameSignin);
+            this.flowLayoutPanel5.Controls.Add(this.labelPasswordSignin);
+            this.flowLayoutPanel5.Controls.Add(this.textBoxPasswordSignin);
+            this.flowLayoutPanel5.Controls.Add(this.checkBoxShowPasswordSignin);
+            this.flowLayoutPanel5.Controls.Add(this.buttonSignin);
+            this.flowLayoutPanel5.Controls.Add(this.buttonClearSignin);
+            this.flowLayoutPanel5.Controls.Add(this.labelDontHaveAcc);
+            this.flowLayoutPanel5.Controls.Add(this.labelChangeToSignup);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 70);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
@@ -529,129 +528,132 @@
             this.flowLayoutPanel5.Size = new System.Drawing.Size(450, 476);
             this.flowLayoutPanel5.TabIndex = 15;
             // 
-            // label5
+            // labelUsernameSignin
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(20, 20);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 42);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Username";
+            this.labelUsernameSignin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelUsernameSignin.AutoSize = true;
+            this.labelUsernameSignin.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.labelUsernameSignin.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelUsernameSignin.Location = new System.Drawing.Point(20, 20);
+            this.labelUsernameSignin.Margin = new System.Windows.Forms.Padding(0);
+            this.labelUsernameSignin.Name = "labelUsernameSignin";
+            this.labelUsernameSignin.Size = new System.Drawing.Size(144, 42);
+            this.labelUsernameSignin.TabIndex = 4;
+            this.labelUsernameSignin.Text = "Username";
             // 
-            // textBox1
+            // textBoxUsernameSignin
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
-            this.textBox1.Location = new System.Drawing.Point(20, 62);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(410, 46);
-            this.textBox1.TabIndex = 6;
+            this.textBoxUsernameSignin.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxUsernameSignin.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.textBoxUsernameSignin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.textBoxUsernameSignin.Location = new System.Drawing.Point(20, 62);
+            this.textBoxUsernameSignin.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.textBoxUsernameSignin.Name = "textBoxUsernameSignin";
+            this.textBoxUsernameSignin.Size = new System.Drawing.Size(410, 46);
+            this.textBoxUsernameSignin.TabIndex = 6;
             // 
-            // label6
+            // labelPasswordSignin
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(20, 128);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 42);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Password";
+            this.labelPasswordSignin.AutoSize = true;
+            this.labelPasswordSignin.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.labelPasswordSignin.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelPasswordSignin.Location = new System.Drawing.Point(20, 128);
+            this.labelPasswordSignin.Margin = new System.Windows.Forms.Padding(0);
+            this.labelPasswordSignin.Name = "labelPasswordSignin";
+            this.labelPasswordSignin.Size = new System.Drawing.Size(136, 42);
+            this.labelPasswordSignin.TabIndex = 5;
+            this.labelPasswordSignin.Text = "Password";
             // 
-            // textBox2
+            // textBoxPasswordSignin
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox2.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
-            this.textBox2.Location = new System.Drawing.Point(20, 170);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '●';
-            this.textBox2.Size = new System.Drawing.Size(410, 46);
-            this.textBox2.TabIndex = 7;
+            this.textBoxPasswordSignin.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxPasswordSignin.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.textBoxPasswordSignin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.textBoxPasswordSignin.Location = new System.Drawing.Point(20, 170);
+            this.textBoxPasswordSignin.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.textBoxPasswordSignin.Name = "textBoxPasswordSignin";
+            this.textBoxPasswordSignin.PasswordChar = '●';
+            this.textBoxPasswordSignin.Size = new System.Drawing.Size(410, 46);
+            this.textBoxPasswordSignin.TabIndex = 7;
             // 
-            // checkBox1
+            // checkBoxShowPasswordSignin
             // 
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBox1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.checkBox1.Location = new System.Drawing.Point(20, 236);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(410, 32);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Show Password";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxShowPasswordSignin.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxShowPasswordSignin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxShowPasswordSignin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxShowPasswordSignin.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold);
+            this.checkBoxShowPasswordSignin.ForeColor = System.Drawing.Color.Gainsboro;
+            this.checkBoxShowPasswordSignin.Location = new System.Drawing.Point(20, 236);
+            this.checkBoxShowPasswordSignin.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.checkBoxShowPasswordSignin.Name = "checkBoxShowPasswordSignin";
+            this.checkBoxShowPasswordSignin.Size = new System.Drawing.Size(410, 32);
+            this.checkBoxShowPasswordSignin.TabIndex = 10;
+            this.checkBoxShowPasswordSignin.Text = "Show Password";
+            this.checkBoxShowPasswordSignin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxShowPasswordSignin.UseVisualStyleBackColor = true;
+            this.checkBoxShowPasswordSignin.CheckedChanged += new System.EventHandler(this.CheckBoxShowPasswordSignin_CheckedChange);
             // 
-            // button1
+            // buttonSignin
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Location = new System.Drawing.Point(20, 278);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(410, 60);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Sign in";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonSignin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.buttonSignin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSignin.FlatAppearance.BorderSize = 0;
+            this.buttonSignin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSignin.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.buttonSignin.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonSignin.Location = new System.Drawing.Point(20, 278);
+            this.buttonSignin.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSignin.Name = "buttonSignin";
+            this.buttonSignin.Size = new System.Drawing.Size(410, 60);
+            this.buttonSignin.TabIndex = 11;
+            this.buttonSignin.Text = "Sign in";
+            this.buttonSignin.UseVisualStyleBackColor = false;
+            this.buttonSignin.Click += new System.EventHandler(this.ButtonSignin_Click);
             // 
-            // button2
+            // buttonClearSignin
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 3;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.button2.Location = new System.Drawing.Point(20, 348);
-            this.button2.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(410, 60);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonClearSignin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.buttonClearSignin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonClearSignin.FlatAppearance.BorderSize = 3;
+            this.buttonClearSignin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClearSignin.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.buttonClearSignin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.buttonClearSignin.Location = new System.Drawing.Point(20, 348);
+            this.buttonClearSignin.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.buttonClearSignin.Name = "buttonClearSignin";
+            this.buttonClearSignin.Size = new System.Drawing.Size(410, 60);
+            this.buttonClearSignin.TabIndex = 12;
+            this.buttonClearSignin.Text = "Clear";
+            this.buttonClearSignin.UseVisualStyleBackColor = false;
+            this.buttonClearSignin.Click += new System.EventHandler(this.ButtonClearSignin);
             // 
-            // label8
+            // labelDontHaveAcc
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label8.Location = new System.Drawing.Point(20, 418);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(209, 28);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Don\'t have an account?";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelDontHaveAcc.AutoSize = true;
+            this.labelDontHaveAcc.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold);
+            this.labelDontHaveAcc.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelDontHaveAcc.Location = new System.Drawing.Point(20, 418);
+            this.labelDontHaveAcc.Margin = new System.Windows.Forms.Padding(0);
+            this.labelDontHaveAcc.Name = "labelDontHaveAcc";
+            this.labelDontHaveAcc.Size = new System.Drawing.Size(209, 28);
+            this.labelDontHaveAcc.TabIndex = 13;
+            this.labelDontHaveAcc.Text = "Don\'t have an account?";
+            this.labelDontHaveAcc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // labelChangeToSignup
             // 
-            this.label9.AutoSize = true;
-            this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label9.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.label9.Location = new System.Drawing.Point(229, 418);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(156, 32);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Go to SIGN UP";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label9.Click += new System.EventHandler(this.LabelChangeToSignup_Click);
+            this.labelChangeToSignup.AutoSize = true;
+            this.labelChangeToSignup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelChangeToSignup.Font = new System.Drawing.Font("Tw Cen MT Condensed", 14F, System.Drawing.FontStyle.Bold);
+            this.labelChangeToSignup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.labelChangeToSignup.Location = new System.Drawing.Point(229, 418);
+            this.labelChangeToSignup.Margin = new System.Windows.Forms.Padding(0);
+            this.labelChangeToSignup.Name = "labelChangeToSignup";
+            this.labelChangeToSignup.Size = new System.Drawing.Size(156, 32);
+            this.labelChangeToSignup.TabIndex = 14;
+            this.labelChangeToSignup.Text = "Go to SIGN UP";
+            this.labelChangeToSignup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelChangeToSignup.Click += new System.EventHandler(this.LabelChangeToSignup_Click);
             // 
             // FormMain
             // 
@@ -718,15 +720,15 @@
         private System.Windows.Forms.FlowLayoutPanel SignIn;
         private System.Windows.Forms.Label labelSignin;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelUsernameSignin;
+        private System.Windows.Forms.TextBox textBoxUsernameSignin;
+        private System.Windows.Forms.Label labelPasswordSignin;
+        private System.Windows.Forms.TextBox textBoxPasswordSignin;
+        private System.Windows.Forms.CheckBox checkBoxShowPasswordSignin;
+        private System.Windows.Forms.Button buttonSignin;
+        private System.Windows.Forms.Button buttonClearSignin;
+        private System.Windows.Forms.Label labelDontHaveAcc;
+        private System.Windows.Forms.Label labelChangeToSignup;
     }
 }
 
