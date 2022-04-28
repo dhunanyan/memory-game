@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPlay));
             this.parentPanel = new System.Windows.Forms.Panel();
+            this.labelScore = new System.Windows.Forms.Label();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.labelCurrentUsername = new System.Windows.Forms.Label();
             this.panelTimerContainer = new System.Windows.Forms.Panel();
@@ -66,7 +67,9 @@
             this.buttonShow = new System.Windows.Forms.Button();
             this.panelPlay = new System.Windows.Forms.Panel();
             this.buttonStart = new System.Windows.Forms.Button();
+            this.timerScore = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
+            this.parentPanel.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelTimerContainer.SuspendLayout();
             this.panelWrapper.SuspendLayout();
@@ -596,6 +599,10 @@
             this.buttonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             this.buttonStart.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonStart_Paint);
             // 
+            // timerScore
+            // 
+            this.timerScore.Tick += new System.EventHandler(this.RaiseScore);
+            // 
             // FormPlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,6 +618,8 @@
             this.Load += new System.EventHandler(this.FormPlay_Load);
             this.Leave += new System.EventHandler(this.FormPlay_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.timer)).EndInit();
+            this.parentPanel.ResumeLayout(false);
+            this.parentPanel.PerformLayout();
             this.panelButtons.ResumeLayout(false);
             this.panelTimerContainer.ResumeLayout(false);
             this.panelWrapper.ResumeLayout(false);
@@ -671,6 +680,8 @@
         private System.Windows.Forms.Label labelMovesKey;
         private System.Windows.Forms.Label labelMovesValue;
         private System.Windows.Forms.Label labelCurrentUsername;
+        private System.Windows.Forms.Label labelScore;
+        private System.Windows.Forms.Timer timerScore;
     }
 }
 

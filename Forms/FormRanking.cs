@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Profile.Forms
 {
-    public partial class FormRanking : Form
+    public partial class FormRanking : Container
     {
         public FormRanking()
         {
@@ -59,7 +59,7 @@ namespace Profile.Forms
                     }
                     FlowLayoutPanel currentRecord = new FlowLayoutPanel()
                     {
-                        BackColor = Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110))))),
+                        BackColor = CurrentUser[0] == reader[0].ToString() ? Color.FromArgb(33, 150, 243) : Color.FromArgb(85, 85, 110),
                         Location = new Point(0, 0 + locationY),
                         Margin = new Padding(0, index > 0 ? 10 : 0, 0, 0),
                         Name = "user_" + reader[0],

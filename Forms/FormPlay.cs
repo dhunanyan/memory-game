@@ -37,6 +37,13 @@ namespace Profile.Forms
 
             showTimeout.BackColor = showTimeout.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
             showTimeout.ForeColor = Color.Gainsboro;
+
+            IsGameOver = new Label();
+            IsGameOver.EnabledChanged += new EventHandler(IsGameOver_EnabledChanged);
+
+            raiseScore = new Timer(components);
+            raiseScore.Tick += new EventHandler(RaiseScore);
+            raiseScore.Interval = 1;
         }
 
         // LOADING THE FORM
@@ -90,6 +97,33 @@ namespace Profile.Forms
 
             pictureBoxExtreme.BackgroundImage = isGodeMode ? Resources.backBlack : Resources.trophy;
             pictureBoxExtreme.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        
+        private void IsGameOver_EnabledChanged(object sender, EventArgs e)
+        {
+            if (IsGameOver.Enabled)
+            {
+                labelScore.AutoSize = true;
+                labelScore.Font = new Font("Tw Cen MT Condensed", 32F, FontStyle.Bold);
+                labelScore.ForeColor = Color.Gainsboro;
+                labelScore.Location = new Point(337, 205);
+                labelScore.Name = "labelScore";
+                labelScore.Size = new Size(143, 49);
+                labelScore.TabIndex = 8;
+                labelScore.Text = "0 points";
+                parentPanel.Controls.Add(labelScore);
+                raiseScore.Start();
+            }
+        }
+
+        private void RaiseScore(object sender, EventArgs e)
+        {
+            labelScore.Text += labelScore.Text.Split(' ')[0] ;
+            if(int.Parse(labelScore.Text) >= 15000)
+            {
+                raiseScore.Stop();
+            }
         }
 
         private void FormPlay_Leave(object sender, EventArgs e)
@@ -422,6 +456,8 @@ namespace Profile.Forms
                 (Image)Resources.ResourceManager.GetObject(ExtremeCardName.Text) : Resources.backBlack;
             pictureBoxExtreme.BackgroundImageLayout = ImageLayout.Zoom;
         }
+
+        public Timer raiseScore;
     }
 }
 

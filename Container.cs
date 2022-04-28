@@ -81,8 +81,10 @@ namespace Profile
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Name = "Container";
             this.ResumeLayout(false);
-
         }
+
+
+        public static Label IsGameOver { get; set; }
 
         // DATABASE
         public static OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");

@@ -106,6 +106,15 @@ namespace Profile.Models
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(c.Name, true)[0]);
                         parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(isSelectedName, true)[0]);
 
+                        if (!parentPanel.HasChildren)
+                        {
+                            Profile.Container.IsGameOver.Enabled = true;
+                        }
+                        else
+                        {
+                            Profile.Container.IsGameOver.Enabled = false;
+                        }
+
                         if (isExtreme)
                         {
                             Card currentExtremeCard = (Card)parentPanel.Controls[random.Next(parentPanel.Controls.Count)];
