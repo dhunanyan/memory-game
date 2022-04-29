@@ -356,9 +356,9 @@ namespace Profile.Forms
             CollectionToggle(false, true);
 
 
-            await Task.Delay(1000);
-            parentPanel.Controls.Clear();
-            IsGameOver.Enabled = true;
+            //await Task.Delay(300);
+            //parentPanel.Controls.Clear();
+            //IsGameOver.Enabled = true;
         }
 
         private void ButtonShow_EnabledChanged(object sender, EventArgs e)
