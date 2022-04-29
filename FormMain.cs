@@ -40,8 +40,8 @@ namespace Profile
             buttonSettings.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
-        OleDbCommand cmd = new OleDbCommand();
+        OleDbConnection connection = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
+        OleDbCommand command = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
 
         private Color SelectThemeColor(string buttonName)
@@ -247,11 +247,11 @@ namespace Profile
             }
             else if(textBoxPassword.Text == textBoxConfirmPassword.Text)
             {
-                con.Open();
-                string register = $"INSERT INTO table_users VALUES ('{textBoxUsername.Text}', '{textBoxPassword.Text}', '{0}', '{0}', '{0}', '00:00:03', '{0}')";
-                cmd = new OleDbCommand(register, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                connection.Open();
+                string register = $"INSERT INTO table_users VALUES ('{textBoxUsername.Text}', '{textBoxPassword.Text}', '{0}', '{0}', '{0}', '{"000005"}', '{0}')";
+                command = new OleDbCommand(register, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
 
                 textBoxUsername.Text = "";
                 textBoxPassword.Text = "";
@@ -305,11 +305,10 @@ namespace Profile
         // SIGN IN
         private void ButtonSignin_Click(object sender, EventArgs e)
         {
-            OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=db_users.mdb");
-            con.Open();
+            connection.Open();
             string userLogin = "SELECT * FROM table_users WHERE username='" + textBoxUsernameSignin.Text + "' AND password='" + textBoxPasswordSignin.Text + "'";
-            OleDbCommand cmd = new OleDbCommand(userLogin, con);
-            OleDbDataReader dr = cmd.ExecuteReader();
+            command = new OleDbCommand(userLogin, connection);
+            OleDbDataReader dr = command.ExecuteReader();
 
             if (dr.Read() == true)
             {
@@ -329,7 +328,7 @@ namespace Profile
                 OpenChildForm(new Forms.FormPlay(), buttonPlay);
                 Reset();
                 buttonTimes.Visible = true;
-                con.Close();
+                connection.Close();
             }
             else
             {
@@ -338,7 +337,7 @@ namespace Profile
                 textBoxUsernameSignin.Text = "";
                 textBoxPasswordSignin.Text = "";
                 textBoxUsernameSignin.Focus();
-                con.Close();
+                connection.Close();
             }
         }
 

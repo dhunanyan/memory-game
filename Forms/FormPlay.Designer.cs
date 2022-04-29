@@ -158,7 +158,7 @@
             this.panelTimerContainer.Margin = new System.Windows.Forms.Padding(0);
             this.panelTimerContainer.MaximumSize = new System.Drawing.Size(400, 46);
             this.panelTimerContainer.Name = "panelTimerContainer";
-            this.panelTimerContainer.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.panelTimerContainer.Padding = new System.Windows.Forms.Padding(3);
             this.panelTimerContainer.Size = new System.Drawing.Size(314, 46);
             this.panelTimerContainer.TabIndex = 6;
             // 
@@ -233,10 +233,10 @@
             this.panelWrapper.Controls.Add(this.flowLayoutPanel1);
             this.panelWrapper.ForeColor = System.Drawing.Color.Coral;
             this.panelWrapper.Location = new System.Drawing.Point(0, -25);
-            this.panelWrapper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelWrapper.Margin = new System.Windows.Forms.Padding(2);
             this.panelWrapper.MinimumSize = new System.Drawing.Size(1074, 656);
             this.panelWrapper.Name = "panelWrapper";
-            this.panelWrapper.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.panelWrapper.Padding = new System.Windows.Forms.Padding(20);
             this.panelWrapper.Size = new System.Drawing.Size(1074, 656);
             this.panelWrapper.TabIndex = 7;
             // 
@@ -246,7 +246,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panelSide);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 20);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1034, 616);
             this.flowLayoutPanel1.TabIndex = 8;
@@ -256,7 +256,7 @@
             this.panelMainContainer.Controls.Add(this.panelButtons);
             this.panelMainContainer.Controls.Add(this.parentPanel);
             this.panelMainContainer.Location = new System.Drawing.Point(2, 2);
-            this.panelMainContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMainContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelMainContainer.Name = "panelMainContainer";
             this.panelMainContainer.Size = new System.Drawing.Size(783, 611);
             this.panelMainContainer.TabIndex = 7;
@@ -280,7 +280,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 223);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(14, 13, 14, 13);
             this.panel1.Size = new System.Drawing.Size(230, 388);
@@ -295,7 +295,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(14, 164);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(14, 13, 14, 13);
             this.panel3.Size = new System.Drawing.Size(202, 211);
@@ -307,7 +307,7 @@
             this.panel5.Controls.Add(this.labelHintsValue);
             this.panel5.Controls.Add(this.labelHintsKey);
             this.panel5.Location = new System.Drawing.Point(14, 110);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(177, 39);
             this.panel5.TabIndex = 2;
@@ -345,7 +345,7 @@
             this.panel7.Controls.Add(this.labelDifficultyKey);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(14, 159);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(174, 39);
             this.panel7.TabIndex = 1;
@@ -381,7 +381,7 @@
             this.panel6.Controls.Add(this.labelShowsValue);
             this.panel6.Controls.Add(this.labelShowsKey);
             this.panel6.Location = new System.Drawing.Point(14, 62);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(177, 39);
             this.panel6.TabIndex = 1;
@@ -419,7 +419,7 @@
             this.panel4.Controls.Add(this.labelMovesKey);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(14, 13);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(174, 39);
             this.panel4.TabIndex = 0;
@@ -456,7 +456,7 @@
             this.panel2.Controls.Add(this.pictureBoxExtreme);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(14, 13);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
             this.panel2.Size = new System.Drawing.Size(202, 140);
@@ -467,7 +467,7 @@
             this.pictureBoxExtreme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
             this.pictureBoxExtreme.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxExtreme.Location = new System.Drawing.Point(30, 0);
-            this.pictureBoxExtreme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxExtreme.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxExtreme.Name = "pictureBoxExtreme";
             this.pictureBoxExtreme.Size = new System.Drawing.Size(142, 140);
             this.pictureBoxExtreme.TabIndex = 0;
@@ -479,7 +479,7 @@
             this.panelButtonsContainer.Controls.Add(this.panelButtonsSubContainer);
             this.panelButtonsContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelButtonsContainer.Location = new System.Drawing.Point(0, 0);
-            this.panelButtonsContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelButtonsContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelButtonsContainer.Name = "panelButtonsContainer";
             this.panelButtonsContainer.Size = new System.Drawing.Size(230, 208);
             this.panelButtonsContainer.TabIndex = 9;
@@ -489,7 +489,7 @@
             this.panelShuffle.Controls.Add(this.buttonRestart);
             this.panelShuffle.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelShuffle.Location = new System.Drawing.Point(0, 143);
-            this.panelShuffle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelShuffle.Margin = new System.Windows.Forms.Padding(2);
             this.panelShuffle.Name = "panelShuffle";
             this.panelShuffle.Size = new System.Drawing.Size(230, 65);
             this.panelShuffle.TabIndex = 8;
@@ -527,7 +527,7 @@
             this.panelButtonsSubContainer.Controls.Add(this.panelPlay);
             this.panelButtonsSubContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelButtonsSubContainer.Location = new System.Drawing.Point(0, 0);
-            this.panelButtonsSubContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelButtonsSubContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelButtonsSubContainer.Name = "panelButtonsSubContainer";
             this.panelButtonsSubContainer.Size = new System.Drawing.Size(230, 136);
             this.panelButtonsSubContainer.TabIndex = 8;
@@ -537,7 +537,7 @@
             this.panelShow.Controls.Add(this.buttonShow);
             this.panelShow.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelShow.Location = new System.Drawing.Point(0, 71);
-            this.panelShow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelShow.Margin = new System.Windows.Forms.Padding(2);
             this.panelShow.Name = "panelShow";
             this.panelShow.Size = new System.Drawing.Size(230, 65);
             this.panelShow.TabIndex = 8;
@@ -574,7 +574,7 @@
             this.panelPlay.Controls.Add(this.buttonStart);
             this.panelPlay.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPlay.Location = new System.Drawing.Point(0, 0);
-            this.panelPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPlay.Margin = new System.Windows.Forms.Padding(2);
             this.panelPlay.Name = "panelPlay";
             this.panelPlay.Size = new System.Drawing.Size(230, 65);
             this.panelPlay.TabIndex = 7;
@@ -617,7 +617,7 @@
             this.ClientSize = new System.Drawing.Size(1155, 636);
             this.Controls.Add(this.panelWrapper);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1152, 669);
             this.Name = "FormPlay";
             this.Text = "Play";

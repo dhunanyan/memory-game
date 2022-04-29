@@ -17,6 +17,7 @@ namespace Profile.Forms
         public static int scoreIteral = 0;
         public static int currentScore = 0;
         public static int multiplier = 2;
+        public static int currentTime = 0;
 
         public FormPlay()
         {
@@ -30,8 +31,9 @@ namespace Profile.Forms
         }
 
         // DATABASE
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
-        OleDbCommand cmd = new OleDbCommand();
+        OleDbConnection connection = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
+        OleDbConnection connection1 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
+        OleDbCommand command = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
 
         // LOADING CURRENT THEME
@@ -167,8 +169,9 @@ namespace Profile.Forms
                 //CurrentUser[5] = labelMovesValue.Text;
                 //CurrentUser[6] = labelTimer.Text;
                 //CurrentUser[7] = score.ToString();
-                Console.WriteLine(labelTimer.Text);
-                UpdateData(labelShowsValue.Text, labelHintsValue.Text, labelMovesValue.Text, labelTimer.Text.ToString(), currentScore.ToString());
+                currentTime = h * 3600 + m * 60 + s;
+                Console.WriteLine(currentTime);
+                UpdateData(labelShowsValue.Text, labelHintsValue.Text, labelMovesValue.Text, currentTime, currentScore.ToString());
                 Console.WriteLine(currentScore);
 
                 await Task.Delay(350);
@@ -177,13 +180,13 @@ namespace Profile.Forms
             }
         }
 
-        private void UpdateData(string shows, string hints, string moves, string time, string score)
+        private void UpdateData(string shows, string hints, string moves, int time, string score)
         {
-            con.Open();
-            string updateRanking = $"UPDATE table_users SET shows='{shows}', hints='{hints}', moves='{moves}', time='{time}', score='{score}' WHERE username={CurrentUser[0]}";
-            cmd = new OleDbCommand(updateRanking, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            connection.Open();
+            string query = $"UPDATE table_users SET shows='{shows}', hints='{hints}', moves='{moves}', time='{time}', score='{score}' WHERE username='{CurrentUser[0]}'";
+            command = new OleDbCommand(query, connection);
+            command.ExecuteNonQuery();
+            connection.Close();
         }
 
         private void RaiseScore(object sender, EventArgs e)
