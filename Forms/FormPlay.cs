@@ -130,33 +130,51 @@ namespace Profile.Forms
                 labelScore.TabIndex = 8;
                 labelScore.Text = "0 points";
                 labelScore.TextAlign = ContentAlignment.MiddleCenter;
-                parentPanel.Controls.Add(labelScore);
 
-                RichTextBox richTextBox1 = new RichTextBox();
-                richTextBox1.Anchor = AnchorStyles.None;
-                richTextBox1.BackColor = Color.FromArgb(68, 68, 93);
-                richTextBox1.BorderStyle = BorderStyle.None;
-                richTextBox1.Font = new Font("Tw Cen MT Condensed", 18F, FontStyle.Bold, GraphicsUnit.Point, 238);
-                richTextBox1.ForeColor = Color.Gainsboro;
-                richTextBox1.Location = new Point(20, 20);
-                richTextBox1.Margin = new Padding(0);
-                richTextBox1.Name = "richTextBox1";
-                richTextBox1.Size = new Size(700, 200);
-                richTextBox1.TabIndex = 0;
-                richTextBox1.Text = resources.GetString("richTextBox1.Text");
+                RichTextBox instruction = new RichTextBox();
+                instruction.Dock = DockStyle.Fill;
+                instruction.AutoSize = false;
+                instruction.BackColor = Color.FromArgb(68, 68, 93);
+                instruction.BorderStyle = BorderStyle.None;
+                instruction.Font = new Font("Tw Cen MT Condensed", 18F, FontStyle.Bold, GraphicsUnit.Point, 238);
+                instruction.ForeColor = Color.Gainsboro;
+                instruction.Location = new Point(0, 0);
+                instruction.Margin = new Padding(0);
+                instruction.Name = "labelInstruction";
+                instruction.Size = new Size(620, 120);
+                instruction.ReadOnly = true;
+                instruction.TabIndex = 0;
+                instruction.Text = "( [Shows] × [Multiplier] ÷ [Size] × 2) +\n( [Hints] × [Multiplier] × 10 ÷ [Size] )" +
+                                    " +\n( [Moves] × [Multiplier] × 100 ÷ [Size] ) +\n[Size] × [Multiplier] ÷ ( [Hours]" +
+                                    " × 3600 + [Min] × 60 + [Sec] )";
+
+                Label labelWin = new Label();
+                labelWin.AutoSize = false;
+                labelWin.BackColor = Color.FromArgb(33, 150, 243);
+                labelWin.Font = new Font("Tw Cen MT Condensed", 64F, FontStyle.Bold);
+                labelWin.ForeColor = Color.Gainsboro;
+                labelWin.Location = new Point(20, 330);
+                labelWin.Name = "labelWin";
+                labelWin.Size = new Size(740, 200);
+                labelWin.TabIndex = 0;
+                labelWin.Text = "You Won!";
+                labelWin.TextAlign = ContentAlignment.MiddleCenter;
 
                 Panel panelInstruction = new Panel();
                 panelInstruction.BackColor = Color.FromArgb(68, 68, 93);
-                panelInstruction.Controls.Add(richTextBox1);
+                panelInstruction.Controls.Add(instruction);
                 panelInstruction.Location = new Point(20, 20);
                 panelInstruction.Name = "panelInstruction";
-                panelInstruction.Padding = new Padding(20);
+                panelInstruction.Padding = new Padding(80, 60, 80, 60);
                 panelInstruction.Size = new Size(740, 240);
                 panelInstruction.TabIndex = 1;
                 panelInstruction.Visible = false;
                 panelInstruction.ResumeLayout(false);
                 panelInstruction.SuspendLayout();
                 parentPanel.Controls.Add(panelInstruction);
+                parentPanel.Controls.Add(labelScore);
+                parentPanel.Controls.Add(labelWin);
+
 
                 //{ "Username", "Password", "Shows", "Hints", "Moves", "Time", "Score"};
                 currentScore =
@@ -169,9 +187,8 @@ namespace Profile.Forms
                 //CurrentUser[5] = labelMovesValue.Text;
                 //CurrentUser[6] = labelTimer.Text;
                 //CurrentUser[7] = score.ToString();
-                currentTime = h * 3600 + m * 60 + s;
                 Console.WriteLine(currentTime);
-                UpdateData(labelShowsValue.Text, labelHintsValue.Text, labelMovesValue.Text, currentTime, currentScore.ToString());
+                UpdateData(labelShowsValue.Text, labelHintsValue.Text, labelMovesValue.Text, labelTimer.Text, currentScore);
                 Console.WriteLine(currentScore);
 
                 await Task.Delay(350);
@@ -180,13 +197,28 @@ namespace Profile.Forms
             }
         }
 
-        private void UpdateData(string shows, string hints, string moves, int time, string score)
+        private void UpdateData(string shows, string hints, string moves, string time, int score)
         {
             connection.Open();
-            string query = $"UPDATE table_users SET shows='{shows}', hints='{hints}', moves='{moves}', time='{time}', score='{score}' WHERE username='{CurrentUser[0]}'";
-            command = new OleDbCommand(query, connection);
-            command.ExecuteNonQuery();
-            connection.Close();
+            connection1.Open();
+            string userScore = $"SELECT * FROM table_users WHERE username='{CurrentUser[0]}'";
+            OleDbCommand command1 = new OleDbCommand(userScore, connection1);
+            OleDbDataReader reader = command1.ExecuteReader();
+
+            while (reader.Read())
+            {
+                if(int.Parse(reader[6].ToString()) <= score){
+                    MessageBox.Show($"Congratulations {CurrentUser[0]} It's your new record!", "Ranking Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string query = $"UPDATE table_users SET shows='{shows}', hints='{hints}', moves='{moves}', gameOverTime='{time}', score={score} WHERE username='{CurrentUser[0]}'";
+                    command = new OleDbCommand(query, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+                else
+                {
+                    MessageBox.Show($"You won {CurrentUser[0]}, Try to beat you record!!", "Ranking Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }     
         }
 
         private void RaiseScore(object sender, EventArgs e)
@@ -499,7 +531,7 @@ namespace Profile.Forms
         public void ShowTimeout_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentShowTimeout = Int32.Parse(showTimeout.SelectedItem.ToString().Split(' ')[0]);
-
+            
             foreach(Card card in parentPanel.Controls)
             {
                 card.currentShowTimeout = currentShowTimeout;

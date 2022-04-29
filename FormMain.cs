@@ -248,7 +248,7 @@ namespace Profile
             else if(textBoxPassword.Text == textBoxConfirmPassword.Text)
             {
                 connection.Open();
-                string register = $"INSERT INTO table_users VALUES ('{textBoxUsername.Text}', '{textBoxPassword.Text}', '{0}', '{0}', '{0}', '{"000005"}', '{0}')";
+                string register = $"INSERT INTO table_users VALUES ('{textBoxUsername.Text}', '{textBoxPassword.Text}', '{0}', '{0}', '{0}', '{"00:00:00"}', {0})";
                 command = new OleDbCommand(register, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
@@ -292,7 +292,7 @@ namespace Profile
         // SHOW PASSWORD FOR SIGNIN
         private void CheckBoxShowPasswordSignin_CheckedChange(object sender, EventArgs e)
         {
-            if (checkBoxShowPassword.Checked)
+            if (checkBoxShowPasswordSignin.Checked)
             {
                 textBoxPasswordSignin.PasswordChar = '\0';
             }
