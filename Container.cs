@@ -75,7 +75,7 @@ namespace Profile
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize =new System.Drawing.Size(1924, 1055);
             this.Name = "Container";
             this.ResumeLayout(false);
         }
