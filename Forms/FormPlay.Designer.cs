@@ -33,10 +33,8 @@
             this.parentPanel = new System.Windows.Forms.Panel();
             this.labelScore = new System.Windows.Forms.Label();
             this.panelButtons = new System.Windows.Forms.Panel();
-            this.labelCurrentUsername = new System.Windows.Forms.Label();
             this.panelTimerContainer = new System.Windows.Forms.Panel();
             this.showTimeout = new System.Windows.Forms.ComboBox();
-            this.labelTimeShow = new System.Windows.Forms.Label();
             this.labelTimer = new System.Windows.Forms.Label();
             this.timerCardFlip = new System.Windows.Forms.Timer(this.components);
             this.panelWrapper = new System.Windows.Forms.Panel();
@@ -58,16 +56,19 @@
             this.labelMovesValue = new System.Windows.Forms.Label();
             this.labelMovesKey = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBoxExtreme = new System.Windows.Forms.PictureBox();
             this.panelButtonsContainer = new System.Windows.Forms.Panel();
             this.panelShuffle = new System.Windows.Forms.Panel();
-            this.buttonRestart = new System.Windows.Forms.Button();
             this.panelButtonsSubContainer = new System.Windows.Forms.Panel();
             this.panelShow = new System.Windows.Forms.Panel();
-            this.buttonShow = new System.Windows.Forms.Button();
             this.panelPlay = new System.Windows.Forms.Panel();
-            this.buttonStart = new System.Windows.Forms.Button();
             this.timerScore = new System.Windows.Forms.Timer(this.components);
+            this.buttonHint = new System.Windows.Forms.Button();
+            this.labelCurrentUsername = new System.Windows.Forms.Label();
+            this.labelTimeShow = new System.Windows.Forms.Label();
+            this.pictureBoxExtreme = new System.Windows.Forms.PictureBox();
+            this.buttonRestart = new System.Windows.Forms.Button();
+            this.buttonShow = new System.Windows.Forms.Button();
+            this.buttonStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
             this.panelButtons.SuspendLayout();
             this.panelTimerContainer.SuspendLayout();
@@ -82,12 +83,12 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).BeginInit();
             this.panelButtonsContainer.SuspendLayout();
             this.panelShuffle.SuspendLayout();
             this.panelButtonsSubContainer.SuspendLayout();
             this.panelShow.SuspendLayout();
             this.panelPlay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
@@ -118,9 +119,10 @@
             // 
             this.panelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelButtons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
+            this.panelButtons.Controls.Add(this.buttonHint);
+            this.panelButtons.Controls.Add(this.labelTimer);
             this.panelButtons.Controls.Add(this.labelCurrentUsername);
             this.panelButtons.Controls.Add(this.panelTimerContainer);
-            this.panelButtons.Controls.Add(this.labelTimer);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelButtons.Location = new System.Drawing.Point(0, 0);
             this.panelButtons.Margin = new System.Windows.Forms.Padding(0, 0, 0, 13);
@@ -129,36 +131,18 @@
             this.panelButtons.Size = new System.Drawing.Size(782, 46);
             this.panelButtons.TabIndex = 6;
             // 
-            // labelCurrentUsername
-            // 
-            this.labelCurrentUsername.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelCurrentUsername.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.labelCurrentUsername.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelCurrentUsername.Image = global::Profile.Properties.Resources.user;
-            this.labelCurrentUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelCurrentUsername.Location = new System.Drawing.Point(460, 0);
-            this.labelCurrentUsername.Margin = new System.Windows.Forms.Padding(0);
-            this.labelCurrentUsername.Name = "labelCurrentUsername";
-            this.labelCurrentUsername.Padding = new System.Windows.Forms.Padding(0, 0, 14, 0);
-            this.labelCurrentUsername.Size = new System.Drawing.Size(322, 46);
-            this.labelCurrentUsername.TabIndex = 7;
-            this.labelCurrentUsername.Tag = "";
-            this.labelCurrentUsername.Text = "Username     ";
-            this.labelCurrentUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // panelTimerContainer
             // 
             this.panelTimerContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
             this.panelTimerContainer.Controls.Add(this.showTimeout);
             this.panelTimerContainer.Controls.Add(this.labelTimeShow);
-            this.panelTimerContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelTimerContainer.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold);
             this.panelTimerContainer.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panelTimerContainer.Location = new System.Drawing.Point(145, 0);
+            this.panelTimerContainer.Location = new System.Drawing.Point(0, 2);
             this.panelTimerContainer.Margin = new System.Windows.Forms.Padding(0);
             this.panelTimerContainer.MaximumSize = new System.Drawing.Size(400, 46);
             this.panelTimerContainer.Name = "panelTimerContainer";
-            this.panelTimerContainer.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.panelTimerContainer.Padding = new System.Windows.Forms.Padding(3);
             this.panelTimerContainer.Size = new System.Drawing.Size(314, 46);
             this.panelTimerContainer.TabIndex = 6;
             // 
@@ -194,30 +178,12 @@
             this.showTimeout.SelectedIndexChanged += new System.EventHandler(this.ShowTimeout_SelectedIndexChanged);
             this.showTimeout.EnabledChanged += new System.EventHandler(this.ShowTimeout_EnabledChanged);
             // 
-            // labelTimeShow
-            // 
-            this.labelTimeShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
-            this.labelTimeShow.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelTimeShow.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
-            this.labelTimeShow.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelTimeShow.Image = ((System.Drawing.Image)(resources.GetObject("labelTimeShow.Image")));
-            this.labelTimeShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelTimeShow.Location = new System.Drawing.Point(3, 3);
-            this.labelTimeShow.Margin = new System.Windows.Forms.Padding(0);
-            this.labelTimeShow.Name = "labelTimeShow";
-            this.labelTimeShow.Padding = new System.Windows.Forms.Padding(10, 3, 0, 0);
-            this.labelTimeShow.Size = new System.Drawing.Size(196, 40);
-            this.labelTimeShow.TabIndex = 5;
-            this.labelTimeShow.Text = " Pair Show TIme";
-            this.labelTimeShow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // labelTimer
             // 
-            this.labelTimer.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTimer.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.labelTimer.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelTimer.Location = new System.Drawing.Point(0, 0);
+            this.labelTimer.Location = new System.Drawing.Point(338, -2);
             this.labelTimer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTimer.Name = "labelTimer";
             this.labelTimer.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
@@ -233,10 +199,10 @@
             this.panelWrapper.Controls.Add(this.flowLayoutPanel1);
             this.panelWrapper.ForeColor = System.Drawing.Color.Coral;
             this.panelWrapper.Location = new System.Drawing.Point(0, 0);
-            this.panelWrapper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelWrapper.Margin = new System.Windows.Forms.Padding(2);
             this.panelWrapper.MinimumSize = new System.Drawing.Size(1074, 656);
             this.panelWrapper.Name = "panelWrapper";
-            this.panelWrapper.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.panelWrapper.Padding = new System.Windows.Forms.Padding(20);
             this.panelWrapper.Size = new System.Drawing.Size(1074, 656);
             this.panelWrapper.TabIndex = 7;
             // 
@@ -246,7 +212,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panelSide);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 20);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1034, 616);
             this.flowLayoutPanel1.TabIndex = 8;
@@ -256,7 +222,7 @@
             this.panelMainContainer.Controls.Add(this.panelButtons);
             this.panelMainContainer.Controls.Add(this.parentPanel);
             this.panelMainContainer.Location = new System.Drawing.Point(2, 2);
-            this.panelMainContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMainContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelMainContainer.Name = "panelMainContainer";
             this.panelMainContainer.Size = new System.Drawing.Size(783, 611);
             this.panelMainContainer.TabIndex = 7;
@@ -280,7 +246,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 223);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(14, 13, 14, 13);
             this.panel1.Size = new System.Drawing.Size(230, 388);
@@ -295,7 +261,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(14, 164);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(14, 13, 14, 13);
             this.panel3.Size = new System.Drawing.Size(202, 211);
@@ -307,7 +273,7 @@
             this.panel5.Controls.Add(this.labelHintsValue);
             this.panel5.Controls.Add(this.labelHintsKey);
             this.panel5.Location = new System.Drawing.Point(14, 110);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(177, 39);
             this.panel5.TabIndex = 2;
@@ -345,7 +311,7 @@
             this.panel7.Controls.Add(this.labelDifficultyKey);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(14, 159);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(174, 39);
             this.panel7.TabIndex = 1;
@@ -381,7 +347,7 @@
             this.panel6.Controls.Add(this.labelShowsValue);
             this.panel6.Controls.Add(this.labelShowsKey);
             this.panel6.Location = new System.Drawing.Point(14, 62);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(177, 39);
             this.panel6.TabIndex = 1;
@@ -419,7 +385,7 @@
             this.panel4.Controls.Add(this.labelMovesKey);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(14, 13);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(174, 39);
             this.panel4.TabIndex = 0;
@@ -456,22 +422,11 @@
             this.panel2.Controls.Add(this.pictureBoxExtreme);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(14, 13);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
             this.panel2.Size = new System.Drawing.Size(202, 140);
             this.panel2.TabIndex = 0;
-            // 
-            // pictureBoxExtreme
-            // 
-            this.pictureBoxExtreme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
-            this.pictureBoxExtreme.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxExtreme.Location = new System.Drawing.Point(30, 0);
-            this.pictureBoxExtreme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBoxExtreme.Name = "pictureBoxExtreme";
-            this.pictureBoxExtreme.Size = new System.Drawing.Size(142, 140);
-            this.pictureBoxExtreme.TabIndex = 0;
-            this.pictureBoxExtreme.TabStop = false;
             // 
             // panelButtonsContainer
             // 
@@ -479,7 +434,7 @@
             this.panelButtonsContainer.Controls.Add(this.panelButtonsSubContainer);
             this.panelButtonsContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelButtonsContainer.Location = new System.Drawing.Point(0, 0);
-            this.panelButtonsContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelButtonsContainer.Margin = new System.Windows.Forms.Padding(2);
             this.panelButtonsContainer.Name = "panelButtonsContainer";
             this.panelButtonsContainer.Size = new System.Drawing.Size(230, 208);
             this.panelButtonsContainer.TabIndex = 9;
@@ -489,10 +444,112 @@
             this.panelShuffle.Controls.Add(this.buttonRestart);
             this.panelShuffle.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelShuffle.Location = new System.Drawing.Point(0, 143);
-            this.panelShuffle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelShuffle.Margin = new System.Windows.Forms.Padding(2);
             this.panelShuffle.Name = "panelShuffle";
             this.panelShuffle.Size = new System.Drawing.Size(230, 65);
             this.panelShuffle.TabIndex = 8;
+            // 
+            // panelButtonsSubContainer
+            // 
+            this.panelButtonsSubContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.panelButtonsSubContainer.Controls.Add(this.panelShow);
+            this.panelButtonsSubContainer.Controls.Add(this.panelPlay);
+            this.panelButtonsSubContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelButtonsSubContainer.Location = new System.Drawing.Point(0, 0);
+            this.panelButtonsSubContainer.Margin = new System.Windows.Forms.Padding(2);
+            this.panelButtonsSubContainer.Name = "panelButtonsSubContainer";
+            this.panelButtonsSubContainer.Size = new System.Drawing.Size(230, 136);
+            this.panelButtonsSubContainer.TabIndex = 8;
+            // 
+            // panelShow
+            // 
+            this.panelShow.Controls.Add(this.buttonShow);
+            this.panelShow.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelShow.Location = new System.Drawing.Point(0, 71);
+            this.panelShow.Margin = new System.Windows.Forms.Padding(2);
+            this.panelShow.Name = "panelShow";
+            this.panelShow.Size = new System.Drawing.Size(230, 65);
+            this.panelShow.TabIndex = 8;
+            // 
+            // panelPlay
+            // 
+            this.panelPlay.Controls.Add(this.buttonStart);
+            this.panelPlay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPlay.Location = new System.Drawing.Point(0, 0);
+            this.panelPlay.Margin = new System.Windows.Forms.Padding(2);
+            this.panelPlay.Name = "panelPlay";
+            this.panelPlay.Size = new System.Drawing.Size(230, 65);
+            this.panelPlay.TabIndex = 7;
+            // 
+            // timerScore
+            // 
+            this.timerScore.Tick += new System.EventHandler(this.RaiseScore);
+            // 
+            // buttonHint
+            // 
+            this.buttonHint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.buttonHint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHint.FlatAppearance.BorderSize = 0;
+            this.buttonHint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHint.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.buttonHint.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonHint.Image = global::Profile.Properties.Resources.question;
+            this.buttonHint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonHint.Location = new System.Drawing.Point(499, 1);
+            this.buttonHint.Name = "buttonHint";
+            this.buttonHint.Size = new System.Drawing.Size(94, 42);
+            this.buttonHint.TabIndex = 0;
+            this.buttonHint.Text = "Hint";
+            this.buttonHint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonHint.UseVisualStyleBackColor = false;
+            this.buttonHint.EnabledChanged += new System.EventHandler(this.ButtonHint_EnabledChanged);
+            this.buttonHint.Click += new System.EventHandler(this.ButtonHint_Click);
+            this.buttonHint.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonHint_Paint);
+            // 
+            // labelCurrentUsername
+            // 
+            this.labelCurrentUsername.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelCurrentUsername.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.labelCurrentUsername.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelCurrentUsername.Image = global::Profile.Properties.Resources.user;
+            this.labelCurrentUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelCurrentUsername.Location = new System.Drawing.Point(460, 0);
+            this.labelCurrentUsername.Margin = new System.Windows.Forms.Padding(0);
+            this.labelCurrentUsername.Name = "labelCurrentUsername";
+            this.labelCurrentUsername.Padding = new System.Windows.Forms.Padding(0, 0, 14, 0);
+            this.labelCurrentUsername.Size = new System.Drawing.Size(322, 46);
+            this.labelCurrentUsername.TabIndex = 7;
+            this.labelCurrentUsername.Tag = "";
+            this.labelCurrentUsername.Text = "Username     ";
+            this.labelCurrentUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelTimeShow
+            // 
+            this.labelTimeShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
+            this.labelTimeShow.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelTimeShow.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
+            this.labelTimeShow.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelTimeShow.Image = ((System.Drawing.Image)(resources.GetObject("labelTimeShow.Image")));
+            this.labelTimeShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelTimeShow.Location = new System.Drawing.Point(3, 3);
+            this.labelTimeShow.Margin = new System.Windows.Forms.Padding(0);
+            this.labelTimeShow.Name = "labelTimeShow";
+            this.labelTimeShow.Padding = new System.Windows.Forms.Padding(10, 3, 0, 0);
+            this.labelTimeShow.Size = new System.Drawing.Size(196, 40);
+            this.labelTimeShow.TabIndex = 5;
+            this.labelTimeShow.Text = " Pair Show TIme";
+            this.labelTimeShow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBoxExtreme
+            // 
+            this.pictureBoxExtreme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(110)))));
+            this.pictureBoxExtreme.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxExtreme.Location = new System.Drawing.Point(30, 0);
+            this.pictureBoxExtreme.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxExtreme.Name = "pictureBoxExtreme";
+            this.pictureBoxExtreme.Size = new System.Drawing.Size(142, 140);
+            this.pictureBoxExtreme.TabIndex = 0;
+            this.pictureBoxExtreme.TabStop = false;
             // 
             // buttonRestart
             // 
@@ -519,28 +576,6 @@
             this.buttonRestart.EnabledChanged += new System.EventHandler(this.ButtonRestart_EnabledChanged);
             this.buttonRestart.Click += new System.EventHandler(this.ButtonRestart_Click);
             this.buttonRestart.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonRestart_Paint);
-            // 
-            // panelButtonsSubContainer
-            // 
-            this.panelButtonsSubContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(93)))));
-            this.panelButtonsSubContainer.Controls.Add(this.panelShow);
-            this.panelButtonsSubContainer.Controls.Add(this.panelPlay);
-            this.panelButtonsSubContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelButtonsSubContainer.Location = new System.Drawing.Point(0, 0);
-            this.panelButtonsSubContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelButtonsSubContainer.Name = "panelButtonsSubContainer";
-            this.panelButtonsSubContainer.Size = new System.Drawing.Size(230, 136);
-            this.panelButtonsSubContainer.TabIndex = 8;
-            // 
-            // panelShow
-            // 
-            this.panelShow.Controls.Add(this.buttonShow);
-            this.panelShow.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelShow.Location = new System.Drawing.Point(0, 71);
-            this.panelShow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelShow.Name = "panelShow";
-            this.panelShow.Size = new System.Drawing.Size(230, 65);
-            this.panelShow.TabIndex = 8;
             // 
             // buttonShow
             // 
@@ -569,16 +604,6 @@
             this.buttonShow.Click += new System.EventHandler(this.ButtonShow_Click);
             this.buttonShow.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonShow_Paint);
             // 
-            // panelPlay
-            // 
-            this.panelPlay.Controls.Add(this.buttonStart);
-            this.panelPlay.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPlay.Location = new System.Drawing.Point(0, 0);
-            this.panelPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelPlay.Name = "panelPlay";
-            this.panelPlay.Size = new System.Drawing.Size(230, 65);
-            this.panelPlay.TabIndex = 7;
-            // 
             // buttonStart
             // 
             this.buttonStart.BackColor = System.Drawing.SystemColors.Highlight;
@@ -605,10 +630,6 @@
             this.buttonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             this.buttonStart.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonStart_Paint);
             // 
-            // timerScore
-            // 
-            this.timerScore.Tick += new System.EventHandler(this.RaiseScore);
-            // 
             // FormPlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -617,7 +638,7 @@
             this.ClientSize = new System.Drawing.Size(1077, 657);
             this.Controls.Add(this.panelWrapper);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1093, 696);
             this.Name = "FormPlay";
             this.Text = "Play";
@@ -637,12 +658,12 @@
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).EndInit();
             this.panelButtonsContainer.ResumeLayout(false);
             this.panelShuffle.ResumeLayout(false);
             this.panelButtonsSubContainer.ResumeLayout(false);
             this.panelShow.ResumeLayout(false);
             this.panelPlay.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExtreme)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -686,6 +707,7 @@
         private System.Windows.Forms.Label labelCurrentUsername;
         private System.Windows.Forms.Label labelScore;
         private System.Windows.Forms.Timer timerScore;
+        private System.Windows.Forms.Button buttonHint;
     }
 }
 

@@ -136,7 +136,7 @@ namespace Profile.Forms
                         Name = "labelHints_" + reader[0],
                         Size = new Size(120, 40),
                         TabIndex = index,
-                        Text = reader[2].ToString(),
+                        Text = reader[3].ToString(),
                         TextAlign = ContentAlignment.MiddleCenter,
                     };
 

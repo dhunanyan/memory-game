@@ -96,7 +96,7 @@
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(180, 729);
             this.panelMenu.TabIndex = 0;
@@ -113,7 +113,7 @@
             this.buttonRanking.Image = ((System.Drawing.Image)(resources.GetObject("buttonRanking.Image")));
             this.buttonRanking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRanking.Location = new System.Drawing.Point(0, 174);
-            this.buttonRanking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRanking.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRanking.Name = "buttonRanking";
             this.buttonRanking.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.buttonRanking.Size = new System.Drawing.Size(180, 58);
@@ -137,7 +137,7 @@
             this.buttonSettings.Image = ((System.Drawing.Image)(resources.GetObject("buttonSettings.Image")));
             this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSettings.Location = new System.Drawing.Point(0, 116);
-            this.buttonSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSettings.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.buttonSettings.Size = new System.Drawing.Size(180, 58);
@@ -161,7 +161,7 @@
             this.buttonPlay.Image = ((System.Drawing.Image)(resources.GetObject("buttonPlay.Image")));
             this.buttonPlay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPlay.Location = new System.Drawing.Point(0, 58);
-            this.buttonPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonPlay.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.buttonPlay.Size = new System.Drawing.Size(180, 58);
@@ -181,9 +181,9 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.panelLogo.Padding = new System.Windows.Forms.Padding(3);
             this.panelLogo.Size = new System.Drawing.Size(180, 58);
             this.panelLogo.TabIndex = 0;
             // 
@@ -194,7 +194,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(7, 11, 7, 11);
             this.pictureBox1.Size = new System.Drawing.Size(43, 52);
@@ -234,7 +234,7 @@
             this.buttonTimes.FlatAppearance.BorderSize = 0;
             this.buttonTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTimes.Location = new System.Drawing.Point(0, 0);
-            this.buttonTimes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTimes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTimes.Name = "buttonTimes";
             this.buttonTimes.Size = new System.Drawing.Size(60, 58);
             this.buttonTimes.TabIndex = 1;
@@ -274,7 +274,7 @@
             this.SignUp.Controls.Add(this.labelSignup);
             this.SignUp.Controls.Add(this.flowLayoutPanel2);
             this.SignUp.Location = new System.Drawing.Point(344, 211);
-            this.SignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SignUp.Margin = new System.Windows.Forms.Padding(2);
             this.SignUp.Name = "SignUp";
             this.SignUp.Size = new System.Drawing.Size(300, 429);
             this.SignUp.TabIndex = 16;
@@ -466,10 +466,11 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel1.Controls.Add(this.pictureBox2);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(241, 21);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(580, 150);
             this.flowLayoutPanel1.TabIndex = 2;
@@ -504,7 +505,7 @@
             this.SignIn.Controls.Add(this.labelSignin);
             this.SignIn.Controls.Add(this.flowLayoutPanel5);
             this.SignIn.Location = new System.Drawing.Point(344, 211);
-            this.SignIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SignIn.Margin = new System.Windows.Forms.Padding(2);
             this.SignIn.Name = "SignIn";
             this.SignIn.Size = new System.Drawing.Size(300, 355);
             this.SignIn.TabIndex = 17;
@@ -679,8 +680,8 @@
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(1028, 548);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1283, 768);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Memory";

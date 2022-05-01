@@ -24,6 +24,7 @@ namespace Profile.Models
         Button buttonShow;
         Button buttonStart;
         Button buttonRestart;
+        Button buttonHint;
         public ComboBox showTimeout;
         private static Random random = new Random();
         private bool isExtreme;
@@ -37,7 +38,7 @@ namespace Profile.Models
             flipCard.Interval = 1;
         }
 
-        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart, Button buttonRestart, ComboBox showTimeout, bool isExtreme)
+        public Card(int width, bool isSelected, int value, Panel panel, Button buttonShow, Button buttonStart, Button buttonRestart, Button buttonHint, ComboBox showTimeout, bool isExtreme)
         {
             InitializeComponent();
             Width = width;
@@ -48,6 +49,7 @@ namespace Profile.Models
             this.buttonStart = buttonStart;
             this.buttonShow = buttonShow;
             this.buttonRestart = buttonRestart;
+            this.buttonHint = buttonHint;
             this.showTimeout = showTimeout;
             this.isExtreme = isExtreme;
         }
@@ -66,6 +68,7 @@ namespace Profile.Models
                 buttonShow.Enabled = false;
                 buttonRestart.Enabled = false;
                 showTimeout.Enabled = false;
+                buttonHint.Enabled = false;
 
                 int currentMoves = int.Parse(Profile.Container.CurrentMoves.Text);
                 currentMoves++;
@@ -81,6 +84,7 @@ namespace Profile.Models
                 buttonShow.Enabled = true;
                 buttonRestart.Enabled = true;
                 showTimeout.Enabled = true;
+                buttonHint.Enabled = true;
             }
 
             int isSelectedCounter = 0;
@@ -99,6 +103,7 @@ namespace Profile.Models
                         buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
                         buttonRestart.Enabled = false;
+                        buttonHint.Enabled = false;
                         showTimeout.Enabled = false;
 
                         await Task.Delay(currentShowTimeout * 1000);
@@ -125,6 +130,7 @@ namespace Profile.Models
                         buttonStart.Enabled = true;
                         buttonShow.Enabled = true;
                         buttonRestart.Enabled = true;
+                        buttonHint.Enabled = true;
                         showTimeout.Enabled = true;
                     }
                     else
@@ -133,6 +139,7 @@ namespace Profile.Models
                         buttonShow.Enabled = false;
                         parentPanel.Enabled = false;
                         buttonRestart.Enabled = false;
+                        buttonHint.Enabled = false;
                         showTimeout.Enabled = false;
 
                         await Task.Delay(currentShowTimeout * 1000);
@@ -147,6 +154,7 @@ namespace Profile.Models
                         buttonStart.Enabled = true;
                         buttonShow.Enabled = true;
                         buttonRestart.Enabled = true;
+                        buttonHint.Enabled = true;
                         showTimeout.Enabled = true;
                     }
                     isSelectedCounter = 0;

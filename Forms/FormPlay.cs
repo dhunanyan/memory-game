@@ -51,6 +51,10 @@ namespace Profile.Forms
             buttonStart.ForeColor = Color.Gainsboro;
             buttonStart.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
 
+            buttonHint.BackColor = ThemeColor.PrimaryColor;
+            buttonHint.ForeColor = Color.Gainsboro;
+            buttonHint.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+
             showTimeout.BackColor = showTimeout.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
             showTimeout.ForeColor = Color.Gainsboro;
 
@@ -72,6 +76,7 @@ namespace Profile.Forms
             buttonShow.Enabled = false;
             parentPanel.Enabled = true;
             showTimeout.Enabled = true;
+            buttonHint.Enabled = false;
 
             buttonStart.Image = Resources.playSmall;
             buttonStart.Text = "Start";
@@ -292,7 +297,7 @@ namespace Profile.Forms
                     col = 5;
                 }
 
-                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart, buttonRestart, showTimeout, isGodeMode)
+                Card nextCard = new Card(width - 10, false, (int)randomizedCardsOrder[i] % (collectionSize / 2), parentPanel, buttonShow, buttonStart, buttonRestart, buttonHint, showTimeout, isGodeMode)
                 {
                     Name = "_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString() + isOdd,
                     //BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + ((int)randomizedCardsOrder[i] % (collectionSize / 2)).ToString()),
@@ -323,6 +328,7 @@ namespace Profile.Forms
             buttonStart.Enabled = !isShown;
             buttonRestart.Enabled = !isShown;
             showTimeout.Enabled = !isShown;
+            buttonHint.Enabled = !isShown;
             foreach (Card c in parentPanel.Controls)
             {
                 c.Enabled = !isShown;
@@ -405,6 +411,7 @@ namespace Profile.Forms
                 buttonShow.Enabled = false;
                 parentPanel.Enabled = false;
                 showTimeout.Enabled = false;
+                buttonHint.Enabled = false;
                 buttonStart.Image = Resources.playSmall;
                 buttonStart.Text = "Resume";
                 buttonStartText = "Resume";
@@ -415,6 +422,7 @@ namespace Profile.Forms
                 buttonShow.Enabled = true;
                 parentPanel.Enabled = true;
                 showTimeout.Enabled = true;
+                buttonHint.Enabled = true;
                 isStarted = true;
                 buttonStart.Image = Resources.pauseSmall;
                 buttonStart.Text = "Pause";
@@ -469,6 +477,7 @@ namespace Profile.Forms
             isStarted = false;
             buttonShow.Enabled = false;
             parentPanel.Enabled = false;
+            buttonHint.Enabled = false;
             parentPanel.Controls.Clear();
             CollectionInit(currentDiffColSize, currentDiffWidth, currentDiffHeight, currentDiffScale);
         }
@@ -492,6 +501,87 @@ namespace Profile.Forms
             };
             buttonRestart.Text = string.Empty;
             e.Graphics.DrawString(buttonRestartText, currentButton.Font, drawBrush, e.ClipRectangle, sf);
+            drawBrush.Dispose();
+            sf.Dispose();
+        }
+
+        // HINT
+        private async void ButtonHint_Click(object sender, EventArgs e)
+        {
+            buttonHint.Enabled = false;
+            buttonRestart.Enabled = false;
+            buttonShow.Enabled = false;
+            buttonStart.Enabled = false;
+            showTimeout.Enabled = false;
+
+            int currentHints = int.Parse(CurrentHints.Text);
+            currentHints++;
+            CurrentHints.Text = currentHints.ToString();
+
+            Random rand = new Random();
+            Card firstRandomCard = (Card)parentPanel.Controls[rand.Next(parentPanel.Controls.Count)];
+            string firstRandomCardName = firstRandomCard.Name.Split(firstRandomCard.Name[firstRandomCard.Name.Length - 1])[0];
+
+            rand = new Random();
+            Card secondRandomCard = (Card)parentPanel.Controls[rand.Next(parentPanel.Controls.Count - 1)];
+            Console.WriteLine(firstRandomCard.Name + ", " + secondRandomCard.Name);
+            if (firstRandomCard.Name == secondRandomCard.Name)
+            {
+                Console.WriteLine("Im in IF");
+                while (true)
+                {
+                    secondRandomCard = (Card)parentPanel.Controls[rand.Next(parentPanel.Controls.Count - 1)];
+                    Console.WriteLine(secondRandomCard.Name + ": in while");
+                    if (firstRandomCard.Name != secondRandomCard.Name)
+                    {
+                        break;
+                    }
+                }
+                Console.WriteLine(secondRandomCard.Name + ": outside of while");
+            }
+            string secondRandomCardName = secondRandomCard.Name.Split(secondRandomCard.Name[secondRandomCard.Name.Length - 1])[0];
+            Console.WriteLine(firstRandomCardName + ", " + secondRandomCardName);
+            firstRandomCard.BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + firstRandomCard.Value.ToString());
+            secondRandomCard.BackgroundImage = (Image)Resources.ResourceManager.GetObject("_" + secondRandomCard.Value.ToString());
+
+            await Task.Delay(currentShowTimeout * 1000);
+
+            if(firstRandomCardName == secondRandomCardName)
+            {
+                parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(firstRandomCard.Name, true)[0]);
+                parentPanel.Controls.Remove((Card)parentPanel.Controls.Find(secondRandomCard.Name, true)[0]);
+            }
+            else
+            {
+                firstRandomCard.BackgroundImage = Resources.backBlack;
+                secondRandomCard.BackgroundImage = Resources.backBlack;
+            }
+            buttonHint.Enabled = true;
+            buttonRestart.Enabled = true;
+            buttonShow.Enabled = true;
+            buttonStart.Enabled = true;
+            showTimeout.Enabled = true;
+        }
+
+        private void ButtonHint_EnabledChanged(object sender, EventArgs e)
+        {
+            Button currentButton = (Button)sender;
+            buttonHint.ForeColor = Color.Gainsboro;
+            buttonHint.BackColor = currentButton.Enabled ? ThemeColor.PrimaryColor : ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, 0.5);
+        }
+
+        private void ButtonHint_Paint(object sender, PaintEventArgs e)
+        {
+            Button currentButton = (Button)sender;
+            buttonHint.ForeColor = Color.Gainsboro;
+            SolidBrush drawBrush = new SolidBrush(currentButton.ForeColor);
+            StringFormat sf = new StringFormat
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center
+            };
+            buttonHint.Text = string.Empty;
+            e.Graphics.DrawString(" Hint", currentButton.Font, drawBrush, e.ClipRectangle, sf);
             drawBrush.Dispose();
             sf.Dispose();
         }
