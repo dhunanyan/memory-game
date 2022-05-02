@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\instruction.png" />
     <None Include="Resources\question.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\circleFilled.png" />

@@ -114,10 +114,16 @@ namespace Profile.Models
                         if (!parentPanel.HasChildren)
                         {
                             Profile.Container.IsGameOver.Enabled = true;
+                            buttonStart.Enabled = false;
+                            buttonShow.Enabled = false;
+                            parentPanel.Enabled = false;
                         }
                         else
                         {
                             Profile.Container.IsGameOver.Enabled = false;
+                            buttonStart.Enabled = true;
+                            buttonShow.Enabled = true;
+                            parentPanel.Enabled = true;
                         }
 
                         if (isExtreme)

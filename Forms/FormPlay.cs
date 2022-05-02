@@ -125,6 +125,8 @@ namespace Profile.Forms
             m = 0;
             s = 0;
             isLaunched = false;
+            isStarted = false;
+            buttonStartText = "Start";
         }
 
 
@@ -146,22 +148,18 @@ namespace Profile.Forms
                 labelScore.Text = "0 points";
                 labelScore.TextAlign = ContentAlignment.MiddleCenter;
 
-                RichTextBox instruction = new RichTextBox();
+                PictureBox instruction = new PictureBox();
                 instruction.Dock = DockStyle.Fill;
                 instruction.AutoSize = false;
                 instruction.BackColor = Color.FromArgb(68, 68, 93);
                 instruction.BorderStyle = BorderStyle.None;
                 instruction.Font = new Font("Tw Cen MT Condensed", 18F, FontStyle.Bold, GraphicsUnit.Point, 238);
-                instruction.ForeColor = Color.Gainsboro;
                 instruction.Location = new Point(0, 0);
                 instruction.Margin = new Padding(0);
                 instruction.Name = "labelInstruction";
-                instruction.Size = new Size(620, 120);
-                instruction.ReadOnly = true;
                 instruction.TabIndex = 0;
-                instruction.Text = "( [Shows] × [Multiplier] ÷ [Size] × 2) +\n( [Hints] × [Multiplier] × 10 ÷ [Size] )" +
-                                    " +\n( [Moves] × [Multiplier] × 100 ÷ [Size] ) +\n[Size] × [Multiplier] ÷ ( [Hours]" +
-                                    " × 3600 + [Min] × 60 + [Sec] )";
+                instruction.BackgroundImage = Resources.instruction;
+                instruction.BackgroundImageLayout = ImageLayout.Zoom;
 
                 Label labelWin = new Label();
                 labelWin.AutoSize = false;
@@ -180,7 +178,7 @@ namespace Profile.Forms
                 panelInstruction.Controls.Add(instruction);
                 panelInstruction.Location = new Point(20, 20);
                 panelInstruction.Name = "panelInstruction";
-                panelInstruction.Padding = new Padding(80, 60, 80, 60);
+                panelInstruction.Padding = new Padding(20,20,20,20);
                 panelInstruction.Size = new Size(740, 240);
                 panelInstruction.TabIndex = 1;
                 panelInstruction.Visible = false;
@@ -368,9 +366,9 @@ namespace Profile.Forms
             CollectionToggle(false, true);
 
 
-            //await Task.Delay(300);
-            //parentPanel.Controls.Clear();
-            //IsGameOver.Enabled = true;
+            await Task.Delay(300);
+            parentPanel.Controls.Clear();
+            IsGameOver.Enabled = true;
         }
 
         private void ButtonShow_EnabledChanged(object sender, EventArgs e)
@@ -408,10 +406,11 @@ namespace Profile.Forms
                 ExtremeCardName.Text = isGodeMode ?
                     currentExtremeCard.Name.Split(currentExtremeCard.Name[currentExtremeCard.Name.Length - 1])[0] : "backBlack";
                 Console.WriteLine(ExtremeCardName);
+                buttonStart.Text = "Pause";
+                buttonStartText = "Pause";
                 timer.Start();
             } 
-            
-            if (isStarted)
+            if (isStarted && buttonStartText != "Start")
             {
                 timer.Stop();
                 isStarted = false;
@@ -423,7 +422,7 @@ namespace Profile.Forms
                 buttonStart.Text = "Resume";
                 buttonStartText = "Resume";
             }
-            else
+            else if(!isStarted && buttonStartText != "Start")
             {
                 timer.Start();
                 buttonShow.Enabled = true;
@@ -516,6 +515,21 @@ namespace Profile.Forms
         // HINT
         private async void ButtonHint_Click(object sender, EventArgs e)
         {
+            if (!parentPanel.HasChildren)
+            {
+                IsGameOver.Enabled = true;
+                buttonStart.Enabled = false;
+                buttonShow.Enabled = false;
+                parentPanel.Enabled = false;
+                return;
+            }
+            else
+            {
+                IsGameOver.Enabled = false;
+                buttonStart.Enabled = true;
+                buttonShow.Enabled = true;
+                parentPanel.Enabled = true;
+            }
             buttonHint.Enabled = false;
             buttonRestart.Enabled = false;
             buttonShow.Enabled = false;
