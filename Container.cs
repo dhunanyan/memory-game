@@ -10,7 +10,8 @@ namespace Profile
 {
     public class Container : Form
     {
-
+        public static Button currentButton;
+        public static Form currentForm;
         public class Difficulty
         {
             public int collectionSize { get; set; }
@@ -56,6 +57,7 @@ namespace Profile
         };
 
         public static bool isStarted;
+        public static bool isLaunched;
 
         public int h, m, s;
         public System.Timers.Timer timer = new System.Timers.Timer();

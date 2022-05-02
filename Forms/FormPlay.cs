@@ -116,8 +116,18 @@ namespace Profile.Forms
             pictureBoxExtreme.BackgroundImage = isGodeMode ? Resources.backBlack : Resources.trophy;
             pictureBoxExtreme.BackgroundImageLayout = ImageLayout.Zoom;
         }
+        private void FormPlay_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Controls.Clear();
+            timer.Stop();
+            timer.Elapsed -= OnTimeEvent;
+            h = 0;
+            m = 0;
+            s = 0;
+            isLaunched = false;
+        }
 
-        
+
         private async void IsGameOver_EnabledChanged(object sender, EventArgs e)
         {
             if (IsGameOver.Enabled)
@@ -238,11 +248,7 @@ namespace Profile.Forms
 
         private void FormPlay_Leave(object sender, EventArgs e)
         {
-            timer.Stop();
-            timer.Elapsed -= OnTimeEvent;
-            h = 0;
-            m = 0;
-            s = 0;
+
         }
 
         // HELPER TO FOR RANDOMIZING
@@ -394,6 +400,7 @@ namespace Profile.Forms
         {
             if (buttonStartText == "Start")
             {
+                isLaunched = true;
                 CollectionToggle(true);
                 await Task.Delay(currentInitialShowTime * 1000);
                 CollectionToggle(false, true);
@@ -460,6 +467,7 @@ namespace Profile.Forms
         // RESTART | SHUFFLE
         private void ButtonRestart_Click(object sender, EventArgs e)
         {
+            isLaunched = false;
             labelMovesValue.Text = "0";
             labelShowsValue.Text = "0";
             labelHintsValue.Text = "0";
@@ -513,6 +521,7 @@ namespace Profile.Forms
             buttonShow.Enabled = false;
             buttonStart.Enabled = false;
             showTimeout.Enabled = false;
+            parentPanel.Enabled = false;
 
             int currentHints = int.Parse(CurrentHints.Text);
             currentHints++;
@@ -561,6 +570,7 @@ namespace Profile.Forms
             buttonShow.Enabled = true;
             buttonStart.Enabled = true;
             showTimeout.Enabled = true;
+            parentPanel.Enabled = true;
         }
 
         private void ButtonHint_EnabledChanged(object sender, EventArgs e)

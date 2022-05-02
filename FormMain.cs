@@ -14,8 +14,9 @@ namespace Profile
 {
     public partial class FormMain : Container
     {
-        private Button currentButton;
-        private Form currentForm;
+        private Forms.FormPlay formPlay = new Forms.FormPlay();
+        private Forms.FormSettings formSettings = new Forms.FormSettings();
+        private Forms.FormRanking formRanking = new Forms.FormRanking();
 
         public FormMain()
         {
@@ -96,6 +97,7 @@ namespace Profile
             panelMain.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+
         }
 
         // PLAY
@@ -134,6 +136,16 @@ namespace Profile
         // SETTINGS
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
+            if (isLaunched)
+            {
+                DialogResult dialog = MessageBox.Show("Youur current game session will be lost, do you really want to leave?",
+                    "Session Exit", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.No)
+                {
+                    return;
+                }
+            }
+            
             labelTitle.Text = "SETTINGS";
             buttonSettings.Enabled = false;
             buttonRanking.Enabled = true;
@@ -168,11 +180,21 @@ namespace Profile
         // RANKING
         private void ButtonRanking_Click(object sender, EventArgs e)
         {
+            if (isLaunched)
+            {
+                DialogResult dialog = MessageBox.Show("Youur current game session will be lost, do you really want to leave?",
+                    "Session Exit", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.No)
+                {
+                    return;
+                }
+            }
             labelTitle.Text = "RANKING";
             buttonRanking.Enabled = false;
             buttonSettings.Enabled = true;
             buttonPlay.Enabled = true;
             OpenChildForm(new Forms.FormRanking(), sender);
+            timer.Stop();
         }
 
 
@@ -241,11 +263,52 @@ namespace Profile
         // SIGN UP
         private void ButtonSignup_Click(object sender, EventArgs e)
         {
-            if(textBoxUsername.Text == "" && textBoxPassword.Text == "" && textBoxConfirmPassword.Text == "")
+            OleDbConnection connection1 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");
+            connection1.Open();
+            string userScore = $"SELECT * FROM table_users";
+            OleDbCommand command1 = new OleDbCommand(userScore, connection1);
+            OleDbDataReader reader = command1.ExecuteReader();
+            bool userExists = false;
+
+            if (textBoxUsername.Text == "" && textBoxPassword.Text == "" && textBoxConfirmPassword.Text == "")
             {
                 MessageBox.Show("Username and Password fields empty", "Registration failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxUsername.Text = "";
+                textBoxPassword.Text = "";
+                textBoxConfirmPassword.Text = "";
+                textBoxUsername.Focus();
+                return;
             }
-            else if(textBoxPassword.Text == textBoxConfirmPassword.Text)
+
+            if (textBoxUsername.Text.Length > 7)
+            {
+                MessageBox.Show("Username can contain max 7 characters.", "Registration failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxUsername.Text = "";
+                textBoxPassword.Text = "";
+                textBoxConfirmPassword.Text = "";
+                textBoxUsername.Focus();
+                return;
+            }
+
+            while (reader.Read())
+            {
+                if(reader[0].ToString() == textBoxUsername.Text)
+                {
+                    userExists = true;
+                }
+            }
+
+            if (userExists)
+            {
+                MessageBox.Show("User with current username exists, choose another username.", "Registration failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxUsername.Text = "";
+                textBoxPassword.Text = "";
+                textBoxConfirmPassword.Text = "";
+                textBoxUsername.Focus();
+                return;
+            }
+
+            if (textBoxPassword.Text == textBoxConfirmPassword.Text)
             {
                 connection.Open();
                 string register = $"INSERT INTO table_users VALUES ('{textBoxUsername.Text}', '{textBoxPassword.Text}', '{0}', '{0}', '{0}', '{"00:00:00"}', {0})";
@@ -257,17 +320,19 @@ namespace Profile
                 textBoxPassword.Text = "";
                 textBoxConfirmPassword.Text = "";
 
-                MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your account has been successfully created!", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 SignIn.Visible = true;
                 SignUp.Visible = false;
+                return;
             }
             else
             {
-                MessageBox.Show("Passwords does not match, Please enter valid credentials", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Passwords don't match, Please enter valid credentials.", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxPassword.Text = "";
                 textBoxConfirmPassword.Text = "";
                 textBoxPassword.Focus();
+                return;
             }
         }
 
