@@ -74,7 +74,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 16F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Image = global::Profile.Properties.Resources.user;
+            this.label1.Image = global::Memory.Properties.Resources.user;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(23, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);

@@ -1,4 +1,4 @@
-﻿using Profile.Properties;
+﻿using Memory.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

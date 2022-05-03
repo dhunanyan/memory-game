@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Squirrel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,14 @@ namespace Profile
         private Forms.FormPlay formPlay = new Forms.FormPlay();
         private Forms.FormSettings formSettings = new Forms.FormSettings();
         private Forms.FormRanking formRanking = new Forms.FormRanking();
+
+        private async Task CheckForUpdates()
+        {
+            using (var manager = new UpdateManager(@"C:\Temp\Releases"))
+            {
+                await manager.UpdateApp();
+            }
+        }
 
         public FormMain()
         {
@@ -39,6 +48,8 @@ namespace Profile
             buttonSettings.BackColor = ThemeColor.ChangeColorBrightness(color, 0.5);
             buttonSettings.ForeColor =  Color.Gainsboro;
             buttonSettings.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+
+            CheckForUpdates();
         }
 
         OleDbConnection connection = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_users.mdb");

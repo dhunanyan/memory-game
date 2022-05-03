@@ -227,7 +227,7 @@
             // 
             // buttonTimes
             // 
-            this.buttonTimes.BackgroundImage = global::Profile.Properties.Resources.logout;
+            this.buttonTimes.BackgroundImage = global::Memory.Properties.Resources.logout;
             this.buttonTimes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonTimes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonTimes.Dock = System.Windows.Forms.DockStyle.Left;
@@ -477,7 +477,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::Profile.Properties.Resources.cardsBlueMain;
+            this.pictureBox2.BackgroundImage = global::Memory.Properties.Resources.cardsBlueMain;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);

@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Memory.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Memory" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Memory.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opcje manifestu kontroli konta użytkownika
+          Jeśli chcesz zmienić poziom kontroli konta użytkownika systemu Windows, zastąp węzeł 
+          requestedExecutionLevel jednym z następujących.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Jeśli chcesz użyć wirtualizacji plików i rejestru do celów zgodności wstecznej, 
+         usuń węzeł requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DeltaCompressionDotNet.dll" size="4608">
+      <assemblyIdentity name="DeltaCompressionDotNet" version="1.1.0.0" publicKeyToken="1D14D6E5194E7F4A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>E5ULkRJD4TJp7ySHoAFHyCTiIjp/uRA+sh92XHlb5F4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DeltaCompressionDotNet.MsDelta.dll" size="5632">
+      <assemblyIdentity name="DeltaCompressionDotNet.MsDelta" version="1.1.0.0" publicKeyToken="46B2138A390ABF55" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>HOhy7UZqijRmyAinur87WX7BLhy4SHDnoM8AsvXvbfQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DeltaCompressionDotNet.PatchApi.dll" size="5120">
+      <assemblyIdentity name="DeltaCompressionDotNet.PatchApi" version="1.1.0.0" publicKeyToken="3E8888EE913ED789" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>aE3HVHvVSQGEvHbn9LgM9Ahp+BehLpZN/FAsPz2wdRU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Memory.exe" size="7046680">
+      <assemblyIdentity name="Memory" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>qwdLTExVyD8I0bd9e6H/Jukuq8GS6Yhs+MPcanmLyJQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mono.Cecil.dll" size="345088">
+      <assemblyIdentity name="Mono.Cecil" version="0.11.2.0" publicKeyToken="50CEBF1CCEB9D05E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>d0TJyEwoAzvDYG9N/OKtzW9jLivngniTw+IlcQDxz54=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mono.Cecil.Mdb.dll" size="43008">
+      <assemblyIdentity name="Mono.Cecil.Mdb" version="0.11.2.0" publicKeyToken="50CEBF1CCEB9D05E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>kM/HO+/UP8P9h24j3MP1zm6dIdOWu7NGUTMC4iFduMk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mono.Cecil.Pdb.dll" size="89088">
+      <assemblyIdentity name="Mono.Cecil.Pdb" version="0.11.2.0" publicKeyToken="50CEBF1CCEB9D05E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>1n69SSQQQea2GRcDqQ2J5o1EZa3OAsWVIYuGffNFgaM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mono.Cecil.Rocks.dll" size="27648">
+      <assemblyIdentity name="Mono.Cecil.Rocks" version="0.11.2.0" publicKeyToken="50CEBF1CCEB9D05E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>oIwECRLfKjyCOt6F1iI51Wq6qPeIomhPudM5YZImh8c=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NuGet.Squirrel.dll" size="509952">
+      <assemblyIdentity name="NuGet.Squirrel" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>xNXyfTl7Ynpms4WlcfY7Mn8IawwQ6t2QracEdAl0Q8c=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpCompress.dll" size="454144">
+      <assemblyIdentity name="SharpCompress" version="0.17.1.0" publicKeyToken="AFB0A02973931D96" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>IdmwWlxwP2dUuPvW49DVj8bdMSFdERivZNQwX32S1YU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Squirrel.dll" size="267264">
+      <assemblyIdentity name="Squirrel" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>IXrmFz4x0H5V3/6Px30vj0MkzuWirYQduiyUgTH3GDc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="db_users.mdb" size="1183744" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/wt7VDii/jbpAo7zg6VFTunCJ+kSet9gtZOpvxuDDI0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Memory.exe.config" size="542">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Xz5e8ws8qhqAMyak7LqZW9gn1SWsvaVzLbfcloReY8o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\0.png" size="23590">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tJpge7jbiFEUjF12iC7vEPTRLuCJnSN68o4T6KguNbI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\1.png" size="19815">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>uhZQDYH/MjmnkA8s298IubMUHFAVKwtjXA/pZnh+cR0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\10.png" size="24681">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3+w3/rKfPQsZeLmiPa751BnB4eKGJeGRcLGyolirwJY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\11.png" size="26409">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HyOzOE3BCABfGoHcFVbIMzFLD0NDPTV+WTERLjGWEpw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\12.png" size="34857">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>uMUrWKcbXVnb9ASoJBZLiHZfa85q6H20AU0iwHk6OnU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\13.png" size="29319">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5B5OoA+Tni+8eebHX41nNVJheT+BsTF4xoZQyv3Fw7g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\14.png" size="29804">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>q4KO4veriqdNqa3I+WLLjUerU6DqifDVLvO3k2+OqEg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\15.png" size="32219">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>CFv4QgLo/2iVrCjKyTb7tg5nkmlvBrHApGWj+fCr6+I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\16.png" size="39972">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Bv6oInmkRp+uacFggXskv31166WXwAlwg0TOaxw6VYo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\17.png" size="33692">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kpQ6ZmWsd7ju18DTNqK4009NJG70M63BIQymd7Oo+XI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\18.png" size="33457">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>M8s5LIsIUPQsrq78rNEDzl9um6P1/SEL9QxWbyQr0uc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\19.png" size="36854">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>PGG7M6hmxOIYgGpnEeY3e1f/WmhLOSAbVi3G5BaQwaY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\2.png" size="20136">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gSC//ke6d4BVcN/Mn/NRomriBuhLSVkmA3bz93UGReQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\20.png" size="41174">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>TKj4R68gApjT/TzNOvTJQR0n8YdTYs5uPnH3UA6oZ1g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\21.png" size="34168">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>atfW8q58JqPHdmRFSYW3jrIBsxz6bnw2z40hkYFOaGA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\22.png" size="34474">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HsCwugl4XasGba0QyMheoMbJGqDaW4eCx22M8qC6Nbg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\23.png" size="37167">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ltmXndWzqdC6ZQaXsO/At3U7Gbh2IFCHo7Ij4L9AUKw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\24.png" size="48468">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>dL7mUHIEVwAFRrVXRuuQBmsaw4V7wyN1a4zifksWBB8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\25.png" size="40441">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cxnJ+q/Lj/prBs/p5k8Y4UBh5o4bZY3SrdjZ+KE7aPc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\26.png" size="40849">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>JGkmYDltpyKkJAtdxkzC/ZeCgGOQrO86RcK4UUsx52I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\27.png" size="44015">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>aNIQyzy3e/snuxF4J8OTVGyx9gX7GFj36mIXTI6SVe4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\28.png" size="51028">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FNBCAGm4ZheovN0mcdNjBrvWGevWLcY8M514PB4LfQI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\29.png" size="42981">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FiO4yMy6Nacj2AncRcdgl7xaHyVgGQAnSpqKuY1KUrw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\3.png" size="21863">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>m+c1hf781fRiL5CMRF8mTWpoLtgh1Do53D+kv/xqBWE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\30.png" size="43085">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fMxlm/XuG8xSp/Vus28HKh/Nv+AMa5eoydWMhlEJraE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\31.png" size="46943">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ldjOoOa76bvZOGHxS0EpQjqJ2lrUy9UwdDF8Lswg9yM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\32.png" size="54676">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>opafVQSFUjYDRDpyQqMfmcNk4S/m1GE4t/mLHY02Xro=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\33.png" size="46241">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+O6k1eB+/soqPDw25FaPz93weR8sZFWLjG6ER9zrJSs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\34.png" size="46328">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>v9wDzjSwUeq8ihfJoZxvcpRrvqycOoDZDC1huk6PgaA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\35.png" size="50453">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Pu+Y0obm1I6tfg7brSqzbJNlClz2LhFlYfnBW/SgVvA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\36.png" size="42481">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FV/ph5HJkNq97FJgNeKWm3ZWrj7+NK6xFxglqzH6IIo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\37.png" size="36810">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>N9MUlqwTFZveDqjhXeIs5xxdnXwGU/tOwbyrpBhQEBM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\38.png" size="44136">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3YV3uKjPcjWvAOAu5XhZ3aYIpDm/HM4o54ZsTmpNU2Y=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\39.png" size="42763">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>e3vQg9V1DzdCYi8pkBuRf/6FO9fK66YwDLKtbGYm9bk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\4.png" size="29161">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ha+O0C2u8EByZviLQOjknJ93SK33q0Abh8SmtxoHaUs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\40.png" size="208118">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>H8eegFwDEaTLax1LYxcFgsRZPjOfuIX0oZ4GTgO5/A0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\41.png" size="215482">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>iB7XzJNn9B86D8vJmfEQtXaKsZ1CI0HdKTQD6PrtA/8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\42.png" size="260725">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/S9OfOBfHn+wfFKyK4njxpTtCyB7LU2rLsOCsApb3DE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\43.png" size="247507">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oiHToQjoIdcycJRgF8v/Y+qntkFpX+eZXMQjgChdwZg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\44.png" size="263133">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DVnab1CE1lsYO4F1O5UXYmxh8dD40aEInHj/xiAwVRw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\45.png" size="266252">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>0Xn8eHKbsr0eT7UodHyf7gB8XXMQourOL3PJFSMdpM8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\46.png" size="279570">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>aFc1NTf0mz0+81/Izl/zPTOVBbBbThiR3STGl0gRxOM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\47.png" size="201544">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2VDk7YwyRJQok1LCuXlNPgEp6ziLStXUPCuVrnq7hVY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\48.png" size="285495">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vaFRexoWJ2nNy97emeCoEu+nNKT8kyMrpdoluwSXrHo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\49.png" size="195223">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Uae6Ctzn1LuYNUKfkZ8NbRWjKNyQDQmcoyZ0gVGnhCo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\5.png" size="24257">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UUmANQxkJWAjDU+q+0vuJ6gIWbOGirOKhF5LsNAIGKM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\50.png" size="243233">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/vWYZ+82Z8l4fAyqZBBnHK6pJwu08ebn5Gtoco5fXD4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\51.png" size="205872">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qGipZUhOfqRqVJ3AprHpq5vJgg5DdYmlrK7Bo6lqzvI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\52.png" size="41744">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qIzHEU7VKFBLEFTMBW8OTKuffQVIfp7h8TEr0dOaYCw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\53.png" size="41267">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qEBIuzaGDSc8BWmYFUHv+s/bxnNKY4qIBMfrjzOi8LY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\6.png" size="24757">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8ZF3DplSdb+8VaTvFeZ5g65U8iw3kgcv67ghCJCdMjA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\7.png" size="26922">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DBurRzl9lHDyzi9Zz3YHpI5CYhdFPRrl9yJAqQxhZfA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\8.png" size="28623">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ThGTQZAdw8Y7BCisRk8S9yoo5F3i64O94NtRwVkA9qY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\9.png" size="24212">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hPF92NEe8J8tjDXUvFm1GcvlT/jPTinyEvIsgTpyrdo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\CardDeck\back.png" size="547444">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fx1FXkb6svpqCQVh1n+vrmdR09VJgHLiaWVMUE+813I=</dsig:DigestValue>
+    </hash>
+  </file>
+</asmv1:assembly>

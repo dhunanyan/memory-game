@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Profile.Models;
-using Profile.Properties;
+using Memory.Properties;
 
 namespace Profile.Forms
 {

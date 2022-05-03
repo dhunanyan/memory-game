@@ -139,7 +139,7 @@
             this.buttonHint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonHint.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.buttonHint.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonHint.Image = global::Profile.Properties.Resources.question;
+            this.buttonHint.Image = global::Memory.Properties.Resources.question;
             this.buttonHint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonHint.Location = new System.Drawing.Point(499, 1);
             this.buttonHint.Name = "buttonHint";
@@ -171,7 +171,7 @@
             this.labelCurrentUsername.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelCurrentUsername.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.labelCurrentUsername.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelCurrentUsername.Image = global::Profile.Properties.Resources.user;
+            this.labelCurrentUsername.Image = global::Memory.Properties.Resources.user;
             this.labelCurrentUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.labelCurrentUsername.Location = new System.Drawing.Point(460, 0);
             this.labelCurrentUsername.Margin = new System.Windows.Forms.Padding(0);
@@ -526,7 +526,7 @@
             this.buttonRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRestart.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.buttonRestart.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonRestart.Image = global::Profile.Properties.Resources.shuffleSmall;
+            this.buttonRestart.Image = global::Memory.Properties.Resources.shuffleSmall;
             this.buttonRestart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRestart.Location = new System.Drawing.Point(0, 0);
             this.buttonRestart.Name = "buttonRestart";
@@ -575,7 +575,7 @@
             this.buttonShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShow.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold);
             this.buttonShow.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonShow.Image = global::Profile.Properties.Resources.showSmall;
+            this.buttonShow.Image = global::Memory.Properties.Resources.showSmall;
             this.buttonShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonShow.Location = new System.Drawing.Point(0, 0);
             this.buttonShow.Name = "buttonShow";
@@ -611,7 +611,7 @@
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStart.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStart.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonStart.Image = global::Profile.Properties.Resources.playSmall;
+            this.buttonStart.Image = global::Memory.Properties.Resources.playSmall;
             this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonStart.Location = new System.Drawing.Point(0, 0);
             this.buttonStart.Name = "buttonStart";

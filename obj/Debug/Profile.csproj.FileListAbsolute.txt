@@ -42,3 +42,8 @@ C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\obj\Debug\Prof
 C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\obj\Debug\Profile.pdb
 C:\Users\irina\OneDrive\Desktop\AGH\sem4\PZ2\projects\memory-game\obj\Debug\Profile.Container.resources
 C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\obj\Debug\Profile.Container.resources
+C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\bin\Debug\Profile.exe.manifest
+C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\bin\Debug\Profile.application
+C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\obj\Debug\Profile.exe.manifest
+C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\obj\Debug\Profile.application
+C:\Users\dhunanyan\Desktop\AGH\sem4\programowanie-zaawansowane\memory\bin\Debug\db_users.mdb
